@@ -20,27 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Suche...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="总线概念分时共享 优点 成本低，简化硬件设计 系统扩展性高 便于维护  ###缺点 总线带宽限制IO 分类 单向&#x2F;双向总线 片内&#x2F;系统&#x2F;通信 并行&#x2F;串行 ###总线事务 总线上一对设备之间的一次信息交换过程 地址阶段+数据阶段 ###性能指标 总线周期：一次完整数据传输的时间，总线时钟频率的倒数 主设备：发出总线事务请求 从设备：与主设备信息交互 总线带宽&#x3D;一个总线周期传送的数据量&#x2F;时钟周期 猝发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/01/12/hello-world/index.html">
+<meta property="og:title" content="总线">
+<meta property="og:url" content="http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/index.html">
 <meta property="og:site_name" content="TimeInDreams&#39; Blogs">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="总线概念分时共享 优点 成本低，简化硬件设计 系统扩展性高 便于维护  ###缺点 总线带宽限制IO 分类 单向&#x2F;双向总线 片内&#x2F;系统&#x2F;通信 并行&#x2F;串行 ###总线事务 总线上一对设备之间的一次信息交换过程 地址阶段+数据阶段 ###性能指标 总线周期：一次完整数据传输的时间，总线时钟频率的倒数 主设备：发出总线事务请求 从设备：与主设备信息交互 总线带宽&#x3D;一个总线周期传送的数据量&#x2F;时钟周期 猝发">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-01-12T02:05:37.349Z">
-<meta property="article:modified_time" content="2022-01-12T02:05:37.349Z">
+<meta property="article:published_time" content="2022-01-12T12:57:11.000Z">
+<meta property="article:modified_time" content="2022-01-12T13:14:12.387Z">
 <meta property="article:author" content="GuoKai">
+<meta property="article:tag" content="ComputerOrganization">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/01/12/hello-world/">
+<link rel="canonical" href="http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/01/12/hello-world/","path":"2022/01/12/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/","path":"2022/01/12/计组/总线/","title":"总线"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | TimeInDreams' Blogs</title>
+<title>总线 | TimeInDreams' Blogs</title>
   
 
 
@@ -107,7 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BA%BF"><span class="nav-number">1.</span> <span class="nav-text">总线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,7 +178,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -190,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          总线
         </h1>
 
         <div class="post-meta-container">
@@ -200,8 +201,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Veröffentlicht am</span>
+      
 
-      <time title="Erstellt: 2022-01-12 10:05:37" itemprop="dateCreated datePublished" datetime="2022-01-12T10:05:37+08:00">2022-01-12</time>
+      <time title="Erstellt: 2022-01-12 20:57:11 / Geändert am: 21:14:12" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
     </span>
 
   
@@ -221,19 +223,62 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h1 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>分时共享</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>成本低，简化硬件设计</li>
+<li>系统扩展性高</li>
+<li>便于维护</li>
+</ol>
+<p>###缺点</p>
+<p>总线带宽限制IO</p>
+<p>分类</p>
+<p>单向/双向总线</p>
+<p>片内/系统/通信</p>
+<p>并行/串行</p>
+<p>###总线事务</p>
+<p>总线上一对设备之间的一次信息交换过程</p>
+<p>地址阶段+数据阶段</p>
+<p>###性能指标</p>
+<p>总线周期：一次完整数据传输的时间，总线时钟频率的倒数</p>
+<p>主设备：发出总线事务请求</p>
+<p>从设备：与主设备信息交互</p>
+<p>总线带宽=一个总线周期传送的数据量/时钟周期</p>
+<p>猝发传输：一种总线传输方式，在一个总线周期中可以传输储存地址连续的多个数据</p>
+<p>###总线的定时控制</p>
+<p>同步定时方式</p>
+<p>异步定时方式：应答方式 </p>
+<p>###==仲裁==</p>
+<p>中央仲裁器，两条控制线，总线请求信号线和总线授权信号线</p>
+<ul>
+<li>集中式仲裁<ul>
+<li>链式查询<ul>
+<li>三根控制线<ul>
+<li>总线请求</li>
+<li>总线忙</li>
+<li>总线批准</li>
+</ul>
+</li>
+<li>查询优先级固定，对查询链故障敏感（i故障，&gt;i全部故障）</li>
+</ul>
+</li>
+<li>计数器定时查询<ul>
+<li>2（请求+忙）+log<del>2</del>n条控制线</li>
+<li>查询计数器计数值与发出请求的编号一致终止查询，该设备获得总线控制权</li>
+</ul>
+</li>
+<li>独立请求<ul>
+<li>2n（n<em>请求+n</em>授权）+1(总线忙)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分布式仲裁<ul>
+<li>总线请求+总线忙+数据线+n个仲裁电路</li>
+</ul>
+</li>
+</ul>
+<p>单总线，双总线，三总线，多总线</p>
+<p>系统总线，CPU主存，IO总线</p>
 
     </div>
 
@@ -251,7 +296,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Beitragslink: </strong>
-      <a href="http://example.com/2022/01/12/hello-world/" title="Hello World">http://example.com/2022/01/12/hello-world/</a>
+      <a href="http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/" title="总线">http://example.com/2022/01/12/计组/总线/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Urheberrechtshinweis:  </strong>Alle Artikel in diesem Blog sind unter <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> lizenziert, außer es wird anders angegeben.
@@ -259,15 +304,21 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/ComputerOrganization/" rel="tag"># ComputerOrganization</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%9C%BA%E5%99%A8%E8%BF%90%E7%AE%97/" rel="prev" title="机器运算">
+                  <i class="fa fa-chevron-left"></i> 机器运算
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/01/12/OS/%E9%A2%98%E7%9B%AE/" rel="next" title="">
-                   <i class="fa fa-chevron-right"></i>
+                <a href="/2022/01/12/%E8%AE%A1%E7%BB%84/%E5%82%A8%E5%AD%98%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%BB%93%E6%9E%84/" rel="next" title="储存系统和结构">
+                  储存系统和结构 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

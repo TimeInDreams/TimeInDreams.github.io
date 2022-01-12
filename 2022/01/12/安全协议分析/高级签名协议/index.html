@@ -20,27 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Suche...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="#高级签名协议 密钥生成，签名，验证 盲签名持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系 ###过程  Setup，输出系统参数p和签名人的公钥私钥对（pk，sk） Sign  公共输入：系统参数p，签名人公钥pk， 秘密输入，签名人私钥sk，用户输入代签名消息m 停止时用户输出签名s   Ve">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/01/12/hello-world/index.html">
+<meta property="og:title" content="高级签名协议">
+<meta property="og:url" content="http://example.com/2022/01/12/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/%E9%AB%98%E7%BA%A7%E7%AD%BE%E5%90%8D%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="TimeInDreams&#39; Blogs">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="#高级签名协议 密钥生成，签名，验证 盲签名持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系 ###过程  Setup，输出系统参数p和签名人的公钥私钥对（pk，sk） Sign  公共输入：系统参数p，签名人公钥pk， 秘密输入，签名人私钥sk，用户输入代签名消息m 停止时用户输出签名s   Ve">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-01-12T02:05:37.349Z">
-<meta property="article:modified_time" content="2022-01-12T02:05:37.349Z">
+<meta property="article:published_time" content="2022-01-12T12:57:11.000Z">
+<meta property="article:modified_time" content="2022-01-12T13:12:30.103Z">
 <meta property="article:author" content="GuoKai">
+<meta property="article:tag" content="ProtocolSecurity">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/01/12/hello-world/">
+<link rel="canonical" href="http://example.com/2022/01/12/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/%E9%AB%98%E7%BA%A7%E7%AD%BE%E5%90%8D%E5%8D%8F%E8%AE%AE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/01/12/hello-world/","path":"2022/01/12/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/01/12/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/%E9%AB%98%E7%BA%A7%E7%AD%BE%E5%90%8D%E5%8D%8F%E8%AE%AE/","path":"2022/01/12/安全协议分析/高级签名协议/","title":"高级签名协议"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | TimeInDreams' Blogs</title>
+<title>高级签名协议 | TimeInDreams' Blogs</title>
   
 
 
@@ -107,7 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B2%E7%AD%BE%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">盲签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">1.1.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B2%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">盲化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E7%AD%BE%E5%90%8D"><span class="nav-number">3.</span> <span class="nav-text">群签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="nav-number">3.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E7%AD%BE%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">环签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%BA%AB%E4%BB%BD%E7%9A%84%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-number">5.</span> <span class="nav-text">基于身份的数字签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-1"><span class="nav-number">5.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-number">5.2.</span> <span class="nav-text">安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.3.</span> <span class="nav-text">类型</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,7 +178,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/%E9%AB%98%E7%BA%A7%E7%AD%BE%E5%90%8D%E5%8D%8F%E8%AE%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -190,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          高级签名协议
         </h1>
 
         <div class="post-meta-container">
@@ -200,8 +201,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Veröffentlicht am</span>
+      
 
-      <time title="Erstellt: 2022-01-12 10:05:37" itemprop="dateCreated datePublished" datetime="2022-01-12T10:05:37+08:00">2022-01-12</time>
+      <time title="Erstellt: 2022-01-12 20:57:11 / Geändert am: 21:12:30" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
     </span>
 
   
@@ -221,19 +223,73 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>#高级签名协议</p>
+<p>密钥生成，签名，验证</p>
+<h2 id="盲签名"><a href="#盲签名" class="headerlink" title="盲签名"></a>盲签名</h2><p>持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系</p>
+<p>###过程</p>
+<ol>
+<li>Setup，输出系统参数p和签名人的公钥私钥对（pk，sk）</li>
+<li>Sign <ol>
+<li>公共输入：系统参数p，签名人公钥pk，</li>
+<li>秘密输入，签名人私钥sk，用户输入代签名消息m</li>
+<li>停止时用户输出签名s</li>
+</ol>
+</li>
+<li>Verify 输入系统公开参数p，公钥pk，待验证消息签名对（m，s），输出1或0（是否有效）</li>
+</ol>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>正确性</li>
+<li>不可伪造性</li>
+<li>盲性</li>
+</ol>
+<h2 id="盲化"><a href="#盲化" class="headerlink" title="盲化"></a>盲化</h2><ol>
+<li><p>盲化：用户引入盲化因子，将消息m计算为m` k^e^m</p>
+</li>
+<li><p>签名：发送m‘给签名人，签名人签名得到s’，d次幂</p>
+</li>
+<li><p>去盲：用户用s‘计算出s k的逆元</p>
+</li>
+</ol>
+<p>验证 签名s^e^(modn)=m</p>
+<p>离散对数</p>
+<p>(g^x^,x)为公钥私钥,用公钥+随机数去盲，用随机数盲化</p>
+<ol>
+<li><p>选随机数r,m’=g^r^×H（m）</p>
+</li>
+<li><p>私钥次方s’=m’^x^</p>
+</li>
+<li><p>s=s’y^-r^</p>
+</li>
+</ol>
+<p>部分盲签名，嵌入一段公共信息</p>
+<h2 id="群签名"><a href="#群签名" class="headerlink" title="群签名"></a>群签名</h2><p>成员代表群体进行匿名签名，无法确定具体成员，但群管理者可以打开签名揭示签名者身份防止否认签名行为</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
+<li>系统初始化</li>
+<li>签名</li>
+<li>验证</li>
+<li>打开</li>
+</ol>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>匿名性：无法确定给定签名的实际签名人</li>
+<li>无关联性：不打开签名的情况下，不能确定两个不同的群签名是否为同一个人所签名</li>
+<li>可追踪性：</li>
+<li>防陷害性：不能以其他群成员名义产生合法签名</li>
+<li>抗联合攻击：不能任意多个群成员勾结伪造其他群成员签名</li>
+</ol>
+<h2 id="环签名"><a href="#环签名" class="headerlink" title="环签名"></a>环签名</h2><p>签名的匿名性</p>
+<p>自己的私钥和其他n-1个人的公钥对m执行环签名，执行验证算法可以确信又环中某个签名者产生，但无法识别签名人的身份</p>
+<p>可链接性：如果是同一个人签的，验证时能确定时同一个人签的，但无法确定身份</p>
+<h2 id="基于身份的数字签名"><a href="#基于身份的数字签名" class="headerlink" title="基于身份的数字签名"></a>基于身份的数字签名</h2><h3 id="过程-1"><a href="#过程-1" class="headerlink" title="过程"></a>过程</h3><ol>
+<li>Setup 输出主密钥，系统参数</li>
+<li>Extract，私钥提取算法，输入为用户身份信息ID，算出私钥sk发送给用户</li>
+<li>Sign 用户签名</li>
+<li>Verify 验证者完成验证</li>
+</ol>
+<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
+<li>适应性选择消息攻击</li>
+<li>选择身份攻击的不可伪造性</li>
+</ol>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>双线性对，RSA</p>
 
     </div>
 
@@ -251,7 +307,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Beitragslink: </strong>
-      <a href="http://example.com/2022/01/12/hello-world/" title="Hello World">http://example.com/2022/01/12/hello-world/</a>
+      <a href="http://example.com/2022/01/12/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/%E9%AB%98%E7%BA%A7%E7%AD%BE%E5%90%8D%E5%8D%8F%E8%AE%AE/" title="高级签名协议">http://example.com/2022/01/12/安全协议分析/高级签名协议/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Urheberrechtshinweis:  </strong>Alle Artikel in diesem Blog sind unter <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> lizenziert, außer es wird anders angegeben.
@@ -259,15 +315,21 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/ProtocolSecurity/" rel="tag"># ProtocolSecurity</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/01/12/%E6%95%B0%E5%9B%BE/%E5%A4%8D%E4%B9%A0/" rel="prev" title="DIP review">
+                  <i class="fa fa-chevron-left"></i> DIP review
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/01/12/OS/%E9%A2%98%E7%9B%AE/" rel="next" title="">
-                   <i class="fa fa-chevron-right"></i>
+                <a href="/2022/01/12/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90/%E7%BB%8F%E5%85%B8%E8%AE%A4%E8%AF%81%E5%8D%8F%E8%AE%AE/" rel="next" title="经典认证协议">
+                  经典认证协议 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
