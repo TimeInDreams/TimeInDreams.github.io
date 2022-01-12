@@ -20,25 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"timeindreams.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Show everything about coding And Better luck next time">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TimeInDreams&#39; Blogs">
-<meta property="og:url" content="https://timeindreams.github.io/tags/ComputerOrganization/index.html">
+<meta name="description" content="指令系统##指令格式 三地址指令（OP 1 2 3） 访存：取整条指令，取操作数，结果放入主存 mov 3次 一地址指令 2 进出栈3 ##操作码 规整型（定长） 变长：将操作码字段扩充到地址码字段 寻址技术 立即寻址：  寄存器（操作数）  寄存器寻址：  寄存器→寄存器（操作数）  直接寻址：指令寄存器中地址码字段直接给出装有操作数的内存有效地址  寄存器→主存操作数  间接寻址：操作数内存地">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指令系统">
+<meta property="og:url" content="https://timeindreams.github.io/article/a78497ca.html">
 <meta property="og:site_name" content="TimeInDreams&#39; Blogs">
-<meta property="og:description" content="Show everything about coding And Better luck next time">
+<meta property="og:description" content="指令系统##指令格式 三地址指令（OP 1 2 3） 访存：取整条指令，取操作数，结果放入主存 mov 3次 一地址指令 2 进出栈3 ##操作码 规整型（定长） 变长：将操作码字段扩充到地址码字段 寻址技术 立即寻址：  寄存器（操作数）  寄存器寻址：  寄存器→寄存器（操作数）  直接寻址：指令寄存器中地址码字段直接给出装有操作数的内存有效地址  寄存器→主存操作数  间接寻址：操作数内存地">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-12T12:57:11.000Z">
+<meta property="article:modified_time" content="2022-01-12T13:12:00.530Z">
 <meta property="article:author" content="GuoKai">
+<meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://timeindreams.github.io/tags/ComputerOrganization/">
+<link rel="canonical" href="https://timeindreams.github.io/article/a78497ca.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/ComputerOrganization/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://timeindreams.github.io/article/a78497ca.html","path":"article/a78497ca.html","title":"指令系统"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: ComputerOrganization | TimeInDreams' Blogs</title>
+<title>指令系统 | TimeInDreams' Blogs</title>
   
 
 
@@ -103,7 +106,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -116,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">指令系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BB%E5%9D%80%E6%8A%80%E6%9C%AF"><span class="nav-number">1.1.</span> <span class="nav-text">寻址技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E6%A0%88"><span class="nav-number">1.2.</span> <span class="nav-text">堆栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">指令类型</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,110 +179,161 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">ComputerOrganization
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/a78497ca.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          指令系统
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="创建时间：2022-01-12 20:57:11 / 修改时间：21:12:00" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h1><p>##指令格式</p>
+<p>三地址指令（OP 1 2 3）</p>
+<p>访存：取整条指令，取操作数，结果放入主存</p>
+<p>mov 3次</p>
+<p>一地址指令 2</p>
+<p>进出栈3</p>
+<p>##操作码</p>
+<p>规整型（定长）</p>
+<p>变长：将操作码字段扩充到地址码字段</p>
+<h2 id="寻址技术"><a href="#寻址技术" class="headerlink" title="寻址技术"></a>寻址技术</h2><ul>
+<li>立即寻址：</li>
+</ul>
+<p>寄存器（操作数）</p>
+<ul>
+<li>寄存器寻址：</li>
+</ul>
+<p>寄存器→寄存器（操作数）</p>
+<ul>
+<li>直接寻址：指令寄存器中地址码字段直接给出装有操作数的内存有效地址</li>
+</ul>
+<p>寄存器→主存操作数</p>
+<ul>
+<li>间接寻址：操作数内存地址的地址</li>
+</ul>
+<p>寄存器→主存（地址）→主存（操作数）</p>
+<p>多级：标志位</p>
+<ul>
+<li>变址寻址：</li>
+</ul>
+<p>寄存器（形式地址）+变址寄存器（可修改的变址）</p>
+<ul>
+<li>基址寻址（面向系统）</li>
+</ul>
+<p>基址寄存器（基址）+寄存器（位移量）</p>
+<ul>
+<li>相对寻址</li>
+</ul>
+<p>PC+寄存器（相对地址位移）</p>
+<p>A为页内地址</p>
+<p>0//A</p>
+<p>PC<del>高位</del>//A</p>
+<p>（页寄存器）//A</p>
+<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><p>所有均表示==值→地址/寄存器==</p>
+<p>SP-1</p>
+<p>压栈（SP）</p>
+<p>弹出（（SP））</p>
+<p>SP+1</p>
+<h2 id="指令类型"><a href="#指令类型" class="headerlink" title="指令类型"></a>指令类型</h2><p>位修改：异或</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/dffce14c.html" itemprop="url">
-            <span itemprop="name">中央处理器</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          
 
-      
-    </header>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>GuoKai
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://timeindreams.github.io/article/a78497ca.html" title="指令系统">https://timeindreams.github.io/article/a78497ca.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/OS/" rel="tag"># OS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/article/1abadc07.html" rel="prev" title="死锁">
+                  <i class="fa fa-chevron-left"></i> 死锁
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/article/1b9c8662.html" rel="next" title="文件系统">
+                  文件系统 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/a17c0fa2.html" itemprop="url">
-            <span itemprop="name">储存系统和结构</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/e3130e3f.html" itemprop="url">
-            <span itemprop="name">总线</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/article/850c5858.html" itemprop="url">
-            <span itemprop="name">机器运算</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
 
 </div>
   </main>

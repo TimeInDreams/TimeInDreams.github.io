@@ -20,25 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"timeindreams.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Show everything about coding And Better luck next time">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TimeInDreams&#39; Blogs">
-<meta property="og:url" content="https://timeindreams.github.io/tags/ComputerOrganization/index.html">
+<meta name="description" content="密钥协商协议##基于自证明的密钥交换 系统中 的用户从可信中心获得一个自证明公钥，但不需要公钥证书，其 身份与他的公钥值隐式地相互认证 隐式认证 需要提交身份对应的私钥，不提交则不安全，可以伪造对应的秘密指数 ##基于身份的密钥交换 公钥：用户公开身份信息 私钥：TA生成器 ###双线性映射和密钥分配 TA公钥，对方ID哈希*自己私钥，主私钥×自己Id哈希，Tb（生成元×对方选择随机数）  A→B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="密钥协商协议">
+<meta property="og:url" content="https://timeindreams.github.io/article/7c4b9fb3.html">
 <meta property="og:site_name" content="TimeInDreams&#39; Blogs">
-<meta property="og:description" content="Show everything about coding And Better luck next time">
+<meta property="og:description" content="密钥协商协议##基于自证明的密钥交换 系统中 的用户从可信中心获得一个自证明公钥，但不需要公钥证书，其 身份与他的公钥值隐式地相互认证 隐式认证 需要提交身份对应的私钥，不提交则不安全，可以伪造对应的秘密指数 ##基于身份的密钥交换 公钥：用户公开身份信息 私钥：TA生成器 ###双线性映射和密钥分配 TA公钥，对方ID哈希*自己私钥，主私钥×自己Id哈希，Tb（生成元×对方选择随机数）  A→B">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-12T12:57:11.000Z">
+<meta property="article:modified_time" content="2022-01-12T13:13:24.821Z">
 <meta property="article:author" content="GuoKai">
+<meta property="article:tag" content="ProtocolSecurity">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://timeindreams.github.io/tags/ComputerOrganization/">
+<link rel="canonical" href="https://timeindreams.github.io/article/7c4b9fb3.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/ComputerOrganization/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://timeindreams.github.io/article/7c4b9fb3.html","path":"article/7c4b9fb3.html","title":"密钥协商协议"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: ComputerOrganization | TimeInDreams' Blogs</title>
+<title>密钥协商协议 | TimeInDreams' Blogs</title>
   
 
 
@@ -103,7 +106,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -116,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E5%8D%8F%E5%95%86%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">密钥协商协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E7%BB%84%E5%AF%86%E9%92%A5%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">群组密钥交换</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,110 +179,162 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">ComputerOrganization
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/7c4b9fb3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          密钥协商协议
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="创建时间：2022-01-12 20:57:11 / 修改时间：21:13:24" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="密钥协商协议"><a href="#密钥协商协议" class="headerlink" title="密钥协商协议"></a>密钥协商协议</h1><p>##基于自证明的密钥交换</p>
+<p>系统中 的用户从可信中心获得一个自证明公钥，但不需要公钥证书，其 身份与他的公钥值隐式地相互认证</p>
+<p>隐式认证</p>
+<p>需要提交身份对应的私钥，不提交则不安全，可以伪造对应的秘密指数</p>
+<p>##基于身份的密钥交换</p>
+<p>公钥：用户公开身份信息</p>
+<p>私钥：TA生成器</p>
+<p>###双线性映射和密钥分配</p>
+<p>TA公钥，对方ID哈希*自己私钥，主私钥×自己Id哈希，Tb（生成元×对方选择随机数）</p>
+<ol>
+<li>A→B：选择a，T<del>a</del>=aP，</li>
+<li>B→A</li>
+<li>A计算K=</li>
+</ol>
+<p>####非交互式密钥分配流程</p>
+<p>TA选取s为主密钥</p>
+<ol>
+<li>Q<del>A</del>=H（ID<del>A</del>）作为公钥</li>
+<li>S<del>A</del>=sQ<del>A</del>分配给A作为私钥</li>
+<li>B计算会话密钥：A身份信息→A的公钥Q<del>A</del>+B的私钥S<del>B</del>可计算K<del>AB</del>=f（S<del>B</del>，Q<del>A</del>）=f（Q<del>A</del>，Q<del>B</del>）^s^</li>
+<li>同样方式可被A计算，不需要进行交互</li>
+</ol>
+<p>####局限</p>
+<p>无新鲜性，必须注册私钥</p>
+<h2 id="群组密钥交换"><a href="#群组密钥交换" class="headerlink" title="群组密钥交换"></a>群组密钥交换</h2><ul>
+<li><p>DH三方密钥交换</p>
+<ul>
+<li>会话密钥：g^abc^,需要两轮，A→B→C→A</li>
+</ul>
+</li>
+<li><p>基于双线性配对，P为公开参数</p>
+<ul>
+<li>A→B，C（N<del>a</del>P）</li>
+<li>B→CA，C→AB，一轮交互，并行发送</li>
+<li>k=f（P，P）^abc^</li>
+</ul>
+<p>无认证机制，不能抵御中间人攻击</p>
+</li>
+<li><p>多方密钥交换</p>
+<ul>
+<li>BD多方密钥交换<ul>
+<li>每个参与者两轮交互，发送两个消息，最多3个模指数运算和1/2(n^2^+3n-3)个乘法运算</li>
+<li>对被动攻击安全</li>
+</ul>
+</li>
+<li>动态变化的条件：离开无法获得之后的会话密钥，新加入无法获取之前的</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/dffce14c.html" itemprop="url">
-            <span itemprop="name">中央处理器</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          
 
-      
-    </header>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>GuoKai
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://timeindreams.github.io/article/7c4b9fb3.html" title="密钥协商协议">https://timeindreams.github.io/article/7c4b9fb3.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/ProtocolSecurity/" rel="tag"># ProtocolSecurity</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/article/4d5671c6.html" rel="prev" title="比特承诺">
+                  <i class="fa fa-chevron-left"></i> 比特承诺
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/article/fc237eb0.html" rel="next" title="密钥交换协议">
+                  密钥交换协议 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/a17c0fa2.html" itemprop="url">
-            <span itemprop="name">储存系统和结构</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/e3130e3f.html" itemprop="url">
-            <span itemprop="name">总线</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/article/850c5858.html" itemprop="url">
-            <span itemprop="name">机器运算</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
 
 </div>
   </main>

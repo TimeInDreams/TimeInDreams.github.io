@@ -20,25 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"timeindreams.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Show everything about coding And Better luck next time">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TimeInDreams&#39; Blogs">
-<meta property="og:url" content="https://timeindreams.github.io/tags/ComputerOrganization/index.html">
+<meta name="description" content="总线概念分时共享 优点 成本低，简化硬件设计 系统扩展性高 便于维护  ###缺点 总线带宽限制IO 分类 单向&#x2F;双向总线 片内&#x2F;系统&#x2F;通信 并行&#x2F;串行 ###总线事务 总线上一对设备之间的一次信息交换过程 地址阶段+数据阶段 ###性能指标 总线周期：一次完整数据传输的时间，总线时钟频率的倒数 主设备：发出总线事务请求 从设备：与主设备信息交互 总线带宽&#x3D;一个总线周期传送的数据量&#x2F;时钟周期 猝发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="总线">
+<meta property="og:url" content="https://timeindreams.github.io/article/e3130e3f.html">
 <meta property="og:site_name" content="TimeInDreams&#39; Blogs">
-<meta property="og:description" content="Show everything about coding And Better luck next time">
+<meta property="og:description" content="总线概念分时共享 优点 成本低，简化硬件设计 系统扩展性高 便于维护  ###缺点 总线带宽限制IO 分类 单向&#x2F;双向总线 片内&#x2F;系统&#x2F;通信 并行&#x2F;串行 ###总线事务 总线上一对设备之间的一次信息交换过程 地址阶段+数据阶段 ###性能指标 总线周期：一次完整数据传输的时间，总线时钟频率的倒数 主设备：发出总线事务请求 从设备：与主设备信息交互 总线带宽&#x3D;一个总线周期传送的数据量&#x2F;时钟周期 猝发">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-12T12:57:11.000Z">
+<meta property="article:modified_time" content="2022-01-12T13:14:12.387Z">
 <meta property="article:author" content="GuoKai">
+<meta property="article:tag" content="ComputerOrganization">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://timeindreams.github.io/tags/ComputerOrganization/">
+<link rel="canonical" href="https://timeindreams.github.io/article/e3130e3f.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/ComputerOrganization/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://timeindreams.github.io/article/e3130e3f.html","path":"article/e3130e3f.html","title":"总线"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: ComputerOrganization | TimeInDreams' Blogs</title>
+<title>总线 | TimeInDreams' Blogs</title>
   
 
 
@@ -103,7 +106,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -116,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BA%BF"><span class="nav-number">1.</span> <span class="nav-text">总线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,110 +179,169 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">ComputerOrganization
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/e3130e3f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          总线
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="创建时间：2022-01-12 20:57:11 / 修改时间：21:14:12" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>分时共享</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>成本低，简化硬件设计</li>
+<li>系统扩展性高</li>
+<li>便于维护</li>
+</ol>
+<p>###缺点</p>
+<p>总线带宽限制IO</p>
+<p>分类</p>
+<p>单向/双向总线</p>
+<p>片内/系统/通信</p>
+<p>并行/串行</p>
+<p>###总线事务</p>
+<p>总线上一对设备之间的一次信息交换过程</p>
+<p>地址阶段+数据阶段</p>
+<p>###性能指标</p>
+<p>总线周期：一次完整数据传输的时间，总线时钟频率的倒数</p>
+<p>主设备：发出总线事务请求</p>
+<p>从设备：与主设备信息交互</p>
+<p>总线带宽=一个总线周期传送的数据量/时钟周期</p>
+<p>猝发传输：一种总线传输方式，在一个总线周期中可以传输储存地址连续的多个数据</p>
+<p>###总线的定时控制</p>
+<p>同步定时方式</p>
+<p>异步定时方式：应答方式 </p>
+<p>###==仲裁==</p>
+<p>中央仲裁器，两条控制线，总线请求信号线和总线授权信号线</p>
+<ul>
+<li>集中式仲裁<ul>
+<li>链式查询<ul>
+<li>三根控制线<ul>
+<li>总线请求</li>
+<li>总线忙</li>
+<li>总线批准</li>
+</ul>
+</li>
+<li>查询优先级固定，对查询链故障敏感（i故障，&gt;i全部故障）</li>
+</ul>
+</li>
+<li>计数器定时查询<ul>
+<li>2（请求+忙）+log<del>2</del>n条控制线</li>
+<li>查询计数器计数值与发出请求的编号一致终止查询，该设备获得总线控制权</li>
+</ul>
+</li>
+<li>独立请求<ul>
+<li>2n（n<em>请求+n</em>授权）+1(总线忙)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分布式仲裁<ul>
+<li>总线请求+总线忙+数据线+n个仲裁电路</li>
+</ul>
+</li>
+</ul>
+<p>单总线，双总线，三总线，多总线</p>
+<p>系统总线，CPU主存，IO总线</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/dffce14c.html" itemprop="url">
-            <span itemprop="name">中央处理器</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          
 
-      
-    </header>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>GuoKai
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://timeindreams.github.io/article/e3130e3f.html" title="总线">https://timeindreams.github.io/article/e3130e3f.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/ComputerOrganization/" rel="tag"># ComputerOrganization</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/article/f4dccf31.html" rel="prev" title="github ssh失败">
+                  <i class="fa fa-chevron-left"></i> github ssh失败
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/article/a17c0fa2.html" rel="next" title="储存系统和结构">
+                  储存系统和结构 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/a17c0fa2.html" itemprop="url">
-            <span itemprop="name">储存系统和结构</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/article/e3130e3f.html" itemprop="url">
-            <span itemprop="name">总线</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-12T20:57:11+08:00"
-              content="2022-01-12">
-          01-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/article/850c5858.html" itemprop="url">
-            <span itemprop="name">机器运算</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
 
 </div>
   </main>
