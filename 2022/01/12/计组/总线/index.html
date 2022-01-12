@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -7,26 +7,26 @@
 <meta name="generator" content="Hexo 6.0.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/project/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/project/images/32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/project/images/16x16.ico">
+  <link rel="mask-icon" href="/project/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/project/css/main.css">
 
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"بحث...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"timeindreams.github.io","root":"/project/","images":"/project/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/project/js/config.js"></script>
 <meta name="description" content="总线概念分时共享 优点 成本低，简化硬件设计 系统扩展性高 便于维护  ###缺点 总线带宽限制IO 分类 单向&#x2F;双向总线 片内&#x2F;系统&#x2F;通信 并行&#x2F;串行 ###总线事务 总线上一对设备之间的一次信息交换过程 地址阶段+数据阶段 ###性能指标 总线周期：一次完整数据传输的时间，总线时钟频率的倒数 主设备：发出总线事务请求 从设备：与主设备信息交互 总线带宽&#x3D;一个总线周期传送的数据量&#x2F;时钟周期 猝发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="总线">
-<meta property="og:url" content="http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/index.html">
+<meta property="og:url" content="https://timeindreams.github.io/project/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/index.html">
 <meta property="og:site_name" content="TimeInDreams&#39; Blogs">
 <meta property="og:description" content="总线概念分时共享 优点 成本低，简化硬件设计 系统扩展性高 便于维护  ###缺点 总线带宽限制IO 分类 单向&#x2F;双向总线 片内&#x2F;系统&#x2F;通信 并行&#x2F;串行 ###总线事务 总线上一对设备之间的一次信息交换过程 地址阶段+数据阶段 ###性能指标 总线周期：一次完整数据传输的时间，总线时钟频率的倒数 主设备：发出总线事务请求 从设备：与主设备信息交互 总线带宽&#x3D;一个总线周期传送的数据量&#x2F;时钟周期 猝发">
-<meta property="og:locale">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-12T12:57:11.000Z">
 <meta property="article:modified_time" content="2022-01-12T13:14:12.387Z">
 <meta property="article:author" content="GuoKai">
@@ -34,11 +34,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/">
+<link rel="canonical" href="https://timeindreams.github.io/project/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/","path":"2022/01/12/计组/总线/","title":"总线"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://timeindreams.github.io/project/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/","path":"2022/01/12/计组/总线/","title":"总线"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>总线 | TimeInDreams' Blogs</title>
@@ -48,7 +48,7 @@
 
 
   <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
+    <link rel="stylesheet" href="/project/css/noscript.css">
   </noscript>
 </head>
 
@@ -59,7 +59,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح" role="button">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -68,7 +68,7 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/project/" class="brand" rel="start">
       <i class="logo-line"></i>
       <p class="site-title">TimeInDreams' Blogs</p>
       <i class="logo-line"></i>
@@ -85,10 +85,10 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>الوسوم</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a></li>
-        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>التقويم</a></li>
+        <li class="menu-item menu-item-home"><a href="/project/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/project/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/project/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/project/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
   </ul>
 </nav>
 
@@ -109,10 +109,10 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          المحتويات
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          عام
+          站点概览
         </li>
       </ul>
 
@@ -126,21 +126,22 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="GuoKai"
-      src="/images/avatar.png">
+      src="/project/images/avatar.png">
   <p class="site-author-name" itemprop="name">GuoKai</p>
   <div class="site-description" itemprop="description">Show everything about coding And Better luck next time</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        <a href="/archives/">
+        <a href="/project/archives/">
           <span class="site-state-item-count">28</span>
-          <span class="site-state-item-name">المقالات</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
+          <a href="/project/tags/">
         <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">الوسوم</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -168,7 +169,7 @@
     </header>
 
     
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -188,11 +189,11 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/project/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/project/images/avatar.png">
       <meta itemprop="name" content="GuoKai">
       <meta itemprop="description" content="Show everything about coding And Better luck next time">
     </span>
@@ -211,18 +212,18 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">نُشر في</span>
+      <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="أُنشأ: 2022-01-12 20:57:11 / عُدل: 21:14:12" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+      <time title="创建时间：2022-01-12 20:57:11 / 修改时间：21:14:12" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
     </span>
 
   
-    <span class="post-meta-item" title="مشاهدات" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">مشاهدات: </span>
+      <span class="post-meta-item-text">阅读次数：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
 </div>
@@ -303,33 +304,33 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>مؤلف المقال:  </strong>GuoKai
+      <strong>本文作者： </strong>GuoKai
   </li>
   <li class="post-copyright-link">
-      <strong>رابط المقال: </strong>
-      <a href="http://example.com/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/" title="总线">http://example.com/2022/01/12/计组/总线/</a>
+      <strong>本文链接：</strong>
+      <a href="https://timeindreams.github.io/project/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%80%BB%E7%BA%BF/" title="总线">https://timeindreams.github.io/project/2022/01/12/计组/总线/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>حقوق الملكية:  </strong>حميع المقالات في هذه المدوّنة منشورة تحت رخصة <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> إلا عند التنويه بخلافه.
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
 
           <div class="post-tags">
-              <a href="/tags/ComputerOrganization/" rel="tag"># ComputerOrganization</a>
+              <a href="/project/tags/ComputerOrganization/" rel="tag"># ComputerOrganization</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/01/12/%E9%9A%8F%E7%AC%94%E8%AE%B0%E5%BD%95/python%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" rel="prev" title="python性能分析工具">
-                  <i class="fa fa-chevron-left"></i> python性能分析工具
+                <a href="/project/2022/01/12/%E9%9A%8F%E7%AC%94%E8%AE%B0%E5%BD%95/github%20ssh%20fail/" rel="prev" title="github ssh失败">
+                  <i class="fa fa-chevron-left"></i> github ssh失败
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/01/12/%E9%9A%8F%E7%AC%94%E8%AE%B0%E5%BD%95/github%20ssh%20fail/" rel="next" title="github ssh失败">
-                  github ssh失败 <i class="fa fa-chevron-right"></i>
+                <a href="/project/2022/01/12/%E8%AE%A1%E7%BB%84/%E6%9C%BA%E5%99%A8%E8%BF%90%E7%AE%97/" rel="next" title="机器运算">
+                  机器运算 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -362,7 +363,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="إجمالي الزوار">
+      <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -370,7 +371,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="إجمالي المشاهدات">
+      <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
@@ -381,7 +382,7 @@
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+<script src="/project/js/comments.js"></script><script src="/project/js/utils.js"></script><script src="/project/js/motion.js"></script><script src="/project/js/next-boot.js"></script>
 
   
 
@@ -398,9 +399,9 @@
   
 
   <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
+<script src="/project/js/third-party/math/mathjax.js"></script>
 
 
 
-<script src="/live2d/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1.2,"jsonPath":"/live2d/assets/nero.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+<script src="/project/live2d/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1.2,"jsonPath":"/project/live2d/assets/nero.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
 </html>
