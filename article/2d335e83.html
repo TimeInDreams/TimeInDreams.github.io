@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"timeindreams.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="#在Ubuntu上安装OpenCV和contrib库 ​    自从进入3.X时代以后，OpenCV将代码库分成了两部分，分别是稳定的核心功能库opencv库和试验性质的contrib库。 OpenCV Contrib库​    OpenCV Contrib库是非官方的第三方开发扩充库。通过这个库，我们能使用如dnn、相机标注、3D成像、ArUco、物体追踪，背景分割三维重建，SURF、SIFT特">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCVC++库安装">
+<meta property="og:url" content="https://timeindreams.github.io/article/2d335e83.html">
+<meta property="og:site_name" content="TimeInDreams&#39; Blogs">
+<meta property="og:description" content="#在Ubuntu上安装OpenCV和contrib库 ​    自从进入3.X时代以后，OpenCV将代码库分成了两部分，分别是稳定的核心功能库opencv库和试验性质的contrib库。 OpenCV Contrib库​    OpenCV Contrib库是非官方的第三方开发扩充库。通过这个库，我们能使用如dnn、相机标注、3D成像、ArUco、物体追踪，背景分割三维重建，SURF、SIFT特">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://timeindreams.github.io/article/undefined/image-20220113204024390-16420776267921.png">
+<meta property="article:published_time" content="2022-01-13T12:37:04.000Z">
+<meta property="article:modified_time" content="2022-01-13T12:49:07.350Z">
+<meta property="article:author" content="GuoKai">
+<meta property="article:tag" content="CV">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://timeindreams.github.io/article/undefined/image-20220113204024390-16420776267921.png">
+
+
+<link rel="canonical" href="https://timeindreams.github.io/article/2d335e83.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://timeindreams.github.io/article/2d335e83.html","path":"article/2d335e83.html","title":"OpenCVC++库安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>OpenCVC++库安装 | TimeInDreams' Blogs</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">TimeInDreams' Blogs</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV-Contrib%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">OpenCV Contrib库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">0. 环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%BC%96%E8%AF%91"><span class="nav-number">3.</span> <span class="nav-text">1.编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">3.1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">下载源代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEcmake%E5%B9%B6%E7%BC%96%E8%AF%91OpenCV"><span class="nav-number">3.3.</span> <span class="nav-text">配置cmake并编译OpenCV</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85"><span class="nav-number">4.</span> <span class="nav-text">2.安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B5%8B%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text">3.测试</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GuoKai"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">GuoKai</p>
+  <div class="site-description" itemprop="description">Show everything about coding And Better luck next time</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/TimeInDreams" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;TimeInDreams" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/TimeInDreams" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;TimeInDreams" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/2d335e83.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OpenCVC++库安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-01-13 20:37:04 / 修改时间：20:49:07" itemprop="dateCreated datePublished" datetime="2022-01-13T20:37:04+08:00">2022-01-13</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>#在Ubuntu上安装OpenCV和contrib库</p>
+<p>​    自从进入3.X时代以后，OpenCV将代码库分成了两部分，分别是稳定的核心功能库opencv库和试验性质的contrib库。</p>
+<h2 id="OpenCV-Contrib库"><a href="#OpenCV-Contrib库" class="headerlink" title="OpenCV Contrib库"></a>OpenCV Contrib库</h2><p>​    OpenCV Contrib库是非官方的第三方开发扩充库。通过这个库，我们能使用如dnn、相机标注、3D成像、ArUco、物体追踪，背景分割三维重建，SURF、SIFT特征点提取算法等功能。</p>
+<h2 id="0-环境配置"><a href="#0-环境配置" class="headerlink" title="0. 环境配置"></a>0. 环境配置</h2><ul>
+<li>ubuntu18.04</li>
+<li>Cmake&gt;=3.10.2</li>
+<li>unzip</li>
+</ul>
+<h2 id="1-编译"><a href="#1-编译" class="headerlink" title="1.编译"></a>1.编译</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssl libssl-dev mingetty zip unzip git curl vim gcc g++ -y</span><br><span class="line">sudo apt install socat zsh  curl git vim make cmake -y</span><br><span class="line">sudo apt install autojump -y</span><br><span class="line">sudo apt-get install -y libtiff5-dev libeigen3-dev</span><br><span class="line">sudo apt install -y git gcc g++ make cmake libgtk2.0-dev libgoogle-glog-dev </span><br><span class="line">sudo apt install -y libtesseract-dev libgtkglext1 libgtkglext1-dev ffmpeg</span><br><span class="line">sudo apt install -y libv4l-0 libv4l-dev</span><br><span class="line">sudo apt install -y liblapacke-dev libopenblas-dev libgtk-3-dev libgstreamer-plugins-base1.0-dev </span><br><span class="line">sudo apt install -y libgstreamer1.0-dev libavresample-dev libgphoto2-dev libdc1394-22-dev</span><br><span class="line">sudo apt-get install -y build-essential make cmake cmake-curses-gui git g++ pkg-config curl</span><br><span class="line">sudo apt-get install -y libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libeigen3-dev libglew-dev libgtk2.0-dev</span><br><span class="line">sudo apt-get install -y libtbb2 libtbb-dev v4l-utils qv4l2 v4l2ucp</span><br><span class="line">sudo apt-get install -y libdc1394-22-dev libxine2-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev</span><br><span class="line">sudo apt-get install -y libjpeg8-dev libjpeg-turbo8-dev libtiff-dev libpng-dev</span><br><span class="line">sudo apt-get install -y libxvidcore-dev libx264-dev libgtk-3-dev</span><br><span class="line">sudo apt-get install -y libatlas-base-dev libopenblas-dev liblapack-dev liblapacke-dev gfortran</span><br><span class="line">sudo apt-get install -y qt5-default</span><br><span class="line">sudo apt-get install -y python3-dev python3-testresources</span><br><span class="line">sudo apt-get install -y libcanberra-gtk-module</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h3><p>选择合适的opencv版本，contrib库版本需与opencv版本相同，以目前使用的3.4.7为例，下载zip压缩包</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/opencv/opencv/releases/tag/3.4.7">OpenCV3.4.7</a></p>
+<p><img src="/article/undefined/image-20220113204024390-16420776267921.png" alt="image-20220113204024390"></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/opencv/opencv_contrib/releases/tag/3.4.7">OpenCV-Contrib</a></p>
+<p>点击网站，如报错，大概率为dns污染导致（可以magic解决）</p>
+<p>github被dns污染导致，需要更改本机hosts文件，</p>
+<p>Windows下路径为C:\Windows\System32\drivers\etc\hosts</p>
+<p>Linux下路径为 /etc/hosts</p>
+<p>打开文件加入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># GitHub Start  </span><br><span class="line">140.82.112.3 github.com  </span><br><span class="line">141.192.30.253.118 gist.github.com</span><br><span class="line">142.192.30.253.119 gist.github.com</span><br><span class="line"></span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure>
+
+<p>保存并退出即可。</p>
+<p>使用shell将源代码下载并放入一个文件夹内，需要将version_id改为需要下载的版本号。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">wget -O opencv.zip https://github.com/opencv/opencv/archive/[version_id].zip</span><br><span class="line">wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/[version_id].zip</span><br><span class="line">unzip opencv.zip</span><br><span class="line">unzip opencv_contrib.zip</span><br><span class="line">mv opencv-[version_id] opencv</span><br><span class="line">mv opencv_contrib-[version_id] opencv_contrib</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置cmake并编译OpenCV"><a href="#配置cmake并编译OpenCV" class="headerlink" title="配置cmake并编译OpenCV"></a>配置cmake并编译OpenCV</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/opencv</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br></pre></td></tr></table></figure>
+
+<p>Cmake编译命令</p>
+<p><code>-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \</code>此处路径必须填写正确，否则编译测试通过后队内代码仍然可能编译报错，缺少xxx文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">cmake   -D CMAKE_BUILD_TYPE=RELEASE \</span><br><span class="line">        -D CMAKE_INSTALL_PREFIX=/usr/local \</span><br><span class="line">        -D ENABLE_NEON=OFF \</span><br><span class="line">        -D ENABLE_FAST_MATH=ON \</span><br><span class="line">        -D WITH_GSTREAMER=ON \</span><br><span class="line">        -D WITH_LIBV4L=ON \</span><br><span class="line">        -D BUILD_opencv_python2=OFF \</span><br><span class="line">        -D BUILD_opencv_python3=ON \</span><br><span class="line">        -D BUILD_TESTS=OFF \</span><br><span class="line">        -D BUILD_PERF_TESTS=OFF \</span><br><span class="line">        -D BUILD_EXAMPLES=OFF  \</span><br><span class="line">        -D WITH_TBB=ON \</span><br><span class="line">        -D BUILD_opencv_world=OFF \</span><br><span class="line">        -D BUILD_opencv_xfeatures2d=OFF \</span><br><span class="line">        -D WITH_OPENGL=ON \</span><br><span class="line">        -D WITH_GTK_2_X=ON \</span><br><span class="line">        -D OPENCV_ENABLE_NONFREE=ON \</span><br><span class="line">        -D EIGEN_INCLUDE_PATH=&quot;/usr/include/eigen3&quot; \</span><br><span class="line">        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \</span><br><span class="line">        -D WITH_XINE=ON \</span><br><span class="line">        -D WITH_GDAL=ON \</span><br><span class="line">        ..</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j8</span><br></pre></td></tr></table></figure>
+
+<p>此处8为最大支持线程数，一般为cpu数两倍，一般情况下为4核8线程，线程数过多时可能减低编译效率，设置导致编译报错。</p>
+<p>make时如看到</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br><span class="line">make: * No targets specified and no makefile found.  Stop.</span><br></pre></td></tr></table></figure>
+
+<p>此时问题为Cmake出现问题，请查看Cmake报错信息</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>编译成功后</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br><span class="line">sudo vim /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>在末尾添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line">export PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
+
+<p>保存退出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/bash.bashrc</span><br><span class="line">sudo updatedb</span><br></pre></td></tr></table></figure>
+
+<p>查看Linux opencv安装库和版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg-config opencv --libs</span><br><span class="line">pkg-config opencv --modversion</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h2><p>将如下程序复制至opencv_test.cpp中</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Example 1. A simple OpenCV program that loads an image from disk and displays it on the screen</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">help</span><span class="params">(<span class="keyword">char</span>** argv )</span> </span>&#123;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">	&lt;&lt; <span class="string">&quot;A simple OpenCV program that loads and displays an image from disk\n&quot;</span></span><br><span class="line">	&lt;&lt; argv[<span class="number">0</span>] &lt;&lt;<span class="string">&quot; &lt;path/filename&gt;\n&quot;</span></span><br><span class="line">	&lt;&lt; <span class="string">&quot;For example:\n&quot;</span></span><br><span class="line">	&lt;&lt; argv[<span class="number">0</span>] &lt;&lt; <span class="string">&quot; ../fruits.jpg\n&quot;</span></span><br><span class="line">	&lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span>** argv )</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (argc != <span class="number">2</span>) &#123;</span><br><span class="line">		<span class="built_in">help</span>(argv);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  cv::Mat img = cv::<span class="built_in">imread</span>( argv[<span class="number">1</span>], <span class="number">-1</span> );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>( img.<span class="built_in">empty</span>() ) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  cv::<span class="built_in">namedWindow</span>( <span class="string">&quot;Example&quot;</span>, cv::WINDOW_AUTOSIZE );</span><br><span class="line">  cv::<span class="built_in">imshow</span>( <span class="string">&quot;Example&quot;</span>, img );</span><br><span class="line">  cv::<span class="built_in">waitKey</span>( <span class="number">0</span> );</span><br><span class="line">  cv::<span class="built_in">destroyWindow</span>( <span class="string">&quot;Example&quot;</span> );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>保存并编译该程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -o opencv_test opencv_test.cpp `pkg-config --libs --cflags opencv`</span><br></pre></td></tr></table></figure>
+
+<p>运行程序，从网上下载一张png照片，放到相同文件夹下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./opencv_test</span><br></pre></td></tr></table></figure>
+
+<p>按程序执行即可，不报错即为安装成功</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>GuoKai
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://timeindreams.github.io/article/2d335e83.html" title="OpenCVC++库安装">https://timeindreams.github.io/article/2d335e83.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CV/" rel="tag"># CV</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/article/7c4b9fb3.html" rel="prev" title="密钥协商协议">
+                  <i class="fa fa-chevron-left"></i> 密钥协商协议
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuoKai</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+<script src="/live2d/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1.2,"jsonPath":"/live2d/assets/nero.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</html>
