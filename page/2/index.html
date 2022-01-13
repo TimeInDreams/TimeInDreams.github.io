@@ -185,6 +185,113 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/b832ff82.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/b832ff82.html" class="post-title-link" itemprop="url">实体认证协议</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="实体认证协议"><a href="#实体认证协议" class="headerlink" title="实体认证协议"></a>实体认证协议</h1><p>公钥证书架构</p>
+<p>一个主体声称自己是A，另一个主体B为验证者，B要验证对方确实是A</p>
+<p>Cert<del>X</del>:X在此证书下的架构</p>
+<p>Sign<del>X</del>:X使用私钥进行签名</p>
+<h2 id="基于公钥密码的一次传输单向认证"><a href="#基于公钥密码的一次传输单向认证" class="headerlink" title="基于公钥密码的一次传输单向认证"></a>基于公钥密码的一次传输单向认证</h2><p>单向认证：A用私钥签名，将架构和签名发送给B，B执行签名验证，认证实体去确实为A</p>
+<p>签名中加入时间戳/序列号，防止攻击者事先获得已有的签名</p>
+<p>不方便同步和维护→随机数（交互发送随机数）→</p>
+<p>两次传输单向认证协议（交互式）</p>
+<p>签名认证方A加入随机数进行签名操作防止B使用任意随机数脱离控制</p>
+<p>先发送一个随机数N<del>A</del>给对方</p>
+<h2 id="双向认证"><a href="#双向认证" class="headerlink" title="双向认证"></a>双向认证</h2><p>两次单向认证是不安全的</p>
+<p>E的中间人攻击：<br>E冒充B选择随机数激活A的签名程序，然后冒充A转发给B，B执行认证操作后转发给A，让B替代自己执行认证操作</p>
+<p>##基于口令的实体认证</p>
+<p>口令：长期使用，相对较短</p>
+<p>主机H初始化用户U，发送口令PW<del>U</del></p>
+<p>主机H建立保存所有用户口令的文档（ID，PW）</p>
+<ul>
+<li><p> 单向函数加密PW→字典攻击</p>
+</li>
+<li><p>==加盐==防止==字典攻击==，主机H给定每个ID一个唯一的随机数称为盐值，每次请求服务将口令和盐输入单向函数</p>
+</li>
+</ul>
+<p>不能抵挡在线口令窃听：攻击者可以获取U发送给H的明文命令</p>
+<ul>
+<li>==哈希链==防止窃听，一次性口令：初始口令PW<del>0</del>，每次请求进行一次额外hash，保存在主机，每次请求主机更新自己的（ID，n，Hash^n^(PW)），用户请求时计算n-1次hash，主机对用户发来的口令进行一次hash，与记录比对</li>
+</ul>
+<h2 id="加密的密钥交换EKE"><a href="#加密的密钥交换EKE" class="headerlink" title="加密的密钥交换EKE"></a>加密的密钥交换EKE</h2><p>实体认证+密钥协商</p>
+<p>协议结束后，用户U和主机H将完成双向实体认证，并得到一个共享密钥</p>
+<p>前提：</p>
+<ul>
+<li>口令PW</li>
+<li>事先约定的对称加密体制SE，公钥加密体制AE</li>
+</ul>
+<p>SE<del>K</del>为用K进行对称加密，AE<del>K</del>为用公钥K进行公钥加密</p>
+<p>PK为随机数，K为主机H产生的随机对称密钥</p>
+<h2 id="对实体认证协议的攻击"><a href="#对实体认证协议的攻击" class="headerlink" title="对实体认证协议的攻击"></a>对实体认证协议的攻击</h2><p>重放攻击</p>
+<p>中间人攻击</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/fc237eb0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -289,6 +396,101 @@
 <p>C→B:g^x^,Cert(C)</p>
 <p>B→C:g^y^,Cert(B)</p>
 <p>C<del>B</del>→A：g^yc^,Cert(B)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/4d5671c6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/4d5671c6.html" class="post-title-link" itemprop="url">比特承诺</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>#比特承诺</p>
+<p>A发送给B一个证明，用来作出承诺，承诺内容为一个比特</p>
+<ol>
+<li>A未打开承诺前，B无法得知承诺是0还是1</li>
+<li>A不能打开一个相反的bit，即不能伪造</li>
+</ol>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
+<li>承诺阶段：A选择承诺诺的bit，并将表示信息m发给B</li>
+<li>打开阶段：A吧打开承诺的消息d和选择的bit b发送给B，B用d打开m，并验证</li>
+</ol>
+<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
+<li>隐藏性：接收方不能从消息中获取比特的任意信息</li>
+<li>绑定性：发送者不能改变自己承诺的bit</li>
+</ol>
+<p>###经典</p>
+<ol>
+<li>加密</li>
+<li>hash散列</li>
+<li>伪随机数发生器</li>
+</ol>
+<h3 id="Pedersen承诺协议"><a href="#Pedersen承诺协议" class="headerlink" title="Pedersen承诺协议"></a>Pedersen承诺协议</h3><p>离散对数问题</p>
+<p>p，g为生成元,y,r为群中随机数，承诺为c=g^r^y^b^(modp)</p>
+<h3 id="密封式电子拍卖协议"><a href="#密封式电子拍卖协议" class="headerlink" title="密封式电子拍卖协议"></a>密封式电子拍卖协议</h3><p>正确性</p>
+<p>保密性</p>
+<p>公开验证性</p>
 
       
     </div>
@@ -434,7 +636,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/ff08ae5a.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/9ed0d196.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -447,7 +649,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/ff08ae5a.html" class="post-title-link" itemprop="url">处理机调度</a>
+          <a href="/article/9ed0d196.html" class="post-title-link" itemprop="url">秘密握手</a>
         </h2>
 
         <div class="post-meta-container">
@@ -478,174 +680,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="进程线程，处理机调度"><a href="#进程线程，处理机调度" class="headerlink" title="进程线程，处理机调度"></a>进程线程，处理机调度</h1><p>进程是资源分配和调度的独立单位</p>
-<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>基本：运行态，就绪态，阻塞态</p>
-<h2 id="进程控制块PCB"><a href="#进程控制块PCB" class="headerlink" title="进程控制块PCB"></a>进程控制块PCB</h2><p>进程存在的唯一标识，包含进程描述信息和控制信息</p>
-<ul>
-<li>Linux两个页框（8K）内核栈+thread_info结构体（储存进程描述符地址）</li>
-<li>windows 内核进程控制块中包含PCB</li>
-</ul>
-<h2 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h2><p>寄存器状态</p>
-<p>保存在对应PCB中</p>
-<p>linux进程切换只发生在内核态，schedule（）</p>
-<h2 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h2><p>虚拟地址空间</p>
-<p>用户栈</p>
-<p>代码库</p>
-<p>用户堆</p>
-<p>数据段</p>
-<p>代码段</p>
-<p>内核栈+代码数据</p>
-<h2 id="组织"><a href="#组织" class="headerlink" title="组织"></a>组织</h2><p>进程链表</p>
-<h2 id="进程控制原语（不可分割）"><a href="#进程控制原语（不可分割）" class="headerlink" title="进程控制原语（不可分割）"></a>进程控制原语（不可分割）</h2><ol>
-<li>创建</li>
-</ol>
-<ul>
-<li>申请空白PCB</li>
-<li>分配资源</li>
-<li>初始化PCB</li>
-<li>插入就绪队列</li>
-</ul>
-<p>  linux fork（），==写时复制==，读共享父进程地址空间，写时才创建复制页的副本，父子进程拥有不同的虚拟地址空间</p>
+          <h1 id="秘密握手"><a href="#秘密握手" class="headerlink" title="秘密握手"></a>秘密握手</h1><p>一个群组中的两个成员互相认证，同时两个成员不会互相透露他们的上下级信息，除非他们同属于一组</p>
+<p>##流程</p>
 <ol>
-<li><p>撤销</p>
-<ol>
-<li>父进程先结束，孤儿进程，称为init进程的子进程</li>
+<li>Setup：输入成员私钥，输出公钥</li>
+<li>CreateGroup：群组授权者调用算法创建群组</li>
+<li>AddUser：GA生成证书，U获得证书通过一个被授权的私有频道</li>
+<li>HandShake：成员AB调用的一个协议，确保B发现A、当且仅当A发现B在群组中。</li>
+<li>RevoleUser：调用算法，移除成员证书</li>
 </ol>
-</li>
-<li><p>阻塞</p>
-<ol>
-<li>停止cpu占用</li>
-<li>保存上下文</li>
-<li>转进程调度</li>
-</ol>
-</li>
-</ol>
-<p>#线程</p>
-<p>将拥有资源的基本单位和调度的基本单位分离</p>
-<p>所有线程共享其进程的地址空间，共享进程的资源</p>
-<h1 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h1><p>平均等待时间=每个进程等待时间之和/进程数</p>
-<p>非剥夺：直至进程完成或阻塞时调度</p>
-<p>剥夺：每个时间片调度后决定是否剥夺</p>
-<ul>
-<li><p>未特殊标注即为非剥夺或可剥夺皆可</p>
-</li>
-<li><p>FCFS先来先服务，大作业垄断，非剥夺</p>
-</li>
-<li><p>SJF最短作业优先：估计运行时间短</p>
-</li>
-<li><p>高响应比调度：1+等待时间/估计运行时间，等待时间越长，估计运行时间越短，越优先被调度</p>
-</li>
-<li><p>优先级调度</p>
-</li>
-<li><p>时间片轮转：时间片结束添加到就绪队列尾部，产生新的进程请求也添加到就绪队列尾部</p>
-</li>
-<li><p>多级队列：每个队列有自己的调度，队列间固定优先级抢占，高优先级时间片小（每个任务都不可忽视），未完成进入下一级队列</p>
-</li>
-</ul>
-<h3 id="实时系统调度"><a href="#实时系统调度" class="headerlink" title="实时系统调度"></a>实时系统调度</h3><ul>
-<li>单调速率调度：</li>
-</ul>
-<p>在进入系统时，每个周期性任务会分配一个优先级，它与其周期成反比</p>
-<p>较高优先级进程将会抢占低优先级</p>
-<ul>
-<li>EDF最早截止时间优先</li>
-<li>LLF最小松弛度优先：（结束时间-当前时间）还要运行多长时间-已经运行时间</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/4d5671c6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/4d5671c6.html" class="post-title-link" itemprop="url">比特承诺</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>#比特承诺</p>
-<p>A发送给B一个证明，用来作出承诺，承诺内容为一个比特</p>
-<ol>
-<li>A未打开承诺前，B无法得知承诺是0还是1</li>
-<li>A不能打开一个相反的bit，即不能伪造</li>
-</ol>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>承诺阶段：A选择承诺诺的bit，并将表示信息m发给B</li>
-<li>打开阶段：A吧打开承诺的消息d和选择的bit b发送给B，B用d打开m，并验证</li>
-</ol>
-<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
-<li>隐藏性：接收方不能从消息中获取比特的任意信息</li>
-<li>绑定性：发送者不能改变自己承诺的bit</li>
-</ol>
-<p>###经典</p>
-<ol>
-<li>加密</li>
-<li>hash散列</li>
-<li>伪随机数发生器</li>
-</ol>
-<h3 id="Pedersen承诺协议"><a href="#Pedersen承诺协议" class="headerlink" title="Pedersen承诺协议"></a>Pedersen承诺协议</h3><p>离散对数问题</p>
-<p>p，g为生成元,y,r为群中随机数，承诺为c=g^r^y^b^(modp)</p>
-<h3 id="密封式电子拍卖协议"><a href="#密封式电子拍卖协议" class="headerlink" title="密封式电子拍卖协议"></a>密封式电子拍卖协议</h3><p>正确性</p>
-<p>保密性</p>
-<p>公开验证性</p>
 
       
     </div>
@@ -755,7 +798,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/9ed0d196.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/17c6043.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -768,7 +811,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/9ed0d196.html" class="post-title-link" itemprop="url">秘密握手</a>
+          <a href="/article/17c6043.html" class="post-title-link" itemprop="url">高级签名协议</a>
         </h2>
 
         <div class="post-meta-container">
@@ -799,15 +842,73 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="秘密握手"><a href="#秘密握手" class="headerlink" title="秘密握手"></a>秘密握手</h1><p>一个群组中的两个成员互相认证，同时两个成员不会互相透露他们的上下级信息，除非他们同属于一组</p>
-<p>##流程</p>
+          <p>#高级签名协议</p>
+<p>密钥生成，签名，验证</p>
+<h2 id="盲签名"><a href="#盲签名" class="headerlink" title="盲签名"></a>盲签名</h2><p>持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系</p>
+<p>###过程</p>
 <ol>
-<li>Setup：输入成员私钥，输出公钥</li>
-<li>CreateGroup：群组授权者调用算法创建群组</li>
-<li>AddUser：GA生成证书，U获得证书通过一个被授权的私有频道</li>
-<li>HandShake：成员AB调用的一个协议，确保B发现A、当且仅当A发现B在群组中。</li>
-<li>RevoleUser：调用算法，移除成员证书</li>
+<li>Setup，输出系统参数p和签名人的公钥私钥对（pk，sk）</li>
+<li>Sign <ol>
+<li>公共输入：系统参数p，签名人公钥pk，</li>
+<li>秘密输入，签名人私钥sk，用户输入代签名消息m</li>
+<li>停止时用户输出签名s</li>
 </ol>
+</li>
+<li>Verify 输入系统公开参数p，公钥pk，待验证消息签名对（m，s），输出1或0（是否有效）</li>
+</ol>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>正确性</li>
+<li>不可伪造性</li>
+<li>盲性</li>
+</ol>
+<h2 id="盲化"><a href="#盲化" class="headerlink" title="盲化"></a>盲化</h2><ol>
+<li><p>盲化：用户引入盲化因子，将消息m计算为m` k^e^m</p>
+</li>
+<li><p>签名：发送m‘给签名人，签名人签名得到s’，d次幂</p>
+</li>
+<li><p>去盲：用户用s‘计算出s k的逆元</p>
+</li>
+</ol>
+<p>验证 签名s^e^(modn)=m</p>
+<p>离散对数</p>
+<p>(g^x^,x)为公钥私钥,用公钥+随机数去盲，用随机数盲化</p>
+<ol>
+<li><p>选随机数r,m’=g^r^×H（m）</p>
+</li>
+<li><p>私钥次方s’=m’^x^</p>
+</li>
+<li><p>s=s’y^-r^</p>
+</li>
+</ol>
+<p>部分盲签名，嵌入一段公共信息</p>
+<h2 id="群签名"><a href="#群签名" class="headerlink" title="群签名"></a>群签名</h2><p>成员代表群体进行匿名签名，无法确定具体成员，但群管理者可以打开签名揭示签名者身份防止否认签名行为</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
+<li>系统初始化</li>
+<li>签名</li>
+<li>验证</li>
+<li>打开</li>
+</ol>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>匿名性：无法确定给定签名的实际签名人</li>
+<li>无关联性：不打开签名的情况下，不能确定两个不同的群签名是否为同一个人所签名</li>
+<li>可追踪性：</li>
+<li>防陷害性：不能以其他群成员名义产生合法签名</li>
+<li>抗联合攻击：不能任意多个群成员勾结伪造其他群成员签名</li>
+</ol>
+<h2 id="环签名"><a href="#环签名" class="headerlink" title="环签名"></a>环签名</h2><p>签名的匿名性</p>
+<p>自己的私钥和其他n-1个人的公钥对m执行环签名，执行验证算法可以确信又环中某个签名者产生，但无法识别签名人的身份</p>
+<p>可链接性：如果是同一个人签的，验证时能确定时同一个人签的，但无法确定身份</p>
+<h2 id="基于身份的数字签名"><a href="#基于身份的数字签名" class="headerlink" title="基于身份的数字签名"></a>基于身份的数字签名</h2><h3 id="过程-1"><a href="#过程-1" class="headerlink" title="过程"></a>过程</h3><ol>
+<li>Setup 输出主密钥，系统参数</li>
+<li>Extract，私钥提取算法，输入为用户身份信息ID，算出私钥sk发送给用户</li>
+<li>Sign 用户签名</li>
+<li>Verify 验证者完成验证</li>
+</ol>
+<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
+<li>适应性选择消息攻击</li>
+<li>选择身份攻击的不可伪造性</li>
+</ol>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>双线性对，RSA</p>
 
       
     </div>
@@ -947,6 +1048,138 @@
 <li>P（B）→A:{Na+1，Nb}Kab（此为被监听的消息2），A认为Na+1就是K^’’^ab</li>
 </ol>
 <h2 id="大嘴青蛙协议"><a href="#大嘴青蛙协议" class="headerlink" title="大嘴青蛙协议"></a>大嘴青蛙协议</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/d1262596.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/d1262596.html" class="post-title-link" itemprop="url">软工复习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>软件测试的四个特点</p>
+<p>动态，有限，选取，预期</p>
+<h3 id="软件开发模型"><a href="#软件开发模型" class="headerlink" title="软件开发模型"></a>软件开发模型</h3><ul>
+<li>瀑布：文档，线性，阶段性检查点</li>
+<li>快速原型：</li>
+</ul>
+<p>测试模型</p>
+<ul>
+<li>V：如何与软件工程各阶段相融合</li>
+<li>W：开发各个阶段都要测试，而不只是编码结束后在开始，文档也可以是测试对象</li>
+<li>H：任意时刻，只要测试配置就绪即可</li>
+</ul>
+<p>测试技术</p>
+<ul>
+<li><p>静态测试的测试对象：源程序和文档。项目开发过程中产生大量的规格说明，对这些规格说明的技术审査和管理复审，以及对文档的测试数据都属于静态测试。</p>
+</li>
+<li><p>静态测试是指不运行程序就找出程序中存在的错误，==动态测试==是通过==运行程序==而发现存在的错误和问题。</p>
+</li>
+<li><p>白盒测试又称为结构测试，模块内部逻辑结构==逻辑覆盖准则==，</p>
+</li>
+<li><p>黑盒测试是把模块作为一个整体进行测试。它不关心程序逻辑实现的具体细 节，而是关注模块的输入（接口）、输出（运行结果）</p>
+</li>
+</ul>
+<p>软件测试策略</p>
+<p>静态分析→测试计划→动态测试</p>
+<p>确认测试：验收测试（系统在实际环境下，release）</p>
+<p>##所有的图表</p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140600598.png" alt="image-20220103140600598"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140639970.png" alt="image-20220103140639970"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140831193.png" alt="image-20220103140831193"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140904531.png" alt="image-20220103140904531"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141135317.png" alt="image-20220103141135317"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141145612.png" alt="image-20220103141145612"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141227332.png" alt="image-20220103141227332"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141245882.png" alt="image-20220103141245882"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141414585.png" alt="image-20220103141414585"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141707033.png" alt="image-20220103141707033"></p>
+<p>判定树在每个判定条件处分叉</p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141942590.png" alt="image-20220103141942590"></p>
+<p>dfd图，流程图，状态图，判定表，判定树，因果图，决策表，</p>
+<p>用例图，类图，包图，构件图，配置图，状态图，活动图，顺序图，协作图。流图</p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103142140359.png" alt="image-20220103142140359"></p>
+<p>###UML</p>
+<p>泛化关系为分类==实线空箭头==，包含关系为组合</p>
+<p>依赖关系==虚线实箭头==→关联关系==实线==（强依赖）→聚合关系==+虚菱形==（部分可以单独存在）（共享聚合），组合关系==+实菱形==（部分不能脱离整体单独存在）（复合聚合）</p>
+<p>####软件维护的分类</p>
+<p>完善性维护（扩展功能提高效率），纠错性维护，适应性维护，预防性维护</p>
+<p>###面向对象设计</p>
+<ul>
+<li><p>功能模型：用例图</p>
+</li>
+<li><p>静态模型：类图</p>
+</li>
+</ul>
+<p>类-对象层 </p>
+<p>结构层 </p>
+<p>属性层</p>
+<p>服务层 </p>
+<p>主题层</p>
+<ul>
+<li>动态模型：活动图</li>
+</ul>
+
       
     </div>
 
@@ -1174,277 +1407,6 @@
 <li>拓扑描述</li>
 <li>纹理</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/d1262596.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/d1262596.html" class="post-title-link" itemprop="url">软工复习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>软件测试的四个特点</p>
-<p>动态，有限，选取，预期</p>
-<h3 id="软件开发模型"><a href="#软件开发模型" class="headerlink" title="软件开发模型"></a>软件开发模型</h3><ul>
-<li>瀑布：文档，线性，阶段性检查点</li>
-<li>快速原型：</li>
-</ul>
-<p>测试模型</p>
-<ul>
-<li>V：如何与软件工程各阶段相融合</li>
-<li>W：开发各个阶段都要测试，而不只是编码结束后在开始，文档也可以是测试对象</li>
-<li>H：任意时刻，只要测试配置就绪即可</li>
-</ul>
-<p>测试技术</p>
-<ul>
-<li><p>静态测试的测试对象：源程序和文档。项目开发过程中产生大量的规格说明，对这些规格说明的技术审査和管理复审，以及对文档的测试数据都属于静态测试。</p>
-</li>
-<li><p>静态测试是指不运行程序就找出程序中存在的错误，==动态测试==是通过==运行程序==而发现存在的错误和问题。</p>
-</li>
-<li><p>白盒测试又称为结构测试，模块内部逻辑结构==逻辑覆盖准则==，</p>
-</li>
-<li><p>黑盒测试是把模块作为一个整体进行测试。它不关心程序逻辑实现的具体细 节，而是关注模块的输入（接口）、输出（运行结果）</p>
-</li>
-</ul>
-<p>软件测试策略</p>
-<p>静态分析→测试计划→动态测试</p>
-<p>确认测试：验收测试（系统在实际环境下，release）</p>
-<p>##所有的图表</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140600598.png" alt="image-20220103140600598"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140639970.png" alt="image-20220103140639970"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140831193.png" alt="image-20220103140831193"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140904531.png" alt="image-20220103140904531"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141135317.png" alt="image-20220103141135317"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141145612.png" alt="image-20220103141145612"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141227332.png" alt="image-20220103141227332"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141245882.png" alt="image-20220103141245882"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141414585.png" alt="image-20220103141414585"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141707033.png" alt="image-20220103141707033"></p>
-<p>判定树在每个判定条件处分叉</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141942590.png" alt="image-20220103141942590"></p>
-<p>dfd图，流程图，状态图，判定表，判定树，因果图，决策表，</p>
-<p>用例图，类图，包图，构件图，配置图，状态图，活动图，顺序图，协作图。流图</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103142140359.png" alt="image-20220103142140359"></p>
-<p>###UML</p>
-<p>泛化关系为分类==实线空箭头==，包含关系为组合</p>
-<p>依赖关系==虚线实箭头==→关联关系==实线==（强依赖）→聚合关系==+虚菱形==（部分可以单独存在）（共享聚合），组合关系==+实菱形==（部分不能脱离整体单独存在）（复合聚合）</p>
-<p>####软件维护的分类</p>
-<p>完善性维护（扩展功能提高效率），纠错性维护，适应性维护，预防性维护</p>
-<p>###面向对象设计</p>
-<ul>
-<li><p>功能模型：用例图</p>
-</li>
-<li><p>静态模型：类图</p>
-</li>
-</ul>
-<p>类-对象层 </p>
-<p>结构层 </p>
-<p>属性层</p>
-<p>服务层 </p>
-<p>主题层</p>
-<ul>
-<li>动态模型：活动图</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/dffce14c.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/dffce14c.html" class="post-title-link" itemprop="url">中央处理器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>#中央处理器</p>
-<p>##功能和组成</p>
-<p>数据流，指令流</p>
-<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>专用寄存器：</p>
-<ol>
-<li>程序计数器PC（将要执行的）<ol>
-<li>指令的顺序执行PC+1</li>
-<li>转移指令目标地址</li>
-</ol>
-</li>
-<li>指令寄存器IR（正在执行的）<ol>
-<li>执行指令时保证指令不变</li>
-</ol>
-</li>
-<li>储存器地址寄存器MAR（将要访问的主存地址）<ol>
-<li>当前CPU访问的主存单元地址，CPU速度快于主存</li>
-</ol>
-</li>
-<li>储存器数据寄存器MDR<ol>
-<li>暂存主存写入或读出的指令或数据字</li>
-</ol>
-</li>
-<li>状态标志寄存器PSWR</li>
-</ol>
-<p>MDR和MAR在CPU与主存进行信息交换是使用</p>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ol>
-<li>字长</li>
-<li>内频=外频*倍频</li>
-</ol>
-<h2 id="控制器组成和实现"><a href="#控制器组成和实现" class="headerlink" title="控制器组成和实现"></a>控制器组成和实现</h2><h2 id="时序系统与控制方式"><a href="#时序系统与控制方式" class="headerlink" title="时序系统与控制方式"></a>时序系统与控制方式</h2><p>###时序系统</p>
-<ol>
-<li>指令周期：取指令，分析到执行完成，每个指令的指令周期不同</li>
-<li>机器周期：一条指令划分为若干个机器周期，有且有一个周期状态触发器置为1</li>
-<li>节拍：CPU完成一次操作，一个机器周期划分为若干个节拍信号</li>
-</ol>
-<p>指令周期–机器周期–节拍（时钟周期）–脉冲信号</p>
-<h3 id="指令的执行"><a href="#指令的执行" class="headerlink" title="指令的执行"></a>指令的执行</h3><ol>
-<li>取指令<ol>
-<li>PC→MAR+AB（地址总线）</li>
-<li>控制单元经控制总线发出read命令</li>
-<li>通过数据总线送的MDR</li>
-<li>MDR→IR</li>
-<li>PC+1</li>
-</ol>
-</li>
-<li>取数周期</li>
-<li>执行周期</li>
-</ol>
-<h2 id="微程序控制原理"><a href="#微程序控制原理" class="headerlink" title="微程序控制原理"></a>微程序控制原理</h2><p>机器指令对应一段程序，该段程序放在一个只读的控制寄存器中（一个指令–一个微程序）</p>
-<p>机器指令可分解为多个微操作序列</p>
-<p>微命令对应唯一微操作（计算机的原子操作）</p>
-<p>微指令是控制寄存器中的一个单元的内容，是若干个微命令的集合</p>
-<p>微地址：控制寄存器的单元地址</p>
-<h4 id="微指令"><a href="#微指令" class="headerlink" title="微指令"></a>微指令</h4><ol>
-<li>操作控制字段</li>
-</ol>
-<p>产生若干个微操作控制信号</p>
-<ol start="2">
-<li>顺序控制字段</li>
-</ol>
-<p>产生下一个微指令地址</p>
-<p>字段编码法</p>
-<p>将操作控制字段分为若干小段</p>
-<p>段内最短编码（一码一指令），需要译码器</p>
-<p>段段之间直接控制，一个段单位对应一个指令</p>
-<p>==般每个小段还要留出一个状态，表 示本字段不发出任何微命令==</p>
-<p>题目</p>
-<p>指令运行速度正比于时钟频率反比于时钟周期，MIPS，每秒一百万次</p>
-<p>如果2条微指令放在两个位足够，就是直接，操作控制字段位数不够需要3条或以上的互斥指令放在2个位上，就是段，需要注意00表示无状态</p>
 
       
     </div>

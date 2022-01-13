@@ -185,6 +185,145 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/dffce14c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/dffce14c.html" class="post-title-link" itemprop="url">中央处理器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>#中央处理器</p>
+<p>##功能和组成</p>
+<p>数据流，指令流</p>
+<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>专用寄存器：</p>
+<ol>
+<li>程序计数器PC（将要执行的）<ol>
+<li>指令的顺序执行PC+1</li>
+<li>转移指令目标地址</li>
+</ol>
+</li>
+<li>指令寄存器IR（正在执行的）<ol>
+<li>执行指令时保证指令不变</li>
+</ol>
+</li>
+<li>储存器地址寄存器MAR（将要访问的主存地址）<ol>
+<li>当前CPU访问的主存单元地址，CPU速度快于主存</li>
+</ol>
+</li>
+<li>储存器数据寄存器MDR<ol>
+<li>暂存主存写入或读出的指令或数据字</li>
+</ol>
+</li>
+<li>状态标志寄存器PSWR</li>
+</ol>
+<p>MDR和MAR在CPU与主存进行信息交换是使用</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ol>
+<li>字长</li>
+<li>内频=外频*倍频</li>
+</ol>
+<h2 id="控制器组成和实现"><a href="#控制器组成和实现" class="headerlink" title="控制器组成和实现"></a>控制器组成和实现</h2><h2 id="时序系统与控制方式"><a href="#时序系统与控制方式" class="headerlink" title="时序系统与控制方式"></a>时序系统与控制方式</h2><p>###时序系统</p>
+<ol>
+<li>指令周期：取指令，分析到执行完成，每个指令的指令周期不同</li>
+<li>机器周期：一条指令划分为若干个机器周期，有且有一个周期状态触发器置为1</li>
+<li>节拍：CPU完成一次操作，一个机器周期划分为若干个节拍信号</li>
+</ol>
+<p>指令周期–机器周期–节拍（时钟周期）–脉冲信号</p>
+<h3 id="指令的执行"><a href="#指令的执行" class="headerlink" title="指令的执行"></a>指令的执行</h3><ol>
+<li>取指令<ol>
+<li>PC→MAR+AB（地址总线）</li>
+<li>控制单元经控制总线发出read命令</li>
+<li>通过数据总线送的MDR</li>
+<li>MDR→IR</li>
+<li>PC+1</li>
+</ol>
+</li>
+<li>取数周期</li>
+<li>执行周期</li>
+</ol>
+<h2 id="微程序控制原理"><a href="#微程序控制原理" class="headerlink" title="微程序控制原理"></a>微程序控制原理</h2><p>机器指令对应一段程序，该段程序放在一个只读的控制寄存器中（一个指令–一个微程序）</p>
+<p>机器指令可分解为多个微操作序列</p>
+<p>微命令对应唯一微操作（计算机的原子操作）</p>
+<p>微指令是控制寄存器中的一个单元的内容，是若干个微命令的集合</p>
+<p>微地址：控制寄存器的单元地址</p>
+<h4 id="微指令"><a href="#微指令" class="headerlink" title="微指令"></a>微指令</h4><ol>
+<li>操作控制字段</li>
+</ol>
+<p>产生若干个微操作控制信号</p>
+<ol start="2">
+<li>顺序控制字段</li>
+</ol>
+<p>产生下一个微指令地址</p>
+<p>字段编码法</p>
+<p>将操作控制字段分为若干小段</p>
+<p>段内最短编码（一码一指令），需要译码器</p>
+<p>段段之间直接控制，一个段单位对应一个指令</p>
+<p>==般每个小段还要留出一个状态，表 示本字段不发出任何微命令==</p>
+<p>题目</p>
+<p>指令运行速度正比于时钟频率反比于时钟周期，MIPS，每秒一百万次</p>
+<p>如果2条微指令放在两个位足够，就是直接，操作控制字段位数不够需要3条或以上的互斥指令放在2个位上，就是段，需要注意00表示无状态</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/a17c0fa2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -404,6 +543,82 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/f4dccf31.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/f4dccf31.html" class="post-title-link" itemprop="url">github ssh失败</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="github-ssh失败"><a href="#github-ssh失败" class="headerlink" title="github ssh失败"></a>github ssh失败</h1><p>##问题</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo d</span></span><br><span class="line">fatal: unable to access &#x27;https://github.com/TimeInDreams/TimeInDreams.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (D:\MyBlogs\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (D:\MyBlogs\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
+<p>##解决方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">检验ssh连接</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T -p 443 git@ssh.github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 ([20.205.243.160]:443)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">This host key is known by the following other names/addresses:</span><br><span class="line">    ~/.ssh/known_hosts:3: github.com</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])?</span><br><span class="line"><span class="meta">#</span><span class="bash">修改ssh配置文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim ~/.ssh/config</span></span><br><span class="line"><span class="meta">#</span><span class="bash">fix ssh <span class="built_in">local</span> config file</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 ([20.205.243.160]:443)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">This host key is known by the following other names/addresses:</span><br><span class="line">    ~/.ssh/known_hosts:3: github.com</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="line">Warning: Permanently added &#x27;[ssh.github.com]:443&#x27; (ED25519) to the list of known hosts.</span><br><span class="line">Hi TimeInDreams! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>此时可以正常部署或clone</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/850c5858.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -517,219 +732,6 @@
 <h3 id="补码加减交替法"><a href="#补码加减交替法" class="headerlink" title="补码加减交替法"></a>补码加减交替法</h3><p>==符号位不单独处理==</p>
 <p>寄存器中不放绝对值原码而是真值补码</p>
 <p>部分余数[r<del>i</del>]<del>补</del>与[Y]<del>补</del>同号，商1，+[-Y]<del>补</del>，异号商0，+[Y]<del>补</del></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/17c6043.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/17c6043.html" class="post-title-link" itemprop="url">高级签名协议</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>#高级签名协议</p>
-<p>密钥生成，签名，验证</p>
-<h2 id="盲签名"><a href="#盲签名" class="headerlink" title="盲签名"></a>盲签名</h2><p>持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系</p>
-<p>###过程</p>
-<ol>
-<li>Setup，输出系统参数p和签名人的公钥私钥对（pk，sk）</li>
-<li>Sign <ol>
-<li>公共输入：系统参数p，签名人公钥pk，</li>
-<li>秘密输入，签名人私钥sk，用户输入代签名消息m</li>
-<li>停止时用户输出签名s</li>
-</ol>
-</li>
-<li>Verify 输入系统公开参数p，公钥pk，待验证消息签名对（m，s），输出1或0（是否有效）</li>
-</ol>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>正确性</li>
-<li>不可伪造性</li>
-<li>盲性</li>
-</ol>
-<h2 id="盲化"><a href="#盲化" class="headerlink" title="盲化"></a>盲化</h2><ol>
-<li><p>盲化：用户引入盲化因子，将消息m计算为m` k^e^m</p>
-</li>
-<li><p>签名：发送m‘给签名人，签名人签名得到s’，d次幂</p>
-</li>
-<li><p>去盲：用户用s‘计算出s k的逆元</p>
-</li>
-</ol>
-<p>验证 签名s^e^(modn)=m</p>
-<p>离散对数</p>
-<p>(g^x^,x)为公钥私钥,用公钥+随机数去盲，用随机数盲化</p>
-<ol>
-<li><p>选随机数r,m’=g^r^×H（m）</p>
-</li>
-<li><p>私钥次方s’=m’^x^</p>
-</li>
-<li><p>s=s’y^-r^</p>
-</li>
-</ol>
-<p>部分盲签名，嵌入一段公共信息</p>
-<h2 id="群签名"><a href="#群签名" class="headerlink" title="群签名"></a>群签名</h2><p>成员代表群体进行匿名签名，无法确定具体成员，但群管理者可以打开签名揭示签名者身份防止否认签名行为</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>系统初始化</li>
-<li>签名</li>
-<li>验证</li>
-<li>打开</li>
-</ol>
-<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>匿名性：无法确定给定签名的实际签名人</li>
-<li>无关联性：不打开签名的情况下，不能确定两个不同的群签名是否为同一个人所签名</li>
-<li>可追踪性：</li>
-<li>防陷害性：不能以其他群成员名义产生合法签名</li>
-<li>抗联合攻击：不能任意多个群成员勾结伪造其他群成员签名</li>
-</ol>
-<h2 id="环签名"><a href="#环签名" class="headerlink" title="环签名"></a>环签名</h2><p>签名的匿名性</p>
-<p>自己的私钥和其他n-1个人的公钥对m执行环签名，执行验证算法可以确信又环中某个签名者产生，但无法识别签名人的身份</p>
-<p>可链接性：如果是同一个人签的，验证时能确定时同一个人签的，但无法确定身份</p>
-<h2 id="基于身份的数字签名"><a href="#基于身份的数字签名" class="headerlink" title="基于身份的数字签名"></a>基于身份的数字签名</h2><h3 id="过程-1"><a href="#过程-1" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>Setup 输出主密钥，系统参数</li>
-<li>Extract，私钥提取算法，输入为用户身份信息ID，算出私钥sk发送给用户</li>
-<li>Sign 用户签名</li>
-<li>Verify 验证者完成验证</li>
-</ol>
-<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
-<li>适应性选择消息攻击</li>
-<li>选择身份攻击的不可伪造性</li>
-</ol>
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>双线性对，RSA</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/f4dccf31.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/f4dccf31.html" class="post-title-link" itemprop="url">github ssh失败</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="github-ssh失败"><a href="#github-ssh失败" class="headerlink" title="github ssh失败"></a>github ssh失败</h1><p>##问题</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo d</span></span><br><span class="line">fatal: unable to access &#x27;https://github.com/TimeInDreams/TimeInDreams.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (D:\MyBlogs\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (D:\MyBlogs\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
-<p>##解决方法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">检验ssh连接</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T -p 443 git@ssh.github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 ([20.205.243.160]:443)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">This host key is known by the following other names/addresses:</span><br><span class="line">    ~/.ssh/known_hosts:3: github.com</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])?</span><br><span class="line"><span class="meta">#</span><span class="bash">修改ssh配置文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim ~/.ssh/config</span></span><br><span class="line"><span class="meta">#</span><span class="bash">fix ssh <span class="built_in">local</span> config file</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 ([20.205.243.160]:443)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">This host key is known by the following other names/addresses:</span><br><span class="line">    ~/.ssh/known_hosts:3: github.com</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="line">Warning: Permanently added &#x27;[ssh.github.com]:443&#x27; (ED25519) to the list of known hosts.</span><br><span class="line">Hi TimeInDreams! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>此时可以正常部署或clone</p>
 
       
     </div>

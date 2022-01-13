@@ -250,6 +250,181 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/c62e94d6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/c62e94d6.html" class="post-title-link" itemprop="url">操作系统储存器管理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="操作系统储存器管理"><a href="#操作系统储存器管理" class="headerlink" title="操作系统储存器管理"></a>操作系统储存器管理</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="储存器共享"><a href="#储存器共享" class="headerlink" title="储存器共享"></a>储存器共享</h3><p>多进程共享主存</p>
+<h3 id="程序的load与linking"><a href="#程序的load与linking" class="headerlink" title="程序的load与linking"></a>程序的load与linking</h3><p>###地址空间</p>
+<p>地址空间中的地址称为相对地址（逻辑地址，虚地址）</p>
+<p>###储存空间</p>
+<p>物理储存器中的真实物理单元集合，地址称为绝对地址（物理地址）</p>
+<h3 id="地址重定位"><a href="#地址重定位" class="headerlink" title="地址重定位"></a>地址重定位</h3><ol>
+<li><p>静态重定位：</p>
+<p>load时将相对地址转换为绝对地址</p>
+<p>==为每个进程分配一个连续的储存区==</p>
+<p>程序执行期间不能再主存移动</p>
+<p>不能共享储存器中的程序（在其他程序load前已经load完毕，地址空间就绪，无法进行动态修改）</p>
+</li>
+<li><p>动态重定位：</p>
+<p>load后的相对地址转换为绝对地址推迟到exec时期</p>
+<p>即load后再内存中仍然保持相对地址</p>
+<p>硬件：重定位寄存器</p>
+<p>exec时期可移动（修改重定位寄存器），便于其他进程共享程序段</p>
+</li>
+</ol>
+<h2 id="分区式储存管理"><a href="#分区式储存管理" class="headerlink" title="分区式储存管理"></a>分区式储存管理</h2><h3 id="固定式分区（静态重定位）"><a href="#固定式分区（静态重定位）" class="headerlink" title="固定式分区（静态重定位）"></a>固定式分区（静态重定位）</h3><p>预先将主存划分，设置等待队列（无空闲区域时等待）</p>
+<p>预先分好，程序不适配内存，得不到充分利用</p>
+<h3 id="可变式分区（动态重定位）"><a href="#可变式分区（动态重定位）" class="headerlink" title="可变式分区（动态重定位）"></a>可变式分区（动态重定位）</h3><ol>
+<li>管理方式<ol>
+<li>分区说明表：<ol>
+<li>分配：空闲区→分配给进程+新空闲区，已分配区中填入分配完成的进程信息</li>
+<li>回收：未分配区，邻接的空闲区，合并再登记，将已分配区中该进程表目置空</li>
+</ol>
+</li>
+<li>空闲区链（与链表结构相似）：<ol>
+<li>表格信息附加再分区中：0表示空闲，1表示已分配</li>
+<li>该区域大小</li>
+<li>指针</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>分配算法<ol>
+<li>首次适应法（first fit）小地址对应小空闲区<ol>
+<li>分配：从链首扫描，至找到足够大的空闲区，划分给对应进程，优先分配小块空闲区</li>
+</ol>
+</li>
+<li>best fit<ol>
+<li>分配：扫描整个链，将最接近需求的空闲区分配</li>
+</ol>
+</li>
+<li>worst fit<ol>
+<li>分配：扫描整个链，找到能满足进程要求且最大的空闲区</li>
+<li>优先划分大空闲区</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>主存存在碎片，无法扩展主存（程序地址空间大于储存空间时无法运行）</li>
+</ol>
+<h2 id="覆盖与交换技术"><a href="#覆盖与交换技术" class="headerlink" title="覆盖与交换技术"></a>覆盖与交换技术</h2><p>###覆盖（进程内公用）</p>
+<ol>
+<li>同一主存可被不同程序段重复使用</li>
+<li>覆盖段：不同时要求装入主存（不同时运行）的程序段组成一组（称为覆盖段），可以分配一个主存区（覆盖区）</li>
+<li>设计覆盖结构</li>
+</ol>
+<h3 id="交换（进程间公用）"><a href="#交换（进程间公用）" class="headerlink" title="交换（进程间公用）"></a>交换（进程间公用）</h3><ol>
+<li>主存中暂时不运行的部分移动到外存，将外存中进程移动到相应主存运行</li>
+<li>交换时机：<ol>
+<li>进程使用完时间片/等待IO阻塞</li>
+<li>要求扩充储存未得到满足</li>
+</ol>
+</li>
+<li>关键：在外存保留副本，每次仅仅修改变化部分</li>
+</ol>
+<h2 id="页式动态地址变化"><a href="#页式动态地址变化" class="headerlink" title="页式动态地址变化"></a>页式动态地址变化</h2><p>两次访问主存</p>
+<p>访问页表+实现操作</p>
+<p>逻辑地址→（页号，块号）→物理地址</p>
+<ol>
+<li>页号&gt;页表长度：越界</li>
+<li>页号→块号</li>
+<li>物理地址=块×块大小+页内位移</li>
+</ol>
+<h3 id="快表"><a href="#快表" class="headerlink" title="快表"></a>快表</h3><p>页号，块号，访问位（最近是否被访问过），状态位（该寄存器是否占用）</p>
+<p>比访问主存的页表快，优先写空的寄存器（状态位=0），如果没有空的就覆盖最近未访问的寄存器（访问位=0），写入后将状态位和访问位置为1</p>
+<ul>
+<li>TLB快表查询命中率<ul>
+<li>平均执行时间=页号位于TLB×命中率+页号不位于TLB×（1-命中率）</li>
+<li>页号位于TLB=TLB查询时间+1次访存</li>
+<li>不位于=TLB查询时间+2次访存</li>
+</ul>
+</li>
+</ul>
+<p>###多级页表</p>
+<h2 id="位示图法表示空闲块"><a href="#位示图法表示空闲块" class="headerlink" title="位示图法表示空闲块"></a>位示图法表示空闲块</h2><p>行优先，+1不+1看情况就行</p>
+<p>多少个满行×每行多少个位（机器长度）+列号</p>
+<h2 id="段式储存"><a href="#段式储存" class="headerlink" title="段式储存"></a>段式储存</h2><p>页：页号映射到块号，页内位移即为物理位移</p>
+<p>段：段号映射到块号，段内位移映射到物理位移</p>
+<p>两个越界判断：段号是否越界，段内位移是否大于段长</p>
+<p>段式管理会产生碎片，页式不会</p>
+<h2 id="虚存"><a href="#虚存" class="headerlink" title="虚存"></a>虚存</h2><p>页请求时被请求页不在内存，保留CPU现场，从外存找到缺页</p>
+<ul>
+<li>抖动：反复调入调出</li>
+<li>缺页率：不成功访问（产生缺页中断）/（不成功+成功）</li>
+</ul>
+<h2 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h2><ol>
+<li>OPT：淘汰以后不再访问的页，或距最长时间后要访问的页面</li>
+<li>FIFO：最早入队的先踢出去</li>
+<li>LRU：近期最少使用，进程分配主存块越多一定越少缺页中断，不会出现Belady异常</li>
+</ol>
+<h3 id="最佳页面大小"><a href="#最佳页面大小" class="headerlink" title="最佳页面大小"></a>最佳页面大小</h3><p>$\sqrt(2进程大小×一个页表项所占字节数)$</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/87698413.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -296,83 +471,6 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="Linux进程"><a href="#Linux进程" class="headerlink" title="Linux进程"></a>Linux进程</h1><h2 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h2><p>创建子进程，此时进程分裂为两个，拥有相同的上下文和堆栈缓存，父进程的返回值为pid，子进程收到的返回值为0。</p>
 <p>##wait</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/3473f5e6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/3473f5e6.html" class="post-title-link" itemprop="url">Linux内核编译</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Linux内核编译"><a href="#Linux内核编译" class="headerlink" title="Linux内核编译"></a>Linux内核编译</h1><p><img src="C:\Users\GK\Pictures\Temp\1.jpg" alt="image-20211127170045558"></p>
-<p><img src="C:\Users\GK\Pictures\Temp\image-20211127170207035.png" alt="image-20211127170207035"></p>
-<p><img src="C:\Users\GK\Pictures\Temp\image-20211127170329383.png" alt="image-20211127170329383"></p>
-<p><img src="C:\Users\GK\Pictures\Temp\image-20211127170413853.png" alt="image-20211127170413853"><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211127194941960.png" alt="image-20211127194941960"></p>
-<p><img src="C:\Users\GK\Pictures\Temp\image-20211127195033033.png" alt="image-20211127195033033"></p>
-<p><img src="C:\Users\GK\Pictures\Temp\image-20211127195344584.png" alt="image-20211127195344584"></p>
-<p><img src="C:\Users\GK\Pictures\Temp\image-20211127200634153.png" alt="image-20211127200634153"></p>
 
       
     </div>
@@ -491,6 +589,83 @@
 <p>弹出（（SP））</p>
 <p>SP+1</p>
 <h2 id="指令类型"><a href="#指令类型" class="headerlink" title="指令类型"></a>指令类型</h2><p>位修改：异或</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/3473f5e6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/3473f5e6.html" class="post-title-link" itemprop="url">Linux内核编译</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Linux内核编译"><a href="#Linux内核编译" class="headerlink" title="Linux内核编译"></a>Linux内核编译</h1><p><img src="C:\Users\GK\Pictures\Temp\1.jpg" alt="image-20211127170045558"></p>
+<p><img src="C:\Users\GK\Pictures\Temp\image-20211127170207035.png" alt="image-20211127170207035"></p>
+<p><img src="C:\Users\GK\Pictures\Temp\image-20211127170329383.png" alt="image-20211127170329383"></p>
+<p><img src="C:\Users\GK\Pictures\Temp\image-20211127170413853.png" alt="image-20211127170413853"><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211127194941960.png" alt="image-20211127194941960"></p>
+<p><img src="C:\Users\GK\Pictures\Temp\image-20211127195033033.png" alt="image-20211127195033033"></p>
+<p><img src="C:\Users\GK\Pictures\Temp\image-20211127195344584.png" alt="image-20211127195344584"></p>
+<p><img src="C:\Users\GK\Pictures\Temp\image-20211127200634153.png" alt="image-20211127200634153"></p>
 
       
     </div>
@@ -667,7 +842,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1abadc07.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/ff08ae5a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -680,7 +855,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/1abadc07.html" class="post-title-link" itemprop="url">死锁</a>
+          <a href="/article/ff08ae5a.html" class="post-title-link" itemprop="url">处理机调度</a>
         </h2>
 
         <div class="post-meta-container">
@@ -711,197 +886,79 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h2><ol>
-<li>假分配检测：P本次请求&lt;进程P总可能需求，P本次请求&lt;系统目前可分配资源</li>
-<li>安全序列检测</li>
+          <h1 id="进程线程，处理机调度"><a href="#进程线程，处理机调度" class="headerlink" title="进程线程，处理机调度"></a>进程线程，处理机调度</h1><p>进程是资源分配和调度的独立单位</p>
+<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>基本：运行态，就绪态，阻塞态</p>
+<h2 id="进程控制块PCB"><a href="#进程控制块PCB" class="headerlink" title="进程控制块PCB"></a>进程控制块PCB</h2><p>进程存在的唯一标识，包含进程描述信息和控制信息</p>
+<ul>
+<li>Linux两个页框（8K）内核栈+thread_info结构体（储存进程描述符地址）</li>
+<li>windows 内核进程控制块中包含PCB</li>
+</ul>
+<h2 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h2><p>寄存器状态</p>
+<p>保存在对应PCB中</p>
+<p>linux进程切换只发生在内核态，schedule（）</p>
+<h2 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h2><p>虚拟地址空间</p>
+<p>用户栈</p>
+<p>代码库</p>
+<p>用户堆</p>
+<p>数据段</p>
+<p>代码段</p>
+<p>内核栈+代码数据</p>
+<h2 id="组织"><a href="#组织" class="headerlink" title="组织"></a>组织</h2><p>进程链表</p>
+<h2 id="进程控制原语（不可分割）"><a href="#进程控制原语（不可分割）" class="headerlink" title="进程控制原语（不可分割）"></a>进程控制原语（不可分割）</h2><ol>
+<li>创建</li>
 </ol>
 <ul>
-<li>某时刻是否存在安全序列（安全序列检测）</li>
+<li>申请空白PCB</li>
+<li>分配资源</li>
+<li>初始化PCB</li>
+<li>插入就绪队列</li>
 </ul>
-<p>可用资源分配给第一个能满足最大需求max的进程，等待进程运行完，回收该进程资源作为可用资源，重复直至所有进程可运行完，存在安全序列，卡死，不存在</p>
-<ul>
-<li>进程P发出请求向量，是否接受：</li>
-</ul>
+<p>  linux fork（），==写时复制==，读共享父进程地址空间，写时才创建复制页的副本，父子进程拥有不同的虚拟地址空间</p>
 <ol>
-<li>假分配检测</li>
-<li>先分配给P：系统可用资源-请求向量，P的已分配资源+请求向量</li>
-<li>检测是否此时存在安全序列，是则接受</li>
-</ol>
-<h2 id="死锁检测"><a href="#死锁检测" class="headerlink" title="死锁检测"></a>死锁检测</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/c62e94d6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/c62e94d6.html" class="post-title-link" itemprop="url">操作系统储存器管理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="操作系统储存器管理"><a href="#操作系统储存器管理" class="headerlink" title="操作系统储存器管理"></a>操作系统储存器管理</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="储存器共享"><a href="#储存器共享" class="headerlink" title="储存器共享"></a>储存器共享</h3><p>多进程共享主存</p>
-<h3 id="程序的load与linking"><a href="#程序的load与linking" class="headerlink" title="程序的load与linking"></a>程序的load与linking</h3><p>###地址空间</p>
-<p>地址空间中的地址称为相对地址（逻辑地址，虚地址）</p>
-<p>###储存空间</p>
-<p>物理储存器中的真实物理单元集合，地址称为绝对地址（物理地址）</p>
-<h3 id="地址重定位"><a href="#地址重定位" class="headerlink" title="地址重定位"></a>地址重定位</h3><ol>
-<li><p>静态重定位：</p>
-<p>load时将相对地址转换为绝对地址</p>
-<p>==为每个进程分配一个连续的储存区==</p>
-<p>程序执行期间不能再主存移动</p>
-<p>不能共享储存器中的程序（在其他程序load前已经load完毕，地址空间就绪，无法进行动态修改）</p>
-</li>
-<li><p>动态重定位：</p>
-<p>load后的相对地址转换为绝对地址推迟到exec时期</p>
-<p>即load后再内存中仍然保持相对地址</p>
-<p>硬件：重定位寄存器</p>
-<p>exec时期可移动（修改重定位寄存器），便于其他进程共享程序段</p>
-</li>
-</ol>
-<h2 id="分区式储存管理"><a href="#分区式储存管理" class="headerlink" title="分区式储存管理"></a>分区式储存管理</h2><h3 id="固定式分区（静态重定位）"><a href="#固定式分区（静态重定位）" class="headerlink" title="固定式分区（静态重定位）"></a>固定式分区（静态重定位）</h3><p>预先将主存划分，设置等待队列（无空闲区域时等待）</p>
-<p>预先分好，程序不适配内存，得不到充分利用</p>
-<h3 id="可变式分区（动态重定位）"><a href="#可变式分区（动态重定位）" class="headerlink" title="可变式分区（动态重定位）"></a>可变式分区（动态重定位）</h3><ol>
-<li>管理方式<ol>
-<li>分区说明表：<ol>
-<li>分配：空闲区→分配给进程+新空闲区，已分配区中填入分配完成的进程信息</li>
-<li>回收：未分配区，邻接的空闲区，合并再登记，将已分配区中该进程表目置空</li>
-</ol>
-</li>
-<li>空闲区链（与链表结构相似）：<ol>
-<li>表格信息附加再分区中：0表示空闲，1表示已分配</li>
-<li>该区域大小</li>
-<li>指针</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>分配算法<ol>
-<li>首次适应法（first fit）小地址对应小空闲区<ol>
-<li>分配：从链首扫描，至找到足够大的空闲区，划分给对应进程，优先分配小块空闲区</li>
-</ol>
-</li>
-<li>best fit<ol>
-<li>分配：扫描整个链，将最接近需求的空闲区分配</li>
-</ol>
-</li>
-<li>worst fit<ol>
-<li>分配：扫描整个链，找到能满足进程要求且最大的空闲区</li>
-<li>优先划分大空闲区</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>主存存在碎片，无法扩展主存（程序地址空间大于储存空间时无法运行）</li>
-</ol>
-<h2 id="覆盖与交换技术"><a href="#覆盖与交换技术" class="headerlink" title="覆盖与交换技术"></a>覆盖与交换技术</h2><p>###覆盖（进程内公用）</p>
+<li><p>撤销</p>
 <ol>
-<li>同一主存可被不同程序段重复使用</li>
-<li>覆盖段：不同时要求装入主存（不同时运行）的程序段组成一组（称为覆盖段），可以分配一个主存区（覆盖区）</li>
-<li>设计覆盖结构</li>
-</ol>
-<h3 id="交换（进程间公用）"><a href="#交换（进程间公用）" class="headerlink" title="交换（进程间公用）"></a>交换（进程间公用）</h3><ol>
-<li>主存中暂时不运行的部分移动到外存，将外存中进程移动到相应主存运行</li>
-<li>交换时机：<ol>
-<li>进程使用完时间片/等待IO阻塞</li>
-<li>要求扩充储存未得到满足</li>
+<li>父进程先结束，孤儿进程，称为init进程的子进程</li>
 </ol>
 </li>
-<li>关键：在外存保留副本，每次仅仅修改变化部分</li>
-</ol>
-<h2 id="页式动态地址变化"><a href="#页式动态地址变化" class="headerlink" title="页式动态地址变化"></a>页式动态地址变化</h2><p>两次访问主存</p>
-<p>访问页表+实现操作</p>
-<p>逻辑地址→（页号，块号）→物理地址</p>
+<li><p>阻塞</p>
 <ol>
-<li>页号&gt;页表长度：越界</li>
-<li>页号→块号</li>
-<li>物理地址=块×块大小+页内位移</li>
+<li>停止cpu占用</li>
+<li>保存上下文</li>
+<li>转进程调度</li>
 </ol>
-<h3 id="快表"><a href="#快表" class="headerlink" title="快表"></a>快表</h3><p>页号，块号，访问位（最近是否被访问过），状态位（该寄存器是否占用）</p>
-<p>比访问主存的页表快，优先写空的寄存器（状态位=0），如果没有空的就覆盖最近未访问的寄存器（访问位=0），写入后将状态位和访问位置为1</p>
+</li>
+</ol>
+<p>#线程</p>
+<p>将拥有资源的基本单位和调度的基本单位分离</p>
+<p>所有线程共享其进程的地址空间，共享进程的资源</p>
+<h1 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h1><p>平均等待时间=每个进程等待时间之和/进程数</p>
+<p>非剥夺：直至进程完成或阻塞时调度</p>
+<p>剥夺：每个时间片调度后决定是否剥夺</p>
 <ul>
-<li>TLB快表查询命中率<ul>
-<li>平均执行时间=页号位于TLB×命中率+页号不位于TLB×（1-命中率）</li>
-<li>页号位于TLB=TLB查询时间+1次访存</li>
-<li>不位于=TLB查询时间+2次访存</li>
-</ul>
+<li><p>未特殊标注即为非剥夺或可剥夺皆可</p>
+</li>
+<li><p>FCFS先来先服务，大作业垄断，非剥夺</p>
+</li>
+<li><p>SJF最短作业优先：估计运行时间短</p>
+</li>
+<li><p>高响应比调度：1+等待时间/估计运行时间，等待时间越长，估计运行时间越短，越优先被调度</p>
+</li>
+<li><p>优先级调度</p>
+</li>
+<li><p>时间片轮转：时间片结束添加到就绪队列尾部，产生新的进程请求也添加到就绪队列尾部</p>
+</li>
+<li><p>多级队列：每个队列有自己的调度，队列间固定优先级抢占，高优先级时间片小（每个任务都不可忽视），未完成进入下一级队列</p>
 </li>
 </ul>
-<p>###多级页表</p>
-<h2 id="位示图法表示空闲块"><a href="#位示图法表示空闲块" class="headerlink" title="位示图法表示空闲块"></a>位示图法表示空闲块</h2><p>行优先，+1不+1看情况就行</p>
-<p>多少个满行×每行多少个位（机器长度）+列号</p>
-<h2 id="段式储存"><a href="#段式储存" class="headerlink" title="段式储存"></a>段式储存</h2><p>页：页号映射到块号，页内位移即为物理位移</p>
-<p>段：段号映射到块号，段内位移映射到物理位移</p>
-<p>两个越界判断：段号是否越界，段内位移是否大于段长</p>
-<p>段式管理会产生碎片，页式不会</p>
-<h2 id="虚存"><a href="#虚存" class="headerlink" title="虚存"></a>虚存</h2><p>页请求时被请求页不在内存，保留CPU现场，从外存找到缺页</p>
-<ul>
-<li>抖动：反复调入调出</li>
-<li>缺页率：不成功访问（产生缺页中断）/（不成功+成功）</li>
+<h3 id="实时系统调度"><a href="#实时系统调度" class="headerlink" title="实时系统调度"></a>实时系统调度</h3><ul>
+<li>单调速率调度：</li>
 </ul>
-<h2 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h2><ol>
-<li>OPT：淘汰以后不再访问的页，或距最长时间后要访问的页面</li>
-<li>FIFO：最早入队的先踢出去</li>
-<li>LRU：近期最少使用，进程分配主存块越多一定越少缺页中断，不会出现Belady异常</li>
-</ol>
-<h3 id="最佳页面大小"><a href="#最佳页面大小" class="headerlink" title="最佳页面大小"></a>最佳页面大小</h3><p>$\sqrt(2进程大小×一个页表项所占字节数)$</p>
+<p>在进入系统时，每个周期性任务会分配一个优先级，它与其周期成反比</p>
+<p>较高优先级进程将会抢占低优先级</p>
+<ul>
+<li>EDF最早截止时间优先</li>
+<li>LLF最小松弛度优先：（结束时间-当前时间）还要运行多长时间-已经运行时间</li>
+</ul>
 
       
     </div>
@@ -1011,7 +1068,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/b832ff82.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1abadc07.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1024,7 +1081,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/b832ff82.html" class="post-title-link" itemprop="url">实体认证协议</a>
+          <a href="/article/1abadc07.html" class="post-title-link" itemprop="url">死锁</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1055,44 +1112,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="实体认证协议"><a href="#实体认证协议" class="headerlink" title="实体认证协议"></a>实体认证协议</h1><p>公钥证书架构</p>
-<p>一个主体声称自己是A，另一个主体B为验证者，B要验证对方确实是A</p>
-<p>Cert<del>X</del>:X在此证书下的架构</p>
-<p>Sign<del>X</del>:X使用私钥进行签名</p>
-<h2 id="基于公钥密码的一次传输单向认证"><a href="#基于公钥密码的一次传输单向认证" class="headerlink" title="基于公钥密码的一次传输单向认证"></a>基于公钥密码的一次传输单向认证</h2><p>单向认证：A用私钥签名，将架构和签名发送给B，B执行签名验证，认证实体去确实为A</p>
-<p>签名中加入时间戳/序列号，防止攻击者事先获得已有的签名</p>
-<p>不方便同步和维护→随机数（交互发送随机数）→</p>
-<p>两次传输单向认证协议（交互式）</p>
-<p>签名认证方A加入随机数进行签名操作防止B使用任意随机数脱离控制</p>
-<p>先发送一个随机数N<del>A</del>给对方</p>
-<h2 id="双向认证"><a href="#双向认证" class="headerlink" title="双向认证"></a>双向认证</h2><p>两次单向认证是不安全的</p>
-<p>E的中间人攻击：<br>E冒充B选择随机数激活A的签名程序，然后冒充A转发给B，B执行认证操作后转发给A，让B替代自己执行认证操作</p>
-<p>##基于口令的实体认证</p>
-<p>口令：长期使用，相对较短</p>
-<p>主机H初始化用户U，发送口令PW<del>U</del></p>
-<p>主机H建立保存所有用户口令的文档（ID，PW）</p>
+          <h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h2><ol>
+<li>假分配检测：P本次请求&lt;进程P总可能需求，P本次请求&lt;系统目前可分配资源</li>
+<li>安全序列检测</li>
+</ol>
 <ul>
-<li><p> 单向函数加密PW→字典攻击</p>
-</li>
-<li><p>==加盐==防止==字典攻击==，主机H给定每个ID一个唯一的随机数称为盐值，每次请求服务将口令和盐输入单向函数</p>
-</li>
+<li>某时刻是否存在安全序列（安全序列检测）</li>
 </ul>
-<p>不能抵挡在线口令窃听：攻击者可以获取U发送给H的明文命令</p>
+<p>可用资源分配给第一个能满足最大需求max的进程，等待进程运行完，回收该进程资源作为可用资源，重复直至所有进程可运行完，存在安全序列，卡死，不存在</p>
 <ul>
-<li>==哈希链==防止窃听，一次性口令：初始口令PW<del>0</del>，每次请求进行一次额外hash，保存在主机，每次请求主机更新自己的（ID，n，Hash^n^(PW)），用户请求时计算n-1次hash，主机对用户发来的口令进行一次hash，与记录比对</li>
+<li>进程P发出请求向量，是否接受：</li>
 </ul>
-<h2 id="加密的密钥交换EKE"><a href="#加密的密钥交换EKE" class="headerlink" title="加密的密钥交换EKE"></a>加密的密钥交换EKE</h2><p>实体认证+密钥协商</p>
-<p>协议结束后，用户U和主机H将完成双向实体认证，并得到一个共享密钥</p>
-<p>前提：</p>
-<ul>
-<li>口令PW</li>
-<li>事先约定的对称加密体制SE，公钥加密体制AE</li>
-</ul>
-<p>SE<del>K</del>为用K进行对称加密，AE<del>K</del>为用公钥K进行公钥加密</p>
-<p>PK为随机数，K为主机H产生的随机对称密钥</p>
-<h2 id="对实体认证协议的攻击"><a href="#对实体认证协议的攻击" class="headerlink" title="对实体认证协议的攻击"></a>对实体认证协议的攻击</h2><p>重放攻击</p>
-<p>中间人攻击</p>
-
+<ol>
+<li>假分配检测</li>
+<li>先分配给P：系统可用资源-请求向量，P的已分配资源+请求向量</li>
+<li>检测是否此时存在安全序列，是则接受</li>
+</ol>
+<h2 id="死锁检测"><a href="#死锁检测" class="headerlink" title="死锁检测"></a>死锁检测</h2>
       
     </div>
 
