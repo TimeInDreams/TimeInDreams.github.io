@@ -324,7 +324,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/a17c0fa2.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/63953bc3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -337,7 +337,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/a17c0fa2.html" class="post-title-link" itemprop="url">储存系统和结构</a>
+          <a href="/article/63953bc3.html" class="post-title-link" itemprop="url">经典认证协议</a>
         </h2>
 
         <div class="post-meta-container">
@@ -368,29 +368,213 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="储存系统和结构"><a href="#储存系统和结构" class="headerlink" title="储存系统和结构"></a>储存系统和结构</h1><h2 id="储存器"><a href="#储存器" class="headerlink" title="储存器"></a>储存器</h2><h3 id="高速缓冲储存器"><a href="#高速缓冲储存器" class="headerlink" title="高速缓冲储存器"></a>高速缓冲储存器</h3><h3 id="主储存器"><a href="#主储存器" class="headerlink" title="主储存器"></a>主储存器</h3><h3 id="辅助储存器"><a href="#辅助储存器" class="headerlink" title="辅助储存器"></a>辅助储存器</h3><h3 id="随机存取RAM"><a href="#随机存取RAM" class="headerlink" title="随机存取RAM"></a>随机存取RAM</h3><p>存取时间相同</p>
-<h3 id="只读ROM"><a href="#只读ROM" class="headerlink" title="只读ROM"></a>只读ROM</h3><p>###顺序存取SRAM</p>
-<p>储存读取按照物理位置</p>
-<h3 id="直接存取DAM"><a href="#直接存取DAM" class="headerlink" title="直接存取DAM"></a>直接存取DAM</h3><h3 id="易失性与非易失性"><a href="#易失性与非易失性" class="headerlink" title="易失性与非易失性"></a>易失性与非易失性</h3><p>断电储存信息是否仍然存在</p>
-<h2 id="多级缓存系统"><a href="#多级缓存系统" class="headerlink" title="多级缓存系统"></a>多级缓存系统</h2><p>Cache-主存-辅存</p>
-<p>虚拟存储系统（主存和辅存之间）通过操作系统调度</p>
-<h2 id="主储存器的组织"><a href="#主储存器的组织" class="headerlink" title="主储存器的组织"></a>主储存器的组织</h2><p>地址线与数据线</p>
-<p>地址码-译码器-读写电路</p>
-<h3 id="储存单元"><a href="#储存单元" class="headerlink" title="储存单元"></a>储存单元</h3><p>位</p>
-<p>字：二进制数作为一个整体存入或取出</p>
-<p>eg：字节编址，一个储存字包含4个单独编址的储存字节，字地址总是等于4的整数倍</p>
-<p>大端编码与小端编码</p>
-<p>小端：地址高位（N+3）存放字节高位（B3）</p>
-<p>###存取速度</p>
-<p>主存带宽：<br>·缩短存取周期； ·增加存储字长； ·增加存储体</p>
-<p>边界对齐存放法：克服紧挨着存放可能导致的单字双字跨越储存器存放的情况（此时需要访问两次储存器才能拿到一个数据）</p>
-<h2 id="RAM和ROM"><a href="#RAM和ROM" class="headerlink" title="RAM和ROM"></a>RAM和ROM</h2><h3 id="DRAM的刷新"><a href="#DRAM的刷新" class="headerlink" title="DRAM的刷新"></a>DRAM的刷新</h3><p>补充电荷防止信息丢失</p>
-<p>异步刷新：</p>
-<p>刷新操作平均分配到整个最大刷新间隔时间内进行</p>
-<p>相邻两行的刷新间隔=最大刷新间隔时间/行数</p>
-<p>###译码方式</p>
-<p>单译码：字索引，每次击中一个字地址对应的行</p>
-<p>双译码：xy轴地址线索引</p>
+          <h1 id="经典认证协议"><a href="#经典认证协议" class="headerlink" title="经典认证协议"></a>经典认证协议</h1><ul>
+<li>临时值只能根据自己产生的临时值验证消息的新鲜性</li>
+<li>时间戳要求时钟同步，不与主体相关联</li>
+</ul>
+<p>Nonce:在密码学中是一个只被使用一次的任意或非重复的随机数值，可提供时序信息。N<del>B</del></p>
+<p>E<del>B</del>：B可解码的编码方式，用B的公钥加密</p>
+<p>M：会话识别号</p>
+<p>K：密钥 </p>
+<p>K<del>AB</del>：AB的会话密钥</p>
+<p>##NSPK协议</p>
+<ol>
+<li>A→B: E<del>B</del> (N<del>A</del> , A) </li>
+<li>B→A: E<del>A</del> (N<del>A</del> , N<del>B</del> ) </li>
+<li>A→B: E<del>B</del> (N<del>B</del> )</li>
+</ol>
+<p>###lowe中间人攻击</p>
+<p>1.A→C: E<del>C</del> (N<del>A</del> , A) </p>
+<p>1‘. C<del>A</del>→B: E<del>B</del> (N<del>A</del> , A) (C在B面前伪装成为A，B将C当成A) </p>
+<p>2’. B →C<del>A</del> : E<del>A</del> (N<del>A</del> , N<del>B</del> )（C无法解码，因此转发给A）</p>
+<p>2.C →A: E<del>A</del> (N<del>A</del> , N<del>B</del> ) </p>
+<p>3.A→C: E<del>C</del> (N<del>B</del> ) </p>
+<p>3’. C<del>A</del>→B: E<del>B</del> (N<del>B</del> )</p>
+<p>此时C成功让B相信他就是A，因为正确发送N<del>B</del></p>
+<h2 id="Otway-Rees协议"><a href="#Otway-Rees协议" class="headerlink" title="Otway-Rees协议"></a>Otway-Rees协议</h2><p>随机数，会话识别号，身份ID，加密</p>
+<ol>
+<li>A→B：M，A，B，{N<del>A</del>，M，A，B}K<del>as</del> B有了kas加密后的验证</li>
+<li>B→S：M，A，B，{N<del>A</del>，M，A，B}K<del>as</del>，{N<del>B</del>，M，A，B}K<del>bs</del>此时S有了a和b的M，和AB的N，进行检查</li>
+<li>S→B：M，{N<del>A</del>，Kab}Kas（给a的验证包），{N<del>B</del>，Kab}Kbs（给b的验证包）</li>
+<li>B→A：M，{N<del>A</del>，Kab}Kas（给a的验证包）</li>
+</ol>
+<p>S检查消息2中两个加密消息内的 M,A,B是否一致，如果匹配，才会为A,B生成会话密钥 ，并向B发送消息3。</p>
+<h3 id="类型缺陷型攻击"><a href="#类型缺陷型攻击" class="headerlink" title="类型缺陷型攻击"></a>类型缺陷型攻击</h3><p>攻击者假冒B：记录第一步M，{N<del>A</del>，M，A，B}K<del>as</del>，A→P（B），P（B）对第四步的给a的验证包进行伪造，方法为重放1M，{N<del>A</del>，M，A，B}K<del>as</del>来代替{N<del>A</del>，Kab}Kas</p>
+<p>假冒S：2. B→P(S) 3.重放第二步攻击，P（S）→B  ：M，{N<del>A</del>，M，A，B}K<del>as</del>，{N<del>B</del>，M，A，B}K<del>bs</del></p>
+<p>即M，Kas/Kbs加密后的验证包被作为重放攻击，即可让AB信任P</p>
+<h2 id="Otway-Rees协议Abadi-Needham改进版本"><a href="#Otway-Rees协议Abadi-Needham改进版本" class="headerlink" title="Otway-Rees协议Abadi-Needham改进版本"></a>Otway-Rees协议Abadi-Needham改进版本</h2><p>12步中不进行与s有关密钥kas，kbs发送，即可不被重放攻击</p>
+<ol>
+<li>A→B:Na,A,B</li>
+<li>B→S:A,B,Na,Nb</li>
+<li>S→B:{N<del>A</del>，Kab,A,B}Kas（给a的验证包），{N<del>B</del>，Kab,A,B}Kbs（给b的验证包）</li>
+<li>B→A:{N<del>A</del>，Kab,A,B}Kas（给a的验证包)</li>
+</ol>
+<h3 id="平行会话攻击："><a href="#平行会话攻击：" class="headerlink" title="平行会话攻击："></a>平行会话攻击：</h3><p>在攻击者的特意安排下，一个协议两次或更多的并发执行</p>
+<p>S对A,B之间时间间隔很短 的两次密钥申请不进行限制</p>
+<ol>
+<li>B→P(S):A,B,Na,Nb 假冒S，B的发送被攻击者破译</li>
+<li>P（B）→ S：假冒B请求两次A B Na Np1 和A，B，Np2，Nb假冒B，用Np1和Np2替换Na和Nb</li>
+<li>S→ P（B）：<ol>
+<li>{==N<del>p1</del>==，Kab,A,B}Kas（给a的验证包），{N<del>b</del>，Kab,A,B}Kbs（给b的验证包）</li>
+<li>{N<del>A</del>，Kab,A,B}Kas（给a的验证包），{==N<del>P2</del>==，Kab,A,B}Kbs（给b的验证包）</li>
+</ol>
+</li>
+</ol>
+<p>真服务器向攻击者P发送验证</p>
+<ol start="4">
+<li>P（S）→B再次假冒S {N<del>A</del>，Kab,A,B}Kas，{N<del>B</del>，==Kab假==,A,B}Kbs</li>
+<li>B→A：{N<del>A</del>，Kab,A,B}Kas</li>
+</ol>
+<h2 id="Andrew-安全PRC协议"><a href="#Andrew-安全PRC协议" class="headerlink" title="Andrew 安全PRC协议"></a>Andrew 安全PRC协议</h2><ol>
+<li>A→B：A，{Na}Kab</li>
+<li>B→A：{Na+1，Nb}Kab</li>
+<li>A→B：{Nb+1}Kab</li>
+<li>B→A：{K^’’^ab,N^’’^b}Kab</li>
+</ol>
+<h3 id="针对Andrew安全RPC协议的“类型缺陷”型攻击"><a href="#针对Andrew安全RPC协议的“类型缺陷”型攻击" class="headerlink" title="针对Andrew安全RPC协议的“类型缺陷”型攻击"></a>针对Andrew安全RPC协议的“类型缺陷”型攻击</h3><p>攻击者P可以记录监听到的消息 2 {Na+1，Nb}Kab,截获A发送给B的消息3，并在第4步重放消息 2给A</p>
+<ol start="3">
+<li>A→P(B):{Nb+1}Kab 此时消息3被截获，得知？</li>
+<li>P（B）→A:{Na+1，Nb}Kab（此为被监听的消息2），A认为Na+1就是K^’’^ab</li>
+</ol>
+<h2 id="大嘴青蛙协议"><a href="#大嘴青蛙协议" class="headerlink" title="大嘴青蛙协议"></a>大嘴青蛙协议</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/850c5858.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/850c5858.html" class="post-title-link" itemprop="url">机器运算</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="机器运算"><a href="#机器运算" class="headerlink" title="机器运算"></a>机器运算</h1><h2 id="基本算术运算"><a href="#基本算术运算" class="headerlink" title="基本算术运算"></a>基本算术运算</h2><p>全加器</p>
+<p>串行加法器</p>
+<p>并行加法器的快速进位与分组并行</p>
+<ol>
+<li>单级先行进位方式：组内并行组间串行</li>
+<li>多级先行进位</li>
+</ol>
+<h2 id="定点加减运算"><a href="#定点加减运算" class="headerlink" title="定点加减运算"></a>定点加减运算</h2><h3 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h3><h3 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h3><ol>
+<li>[X+Y]补=[X]补+[Y]补</li>
+<li>[X-Y]补=[X+(-Y)]补=[X]补+[-Y]补</li>
+</ol>
+<p>已知[Y]补求[-Y]补的方法是：将[Y]补 连同符号位一起求反，末尾加“1” 。</p>
+<p>原码—补码—变补</p>
+<h3 id="变补"><a href="#变补" class="headerlink" title="变补"></a>变补</h3><p>[Y]补：Y的补码，</p>
+<p>​            一个负数由原码表示转换成补码表示时，符号位是不变的，仅对==原码==数值位的各位变反，末尾加 “1” 。</p>
+<p>[-Y]补：Y的补码的变补，</p>
+<p>​            补码表示的变补则不论这个数的真值是正是负，一律对==补码==连同符号位一起变反，末尾加 “1” 。</p>
+<h3 id="符号扩展"><a href="#符号扩展" class="headerlink" title="符号扩展"></a>符号扩展</h3><p>8位数 与另外一个32位数相加，将8位数扩展到32位</p>
+<ol>
+<li>原有符号 位保持不变</li>
+<li>正数则所有附加位都用0进 行填充</li>
+<li>负数则所有附加位都用1进行填 充</li>
+<li>==用符号位来填充附加的 高位==</li>
+</ol>
+<h3 id="补码的溢出判断与检测方法"><a href="#补码的溢出判断与检测方法" class="headerlink" title="补码的溢出判断与检测方法"></a>补码的溢出判断与检测方法</h3><p>字长为n+1位的定点整数（其中一位 为符号位），采用补码表示，当运算结果 大于2 n -1或小于-2 n时，就产生溢出。</p>
+<p>若X、Y异号，不会溢出</p>
+<h2 id="带符号数的移位和舍入操作"><a href="#带符号数的移位和舍入操作" class="headerlink" title="带符号数的移位和舍入操作"></a>带符号数的移位和舍入操作</h2><p>原码负数：移位后的空出位补0</p>
+<p>补码正数：左移右移空出位都补0</p>
+<p>补码负数：左移后（右边空位）的空出位补0，右移（左边位）后的空出位补1。</p>
+<p>关于数的移位，特别需要注意正数，三码相同，所以无论左移还是右移都是补0.而负数的补码就需要注意，左移在右边补0，右移需要在左边补1，有一个很有趣的误区是，认为符号位保持不变，仅仅移动数据位，这是不对的，因为无论数据位还是符号位，都是二进制，在整体大迁移的过程中，符号位也是要跟随潮流的。只不过，为了保证右移后，和原来的符号数一样，因此，负数在右移时左边补1.</p>
+<h3 id="舍入"><a href="#舍入" class="headerlink" title="舍入"></a>舍入</h3><ol>
+<li>恒舍（切断）</li>
+<li>冯·诺依曼舍入法：p位的最低位置1</li>
+<li>下舍上入法：要舍去的q 位部分的最高位作为判断标志，为0最后舍掉，为1末尾保留1</li>
+<li>查表舍入：</li>
+</ol>
+<h2 id="定点乘法运算"><a href="#定点乘法运算" class="headerlink" title="定点乘法运算"></a>定点乘法运算</h2><p>原码一位乘法的规则为：手算法，累加右移，符号位同号为正异号为负</p>
+<p>X*Y需要3个寄存器：A部分积与最后乘积的高位部分初值为0，B被乘数X，C乘数Y（运算过程中不再需要保留乘数，改为存放乘积的低位部 分）</p>
+<h3 id="比较法－Booth乘法"><a href="#比较法－Booth乘法" class="headerlink" title="比较法－Booth乘法"></a>比较法－Booth乘法</h3><ol>
+<li><p>补码一位乘法</p>
+</li>
+<li><p>符号位参加运算</p>
+</li>
+<li><p>乘数最低位后面增加一位附加位 Yn+1，其初值为0</p>
+</li>
+<li><p>每求一次部分积要右移一位， 所以乘数的最低两位Y<del>n</del>、Y<del>n+1</del>的值决定了 每次应执行的操作</p>
+</li>
+<li><p>移位按补码右移规则进行</p>
+</li>
+<li><p>共需做n+1次累加，n次移位，第 n+1次不移位</p>
+</li>
+</ol>
+<p>判断位 Y<del>n</del>  Y<del>n+1</del></p>
+<p>​            0    0        原部分积右移一位</p>
+<p>​            0    1        原部分积加[X]<del>补</del>后右移一位</p>
+<p>​            1    0        原部分积加[-X]<del>补</del>后右移一位</p>
+<p>​            1    1        原部分积右移一位</p>
+<p>计算过程先求[X]<del>补</del>，[Y]<del>补</del>，[-X]<del>补</del></p>
+<h2 id="定点除法"><a href="#定点除法" class="headerlink" title="定点除法"></a>定点除法</h2><p>原码比较法：手算法</p>
+<h3 id="原码加减交替法"><a href="#原码加减交替法" class="headerlink" title="原码加减交替法"></a>原码加减交替法</h3><p>==符号位单独处理==</p>
+<p>X-&gt;A,0-&gt;C,[|Y|]<del>原</del>-&gt;B,求[|Y|]<del>变补</del></p>
+<p>先把A中看作部分余数</p>
+<p>部分余数为负，商0，左移，+[|Y|]<del>原</del></p>
+<p>部分余数为+，商1，左移,+|Y|<del>变补</del></p>
+<p>商放在C的最末尾</p>
+<p>C中满时停止计算，+[|Y|]<del>原</del>恢复余数为正数，C中为商 下</p>
+<h3 id="补码加减交替法"><a href="#补码加减交替法" class="headerlink" title="补码加减交替法"></a>补码加减交替法</h3><p>==符号位不单独处理==</p>
+<p>寄存器中不放绝对值原码而是真值补码</p>
+<p>部分余数[r<del>i</del>]<del>补</del>与[Y]<del>补</del>同号，商1，+[-Y]<del>补</del>，异号商0，+[Y]<del>补</del></p>
 
       
     </div>
@@ -593,145 +777,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">检验ssh连接</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T -p 443 git@ssh.github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 ([20.205.243.160]:443)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">This host key is known by the following other names/addresses:</span><br><span class="line">    ~/.ssh/known_hosts:3: github.com</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])?</span><br><span class="line"><span class="meta">#</span><span class="bash">修改ssh配置文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim ~/.ssh/config</span></span><br><span class="line"><span class="meta">#</span><span class="bash">fix ssh <span class="built_in">local</span> config file</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 ([20.205.243.160]:443)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">This host key is known by the following other names/addresses:</span><br><span class="line">    ~/.ssh/known_hosts:3: github.com</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="line">Warning: Permanently added &#x27;[ssh.github.com]:443&#x27; (ED25519) to the list of known hosts.</span><br><span class="line">Hi TimeInDreams! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>此时可以正常部署或clone</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/850c5858.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/850c5858.html" class="post-title-link" itemprop="url">机器运算</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="机器运算"><a href="#机器运算" class="headerlink" title="机器运算"></a>机器运算</h1><h2 id="基本算术运算"><a href="#基本算术运算" class="headerlink" title="基本算术运算"></a>基本算术运算</h2><p>全加器</p>
-<p>串行加法器</p>
-<p>并行加法器的快速进位与分组并行</p>
-<ol>
-<li>单级先行进位方式：组内并行组间串行</li>
-<li>多级先行进位</li>
-</ol>
-<h2 id="定点加减运算"><a href="#定点加减运算" class="headerlink" title="定点加减运算"></a>定点加减运算</h2><h3 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h3><h3 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h3><ol>
-<li>[X+Y]补=[X]补+[Y]补</li>
-<li>[X-Y]补=[X+(-Y)]补=[X]补+[-Y]补</li>
-</ol>
-<p>已知[Y]补求[-Y]补的方法是：将[Y]补 连同符号位一起求反，末尾加“1” 。</p>
-<p>原码—补码—变补</p>
-<h3 id="变补"><a href="#变补" class="headerlink" title="变补"></a>变补</h3><p>[Y]补：Y的补码，</p>
-<p>​            一个负数由原码表示转换成补码表示时，符号位是不变的，仅对==原码==数值位的各位变反，末尾加 “1” 。</p>
-<p>[-Y]补：Y的补码的变补，</p>
-<p>​            补码表示的变补则不论这个数的真值是正是负，一律对==补码==连同符号位一起变反，末尾加 “1” 。</p>
-<h3 id="符号扩展"><a href="#符号扩展" class="headerlink" title="符号扩展"></a>符号扩展</h3><p>8位数 与另外一个32位数相加，将8位数扩展到32位</p>
-<ol>
-<li>原有符号 位保持不变</li>
-<li>正数则所有附加位都用0进 行填充</li>
-<li>负数则所有附加位都用1进行填 充</li>
-<li>==用符号位来填充附加的 高位==</li>
-</ol>
-<h3 id="补码的溢出判断与检测方法"><a href="#补码的溢出判断与检测方法" class="headerlink" title="补码的溢出判断与检测方法"></a>补码的溢出判断与检测方法</h3><p>字长为n+1位的定点整数（其中一位 为符号位），采用补码表示，当运算结果 大于2 n -1或小于-2 n时，就产生溢出。</p>
-<p>若X、Y异号，不会溢出</p>
-<h2 id="带符号数的移位和舍入操作"><a href="#带符号数的移位和舍入操作" class="headerlink" title="带符号数的移位和舍入操作"></a>带符号数的移位和舍入操作</h2><p>原码负数：移位后的空出位补0</p>
-<p>补码正数：左移右移空出位都补0</p>
-<p>补码负数：左移后（右边空位）的空出位补0，右移（左边位）后的空出位补1。</p>
-<p>关于数的移位，特别需要注意正数，三码相同，所以无论左移还是右移都是补0.而负数的补码就需要注意，左移在右边补0，右移需要在左边补1，有一个很有趣的误区是，认为符号位保持不变，仅仅移动数据位，这是不对的，因为无论数据位还是符号位，都是二进制，在整体大迁移的过程中，符号位也是要跟随潮流的。只不过，为了保证右移后，和原来的符号数一样，因此，负数在右移时左边补1.</p>
-<h3 id="舍入"><a href="#舍入" class="headerlink" title="舍入"></a>舍入</h3><ol>
-<li>恒舍（切断）</li>
-<li>冯·诺依曼舍入法：p位的最低位置1</li>
-<li>下舍上入法：要舍去的q 位部分的最高位作为判断标志，为0最后舍掉，为1末尾保留1</li>
-<li>查表舍入：</li>
-</ol>
-<h2 id="定点乘法运算"><a href="#定点乘法运算" class="headerlink" title="定点乘法运算"></a>定点乘法运算</h2><p>原码一位乘法的规则为：手算法，累加右移，符号位同号为正异号为负</p>
-<p>X*Y需要3个寄存器：A部分积与最后乘积的高位部分初值为0，B被乘数X，C乘数Y（运算过程中不再需要保留乘数，改为存放乘积的低位部 分）</p>
-<h3 id="比较法－Booth乘法"><a href="#比较法－Booth乘法" class="headerlink" title="比较法－Booth乘法"></a>比较法－Booth乘法</h3><ol>
-<li><p>补码一位乘法</p>
-</li>
-<li><p>符号位参加运算</p>
-</li>
-<li><p>乘数最低位后面增加一位附加位 Yn+1，其初值为0</p>
-</li>
-<li><p>每求一次部分积要右移一位， 所以乘数的最低两位Y<del>n</del>、Y<del>n+1</del>的值决定了 每次应执行的操作</p>
-</li>
-<li><p>移位按补码右移规则进行</p>
-</li>
-<li><p>共需做n+1次累加，n次移位，第 n+1次不移位</p>
-</li>
-</ol>
-<p>判断位 Y<del>n</del>  Y<del>n+1</del></p>
-<p>​            0    0        原部分积右移一位</p>
-<p>​            0    1        原部分积加[X]<del>补</del>后右移一位</p>
-<p>​            1    0        原部分积加[-X]<del>补</del>后右移一位</p>
-<p>​            1    1        原部分积右移一位</p>
-<p>计算过程先求[X]<del>补</del>，[Y]<del>补</del>，[-X]<del>补</del></p>
-<h2 id="定点除法"><a href="#定点除法" class="headerlink" title="定点除法"></a>定点除法</h2><p>原码比较法：手算法</p>
-<h3 id="原码加减交替法"><a href="#原码加减交替法" class="headerlink" title="原码加减交替法"></a>原码加减交替法</h3><p>==符号位单独处理==</p>
-<p>X-&gt;A,0-&gt;C,[|Y|]<del>原</del>-&gt;B,求[|Y|]<del>变补</del></p>
-<p>先把A中看作部分余数</p>
-<p>部分余数为负，商0，左移，+[|Y|]<del>原</del></p>
-<p>部分余数为+，商1，左移,+|Y|<del>变补</del></p>
-<p>商放在C的最末尾</p>
-<p>C中满时停止计算，+[|Y|]<del>原</del>恢复余数为正数，C中为商 下</p>
-<h3 id="补码加减交替法"><a href="#补码加减交替法" class="headerlink" title="补码加减交替法"></a>补码加减交替法</h3><p>==符号位不单独处理==</p>
-<p>寄存器中不放绝对值原码而是真值补码</p>
-<p>部分余数[r<del>i</del>]<del>补</del>与[Y]<del>补</del>同号，商1，+[-Y]<del>补</del>，异号商0，+[Y]<del>补</del></p>
 
       
     </div>
