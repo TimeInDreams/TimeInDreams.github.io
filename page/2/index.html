@@ -185,7 +185,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/fc237eb0.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1abadc07.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -198,7 +198,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/fc237eb0.html" class="post-title-link" itemprop="url">密钥交换协议</a>
+          <a href="/article/1abadc07.html" class="post-title-link" itemprop="url">死锁</a>
         </h2>
 
         <div class="post-meta-container">
@@ -229,66 +229,319 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>#密钥交换协议</p>
-<p>##要求</p>
-<ol>
-<li>只有参与者知道</li>
-<li>确保对方知道</li>
-<li>新生成的，时效性</li>
+          <h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h2><ol>
+<li>假分配检测：P本次请求&lt;进程P总可能需求，P本次请求&lt;系统目前可分配资源</li>
+<li>安全序列检测</li>
 </ol>
 <ul>
-<li>密钥建立：密钥建立是这样一个过程，通过该过程，使得两个或多个主体拥有良好的共享密 钥</li>
-<li>会话密钥：在安全协议成功运行完毕后，主体 间进行应用层会话时使用的密钥，使用时间较 短。 </li>
-<li>长期密钥：与会话密钥相对应，可以长时间多 次使用，可能是共享的对称密钥，也可能是公 开密钥系统中的公钥或私钥。</li>
+<li>某时刻是否存在安全序列（安全序列检测）</li>
 </ul>
-<h2 id="主体"><a href="#主体" class="headerlink" title="主体"></a>主体</h2><p>密钥建立，会话密钥（短期），长期密钥</p>
-<h2 id="安全性质"><a href="#安全性质" class="headerlink" title="安全性质"></a>安全性质</h2><ol>
-<li>秘密性</li>
-<li>数据完整性：未被篡改</li>
-<li>数据起源认证性：保证起源</li>
-<li>非否认性：数字签名</li>
-</ol>
-<h2 id="基本目标"><a href="#基本目标" class="headerlink" title="基本目标"></a>基本目标</h2><ul>
-<li>隐式密钥认证：确信只有身份确定的参与另一方才能知道共享密钥</li>
-<li>密钥确认：参与的一方要确认另一方已经拥有了共享密钥</li>
-<li>显式密钥认证：隐式密钥认证+密钥确认</li>
-</ul>
-<h2 id="包含协议"><a href="#包含协议" class="headerlink" title="包含协议"></a>包含协议</h2><ul>
-<li>密钥传输协议：一个参与者生成密钥，分享给所有参与者</li>
-<li>密钥协商协议：所有协议使用者的生成密钥</li>
-<li>混合协议：1&lt;n&lt;all</li>
-</ul>
-<h2 id="简单的密钥传输协议"><a href="#简单的密钥传输协议" class="headerlink" title="简单的密钥传输协议"></a>简单的密钥传输协议</h2><p>###前提</p>
-<p>A,B与服务器S已建立密钥K<del>as</del>,K<del>bs</del></p>
+<p>可用资源分配给第一个能满足最大需求max的进程，等待进程运行完，回收该进程资源作为可用资源，重复直至所有进程可运行完，存在安全序列，卡死，不存在</p>
 <ul>
-<li>安全假设</li>
+<li>进程P发出请求向量，是否接受：</li>
 </ul>
 <ol>
-<li>攻击者可以窃听所有信息→秘密性，长期密钥</li>
-<li>攻击者可以修改传输的消息</li>
-<li>攻击者的内部属性，合法和非法→用户的名字绑定会话密钥</li>
-<li>攻击者在一定时间以后有能力得到以前运行的协议当中的会话密钥，重放攻击</li>
+<li>假分配检测</li>
+<li>先分配给P：系统可用资源-请求向量，P的已分配资源+请求向量</li>
+<li>检测是否此时存在安全序列，是则接受</li>
 </ol>
-<p>加密–中间人攻击</p>
-<h2 id="时效性"><a href="#时效性" class="headerlink" title="时效性"></a>时效性</h2><ul>
-<li>时间戳</li>
-<li>询问-应答，随机数作为询问，返回消息也带有这一随机数</li>
+<h2 id="死锁检测"><a href="#死锁检测" class="headerlink" title="死锁检测"></a>死锁检测</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/7c4b9fb3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/7c4b9fb3.html" class="post-title-link" itemprop="url">密钥协商协议</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="密钥协商协议"><a href="#密钥协商协议" class="headerlink" title="密钥协商协议"></a>密钥协商协议</h1><p>##基于自证明的密钥交换</p>
+<p>系统中 的用户从可信中心获得一个自证明公钥，但不需要公钥证书，其 身份与他的公钥值隐式地相互认证</p>
+<p>隐式认证</p>
+<p>需要提交身份对应的私钥，不提交则不安全，可以伪造对应的秘密指数</p>
+<p>##基于身份的密钥交换</p>
+<p>公钥：用户公开身份信息</p>
+<p>私钥：TA生成器</p>
+<p>###双线性映射和密钥分配</p>
+<p>TA公钥，对方ID哈希*自己私钥，主私钥×自己Id哈希，Tb（生成元×对方选择随机数）</p>
+<ol>
+<li>A→B：选择a，T<del>a</del>=aP，</li>
+<li>B→A</li>
+<li>A计算K=</li>
+</ol>
+<p>####非交互式密钥分配流程</p>
+<p>TA选取s为主密钥</p>
+<ol>
+<li>Q<del>A</del>=H（ID<del>A</del>）作为公钥</li>
+<li>S<del>A</del>=sQ<del>A</del>分配给A作为私钥</li>
+<li>B计算会话密钥：A身份信息→A的公钥Q<del>A</del>+B的私钥S<del>B</del>可计算K<del>AB</del>=f（S<del>B</del>，Q<del>A</del>）=f（Q<del>A</del>，Q<del>B</del>）^s^</li>
+<li>同样方式可被A计算，不需要进行交互</li>
+</ol>
+<p>####局限</p>
+<p>无新鲜性，必须注册私钥</p>
+<h2 id="群组密钥交换"><a href="#群组密钥交换" class="headerlink" title="群组密钥交换"></a>群组密钥交换</h2><ul>
+<li><p>DH三方密钥交换</p>
+<ul>
+<li>会话密钥：g^abc^,需要两轮，A→B→C→A</li>
 </ul>
-<p>##攻击方式</p>
-<p>窃听</p>
-<p>篡改：数据完整性</p>
-<p>重放</p>
-<p>非否认性：数字签名</p>
-<p>类型攻击：类型攻击就是利用用户接收到的都是二进制串，无法判断是否加密，使得用户将一个消息错误的解释成其他的消息→每次改变 消息元素的顺序，确保每次的加密密钥不同。 或者在消息中添加认证数或消息域的类型信息</p>
-<p>##端到端协议</p>
-<p>签名的本质是发送私钥的信息但不能被还原，即单向性</p>
-<p>协议参与方的数字签名保证消息来源真实性，抵抗中间人攻击</p>
-<p>##MTI协议遭受的证书操纵攻击</p>
-<p>g^x^,x为A挑选的随机数，b为私钥，g^y^,a同理，K<del>AB</del>=g^ay+bx^中,对A来说，g^y^B发送，a为自己的私钥，g^b^为证书，x为自己挑选随机数</p>
-<p>A→C<del>B</del>:g^x^,Cert(A)</p>
-<p>C→B:g^x^,Cert(C)</p>
-<p>B→C:g^y^,Cert(B)</p>
-<p>C<del>B</del>→A：g^yc^,Cert(B)</p>
+</li>
+<li><p>基于双线性配对，P为公开参数</p>
+<ul>
+<li>A→B，C（N<del>a</del>P）</li>
+<li>B→CA，C→AB，一轮交互，并行发送</li>
+<li>k=f（P，P）^abc^</li>
+</ul>
+<p>无认证机制，不能抵御中间人攻击</p>
+</li>
+<li><p>多方密钥交换</p>
+<ul>
+<li>BD多方密钥交换<ul>
+<li>每个参与者两轮交互，发送两个消息，最多3个模指数运算和1/2(n^2^+3n-3)个乘法运算</li>
+<li>对被动攻击安全</li>
+</ul>
+</li>
+<li>动态变化的条件：离开无法获得之后的会话密钥，新加入无法获取之前的</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/5b007939.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/5b007939.html" class="post-title-link" itemprop="url">秘密分享</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="秘密分享"><a href="#秘密分享" class="headerlink" title="秘密分享"></a>秘密分享</h1><p>具有重要价值 物件的访问权限不能只由一个人掌握。</p>
+<p>基本思想是==将秘密分解为多个碎片==并将这些碎片分发给不同的人掌管，在秘密丢失的情况下，这些人中的某些特定子集可以通过将他们拥有的碎片凑在一起以==恢复整个秘密==</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
+<li>秘密分发协议：分发者D，在n个参与者中分享秘密s，每个参与者Pi获得一个碎片s<del>i</del></li>
+<li>秘密重构协议：任意不少于t个参与者合作，以自己碎片s<del>i</del>为输入，重构秘密s</li>
+</ol>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>可恢复：任意t个能回复</li>
+<li>任意少于t个无法计算任何秘密s相关信息</li>
+</ol>
+<h3 id="经典协议"><a href="#经典协议" class="headerlink" title="经典协议"></a>经典协议</h3><ol>
+<li>拉格朗日多项式</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/4d5671c6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/4d5671c6.html" class="post-title-link" itemprop="url">比特承诺</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>#比特承诺</p>
+<p>A发送给B一个证明，用来作出承诺，承诺内容为一个比特</p>
+<ol>
+<li>A未打开承诺前，B无法得知承诺是0还是1</li>
+<li>A不能打开一个相反的bit，即不能伪造</li>
+</ol>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
+<li>承诺阶段：A选择承诺诺的bit，并将表示信息m发给B</li>
+<li>打开阶段：A吧打开承诺的消息d和选择的bit b发送给B，B用d打开m，并验证</li>
+</ol>
+<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
+<li>隐藏性：接收方不能从消息中获取比特的任意信息</li>
+<li>绑定性：发送者不能改变自己承诺的bit</li>
+</ol>
+<p>###经典</p>
+<ol>
+<li>加密</li>
+<li>hash散列</li>
+<li>伪随机数发生器</li>
+</ol>
+<h3 id="Pedersen承诺协议"><a href="#Pedersen承诺协议" class="headerlink" title="Pedersen承诺协议"></a>Pedersen承诺协议</h3><p>离散对数问题</p>
+<p>p，g为生成元,y,r为群中随机数，承诺为c=g^r^y^b^(modp)</p>
+<h3 id="密封式电子拍卖协议"><a href="#密封式电子拍卖协议" class="headerlink" title="密封式电子拍卖协议"></a>密封式电子拍卖协议</h3><p>正确性</p>
+<p>保密性</p>
+<p>公开验证性</p>
 
       
     </div>
@@ -458,458 +711,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/5b007939.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/5b007939.html" class="post-title-link" itemprop="url">秘密分享</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="秘密分享"><a href="#秘密分享" class="headerlink" title="秘密分享"></a>秘密分享</h1><p>具有重要价值 物件的访问权限不能只由一个人掌握。</p>
-<p>基本思想是==将秘密分解为多个碎片==并将这些碎片分发给不同的人掌管，在秘密丢失的情况下，这些人中的某些特定子集可以通过将他们拥有的碎片凑在一起以==恢复整个秘密==</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>秘密分发协议：分发者D，在n个参与者中分享秘密s，每个参与者Pi获得一个碎片s<del>i</del></li>
-<li>秘密重构协议：任意不少于t个参与者合作，以自己碎片s<del>i</del>为输入，重构秘密s</li>
-</ol>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>可恢复：任意t个能回复</li>
-<li>任意少于t个无法计算任何秘密s相关信息</li>
-</ol>
-<h3 id="经典协议"><a href="#经典协议" class="headerlink" title="经典协议"></a>经典协议</h3><ol>
-<li>拉格朗日多项式</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/7c4b9fb3.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/7c4b9fb3.html" class="post-title-link" itemprop="url">密钥协商协议</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="密钥协商协议"><a href="#密钥协商协议" class="headerlink" title="密钥协商协议"></a>密钥协商协议</h1><p>##基于自证明的密钥交换</p>
-<p>系统中 的用户从可信中心获得一个自证明公钥，但不需要公钥证书，其 身份与他的公钥值隐式地相互认证</p>
-<p>隐式认证</p>
-<p>需要提交身份对应的私钥，不提交则不安全，可以伪造对应的秘密指数</p>
-<p>##基于身份的密钥交换</p>
-<p>公钥：用户公开身份信息</p>
-<p>私钥：TA生成器</p>
-<p>###双线性映射和密钥分配</p>
-<p>TA公钥，对方ID哈希*自己私钥，主私钥×自己Id哈希，Tb（生成元×对方选择随机数）</p>
-<ol>
-<li>A→B：选择a，T<del>a</del>=aP，</li>
-<li>B→A</li>
-<li>A计算K=</li>
-</ol>
-<p>####非交互式密钥分配流程</p>
-<p>TA选取s为主密钥</p>
-<ol>
-<li>Q<del>A</del>=H（ID<del>A</del>）作为公钥</li>
-<li>S<del>A</del>=sQ<del>A</del>分配给A作为私钥</li>
-<li>B计算会话密钥：A身份信息→A的公钥Q<del>A</del>+B的私钥S<del>B</del>可计算K<del>AB</del>=f（S<del>B</del>，Q<del>A</del>）=f（Q<del>A</del>，Q<del>B</del>）^s^</li>
-<li>同样方式可被A计算，不需要进行交互</li>
-</ol>
-<p>####局限</p>
-<p>无新鲜性，必须注册私钥</p>
-<h2 id="群组密钥交换"><a href="#群组密钥交换" class="headerlink" title="群组密钥交换"></a>群组密钥交换</h2><ul>
-<li><p>DH三方密钥交换</p>
-<ul>
-<li>会话密钥：g^abc^,需要两轮，A→B→C→A</li>
-</ul>
-</li>
-<li><p>基于双线性配对，P为公开参数</p>
-<ul>
-<li>A→B，C（N<del>a</del>P）</li>
-<li>B→CA，C→AB，一轮交互，并行发送</li>
-<li>k=f（P，P）^abc^</li>
-</ul>
-<p>无认证机制，不能抵御中间人攻击</p>
-</li>
-<li><p>多方密钥交换</p>
-<ul>
-<li>BD多方密钥交换<ul>
-<li>每个参与者两轮交互，发送两个消息，最多3个模指数运算和1/2(n^2^+3n-3)个乘法运算</li>
-<li>对被动攻击安全</li>
-</ul>
-</li>
-<li>动态变化的条件：离开无法获得之后的会话密钥，新加入无法获取之前的</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/9ed0d196.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/9ed0d196.html" class="post-title-link" itemprop="url">秘密握手</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="秘密握手"><a href="#秘密握手" class="headerlink" title="秘密握手"></a>秘密握手</h1><p>一个群组中的两个成员互相认证，同时两个成员不会互相透露他们的上下级信息，除非他们同属于一组</p>
-<p>##流程</p>
-<ol>
-<li>Setup：输入成员私钥，输出公钥</li>
-<li>CreateGroup：群组授权者调用算法创建群组</li>
-<li>AddUser：GA生成证书，U获得证书通过一个被授权的私有频道</li>
-<li>HandShake：成员AB调用的一个协议，确保B发现A、当且仅当A发现B在群组中。</li>
-<li>RevoleUser：调用算法，移除成员证书</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/4d5671c6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/4d5671c6.html" class="post-title-link" itemprop="url">比特承诺</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>#比特承诺</p>
-<p>A发送给B一个证明，用来作出承诺，承诺内容为一个比特</p>
-<ol>
-<li>A未打开承诺前，B无法得知承诺是0还是1</li>
-<li>A不能打开一个相反的bit，即不能伪造</li>
-</ol>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>承诺阶段：A选择承诺诺的bit，并将表示信息m发给B</li>
-<li>打开阶段：A吧打开承诺的消息d和选择的bit b发送给B，B用d打开m，并验证</li>
-</ol>
-<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
-<li>隐藏性：接收方不能从消息中获取比特的任意信息</li>
-<li>绑定性：发送者不能改变自己承诺的bit</li>
-</ol>
-<p>###经典</p>
-<ol>
-<li>加密</li>
-<li>hash散列</li>
-<li>伪随机数发生器</li>
-</ol>
-<h3 id="Pedersen承诺协议"><a href="#Pedersen承诺协议" class="headerlink" title="Pedersen承诺协议"></a>Pedersen承诺协议</h3><p>离散对数问题</p>
-<p>p，g为生成元,y,r为群中随机数，承诺为c=g^r^y^b^(modp)</p>
-<h3 id="密封式电子拍卖协议"><a href="#密封式电子拍卖协议" class="headerlink" title="密封式电子拍卖协议"></a>密封式电子拍卖协议</h3><p>正确性</p>
-<p>保密性</p>
-<p>公开验证性</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/f4dccf31.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/f4dccf31.html" class="post-title-link" itemprop="url">github ssh失败</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="github-ssh失败"><a href="#github-ssh失败" class="headerlink" title="github ssh失败"></a>github ssh失败</h1><p>##问题</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo d</span></span><br><span class="line">fatal: unable to access &#x27;https://github.com/TimeInDreams/TimeInDreams.github.io.git/&#x27;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (D:\MyBlogs\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:400:28)</span><br><span class="line">      at ChildProcess.cp.emit (D:\MyBlogs\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure>
-<p>##解决方法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">检验ssh连接</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T -p 443 git@ssh.github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 ([20.205.243.160]:443)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">This host key is known by the following other names/addresses:</span><br><span class="line">    ~/.ssh/known_hosts:3: github.com</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])?</span><br><span class="line"><span class="meta">#</span><span class="bash">修改ssh配置文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim ~/.ssh/config</span></span><br><span class="line"><span class="meta">#</span><span class="bash">fix ssh <span class="built_in">local</span> config file</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line">The authenticity of host &#x27;[ssh.github.com]:443 ([20.205.243.160]:443)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">This host key is known by the following other names/addresses:</span><br><span class="line">    ~/.ssh/known_hosts:3: github.com</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="line">Warning: Permanently added &#x27;[ssh.github.com]:443&#x27; (ED25519) to the list of known hosts.</span><br><span class="line">Hi TimeInDreams! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>此时可以正常部署或clone</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/63953bc3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1023,6 +824,85 @@
 <li>P（B）→A:{Na+1，Nb}Kab（此为被监听的消息2），A认为Na+1就是K^’’^ab</li>
 </ol>
 <h2 id="大嘴青蛙协议"><a href="#大嘴青蛙协议" class="headerlink" title="大嘴青蛙协议"></a>大嘴青蛙协议</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/9ed0d196.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/9ed0d196.html" class="post-title-link" itemprop="url">秘密握手</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="秘密握手"><a href="#秘密握手" class="headerlink" title="秘密握手"></a>秘密握手</h1><p>一个群组中的两个成员互相认证，同时两个成员不会互相透露他们的上下级信息，除非他们同属于一组</p>
+<p>##流程</p>
+<ol>
+<li>Setup：输入成员私钥，输出公钥</li>
+<li>CreateGroup：群组授权者调用算法创建群组</li>
+<li>AddUser：GA生成证书，U获得证书通过一个被授权的私有频道</li>
+<li>HandShake：成员AB调用的一个协议，确保B发现A、当且仅当A发现B在群组中。</li>
+<li>RevoleUser：调用算法，移除成员证书</li>
+</ol>
+
       
     </div>
 
@@ -1276,7 +1156,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/17c6043.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/d1262596.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1289,7 +1169,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/17c6043.html" class="post-title-link" itemprop="url">高级签名协议</a>
+          <a href="/article/d1262596.html" class="post-title-link" itemprop="url">软工复习</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1320,73 +1200,161 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>#高级签名协议</p>
-<p>密钥生成，签名，验证</p>
-<h2 id="盲签名"><a href="#盲签名" class="headerlink" title="盲签名"></a>盲签名</h2><p>持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系</p>
-<p>###过程</p>
-<ol>
-<li>Setup，输出系统参数p和签名人的公钥私钥对（pk，sk）</li>
-<li>Sign <ol>
-<li>公共输入：系统参数p，签名人公钥pk，</li>
-<li>秘密输入，签名人私钥sk，用户输入代签名消息m</li>
-<li>停止时用户输出签名s</li>
-</ol>
+          <p>软件测试的四个特点</p>
+<p>动态，有限，选取，预期</p>
+<h3 id="软件开发模型"><a href="#软件开发模型" class="headerlink" title="软件开发模型"></a>软件开发模型</h3><ul>
+<li>瀑布：文档，线性，阶段性检查点</li>
+<li>快速原型：</li>
+</ul>
+<p>测试模型</p>
+<ul>
+<li>V：如何与软件工程各阶段相融合</li>
+<li>W：开发各个阶段都要测试，而不只是编码结束后在开始，文档也可以是测试对象</li>
+<li>H：任意时刻，只要测试配置就绪即可</li>
+</ul>
+<p>测试技术</p>
+<ul>
+<li><p>静态测试的测试对象：源程序和文档。项目开发过程中产生大量的规格说明，对这些规格说明的技术审査和管理复审，以及对文档的测试数据都属于静态测试。</p>
 </li>
-<li>Verify 输入系统公开参数p，公钥pk，待验证消息签名对（m，s），输出1或0（是否有效）</li>
-</ol>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>正确性</li>
-<li>不可伪造性</li>
-<li>盲性</li>
-</ol>
-<h2 id="盲化"><a href="#盲化" class="headerlink" title="盲化"></a>盲化</h2><ol>
-<li><p>盲化：用户引入盲化因子，将消息m计算为m` k^e^m</p>
+<li><p>静态测试是指不运行程序就找出程序中存在的错误，==动态测试==是通过==运行程序==而发现存在的错误和问题。</p>
 </li>
-<li><p>签名：发送m‘给签名人，签名人签名得到s’，d次幂</p>
+<li><p>白盒测试又称为结构测试，模块内部逻辑结构==逻辑覆盖准则==，</p>
 </li>
-<li><p>去盲：用户用s‘计算出s k的逆元</p>
+<li><p>黑盒测试是把模块作为一个整体进行测试。它不关心程序逻辑实现的具体细 节，而是关注模块的输入（接口）、输出（运行结果）</p>
 </li>
-</ol>
-<p>验证 签名s^e^(modn)=m</p>
-<p>离散对数</p>
-<p>(g^x^,x)为公钥私钥,用公钥+随机数去盲，用随机数盲化</p>
-<ol>
-<li><p>选随机数r,m’=g^r^×H（m）</p>
+</ul>
+<p>软件测试策略</p>
+<p>静态分析→测试计划→动态测试</p>
+<p>确认测试：验收测试（系统在实际环境下，release）</p>
+<p>##所有的图表</p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140600598.png" alt="image-20220103140600598"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140639970.png" alt="image-20220103140639970"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140831193.png" alt="image-20220103140831193"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140904531.png" alt="image-20220103140904531"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141135317.png" alt="image-20220103141135317"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141145612.png" alt="image-20220103141145612"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141227332.png" alt="image-20220103141227332"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141245882.png" alt="image-20220103141245882"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141414585.png" alt="image-20220103141414585"></p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141707033.png" alt="image-20220103141707033"></p>
+<p>判定树在每个判定条件处分叉</p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141942590.png" alt="image-20220103141942590"></p>
+<p>dfd图，流程图，状态图，判定表，判定树，因果图，决策表，</p>
+<p>用例图，类图，包图，构件图，配置图，状态图，活动图，顺序图，协作图。流图</p>
+<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103142140359.png" alt="image-20220103142140359"></p>
+<p>###UML</p>
+<p>泛化关系为分类==实线空箭头==，包含关系为组合</p>
+<p>依赖关系==虚线实箭头==→关联关系==实线==（强依赖）→聚合关系==+虚菱形==（部分可以单独存在）（共享聚合），组合关系==+实菱形==（部分不能脱离整体单独存在）（复合聚合）</p>
+<p>####软件维护的分类</p>
+<p>完善性维护（扩展功能提高效率），纠错性维护，适应性维护，预防性维护</p>
+<p>###面向对象设计</p>
+<ul>
+<li><p>功能模型：用例图</p>
 </li>
-<li><p>私钥次方s’=m’^x^</p>
+<li><p>静态模型：类图</p>
 </li>
-<li><p>s=s’y^-r^</p>
-</li>
-</ol>
-<p>部分盲签名，嵌入一段公共信息</p>
-<h2 id="群签名"><a href="#群签名" class="headerlink" title="群签名"></a>群签名</h2><p>成员代表群体进行匿名签名，无法确定具体成员，但群管理者可以打开签名揭示签名者身份防止否认签名行为</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>系统初始化</li>
-<li>签名</li>
-<li>验证</li>
-<li>打开</li>
-</ol>
-<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>匿名性：无法确定给定签名的实际签名人</li>
-<li>无关联性：不打开签名的情况下，不能确定两个不同的群签名是否为同一个人所签名</li>
-<li>可追踪性：</li>
-<li>防陷害性：不能以其他群成员名义产生合法签名</li>
-<li>抗联合攻击：不能任意多个群成员勾结伪造其他群成员签名</li>
-</ol>
-<h2 id="环签名"><a href="#环签名" class="headerlink" title="环签名"></a>环签名</h2><p>签名的匿名性</p>
-<p>自己的私钥和其他n-1个人的公钥对m执行环签名，执行验证算法可以确信又环中某个签名者产生，但无法识别签名人的身份</p>
-<p>可链接性：如果是同一个人签的，验证时能确定时同一个人签的，但无法确定身份</p>
-<h2 id="基于身份的数字签名"><a href="#基于身份的数字签名" class="headerlink" title="基于身份的数字签名"></a>基于身份的数字签名</h2><h3 id="过程-1"><a href="#过程-1" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>Setup 输出主密钥，系统参数</li>
-<li>Extract，私钥提取算法，输入为用户身份信息ID，算出私钥sk发送给用户</li>
-<li>Sign 用户签名</li>
-<li>Verify 验证者完成验证</li>
-</ol>
-<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
-<li>适应性选择消息攻击</li>
-<li>选择身份攻击的不可伪造性</li>
-</ol>
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>双线性对，RSA</p>
+</ul>
+<p>类-对象层 </p>
+<p>结构层 </p>
+<p>属性层</p>
+<p>服务层 </p>
+<p>主题层</p>
+<ul>
+<li>动态模型：活动图</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/a17c0fa2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/a17c0fa2.html" class="post-title-link" itemprop="url">储存系统和结构</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="储存系统和结构"><a href="#储存系统和结构" class="headerlink" title="储存系统和结构"></a>储存系统和结构</h1><h2 id="储存器"><a href="#储存器" class="headerlink" title="储存器"></a>储存器</h2><h3 id="高速缓冲储存器"><a href="#高速缓冲储存器" class="headerlink" title="高速缓冲储存器"></a>高速缓冲储存器</h3><h3 id="主储存器"><a href="#主储存器" class="headerlink" title="主储存器"></a>主储存器</h3><h3 id="辅助储存器"><a href="#辅助储存器" class="headerlink" title="辅助储存器"></a>辅助储存器</h3><h3 id="随机存取RAM"><a href="#随机存取RAM" class="headerlink" title="随机存取RAM"></a>随机存取RAM</h3><p>存取时间相同</p>
+<h3 id="只读ROM"><a href="#只读ROM" class="headerlink" title="只读ROM"></a>只读ROM</h3><p>###顺序存取SRAM</p>
+<p>储存读取按照物理位置</p>
+<h3 id="直接存取DAM"><a href="#直接存取DAM" class="headerlink" title="直接存取DAM"></a>直接存取DAM</h3><h3 id="易失性与非易失性"><a href="#易失性与非易失性" class="headerlink" title="易失性与非易失性"></a>易失性与非易失性</h3><p>断电储存信息是否仍然存在</p>
+<h2 id="多级缓存系统"><a href="#多级缓存系统" class="headerlink" title="多级缓存系统"></a>多级缓存系统</h2><p>Cache-主存-辅存</p>
+<p>虚拟存储系统（主存和辅存之间）通过操作系统调度</p>
+<h2 id="主储存器的组织"><a href="#主储存器的组织" class="headerlink" title="主储存器的组织"></a>主储存器的组织</h2><p>地址线与数据线</p>
+<p>地址码-译码器-读写电路</p>
+<h3 id="储存单元"><a href="#储存单元" class="headerlink" title="储存单元"></a>储存单元</h3><p>位</p>
+<p>字：二进制数作为一个整体存入或取出</p>
+<p>eg：字节编址，一个储存字包含4个单独编址的储存字节，字地址总是等于4的整数倍</p>
+<p>大端编码与小端编码</p>
+<p>小端：地址高位（N+3）存放字节高位（B3）</p>
+<p>###存取速度</p>
+<p>主存带宽：<br>·缩短存取周期； ·增加存储字长； ·增加存储体</p>
+<p>边界对齐存放法：克服紧挨着存放可能导致的单字双字跨越储存器存放的情况（此时需要访问两次储存器才能拿到一个数据）</p>
+<h2 id="RAM和ROM"><a href="#RAM和ROM" class="headerlink" title="RAM和ROM"></a>RAM和ROM</h2><h3 id="DRAM的刷新"><a href="#DRAM的刷新" class="headerlink" title="DRAM的刷新"></a>DRAM的刷新</h3><p>补充电荷防止信息丢失</p>
+<p>异步刷新：</p>
+<p>刷新操作平均分配到整个最大刷新间隔时间内进行</p>
+<p>相邻两行的刷新间隔=最大刷新间隔时间/行数</p>
+<p>###译码方式</p>
+<p>单译码：字索引，每次击中一个字地址对应的行</p>
+<p>双译码：xy轴地址线索引</p>
 
       
     </div>
