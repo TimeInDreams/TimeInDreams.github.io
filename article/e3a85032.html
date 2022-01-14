@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://timeindreams.github.io/article/e3a85032/1.png">
 <meta property="article:published_time" content="2022-01-13T15:18:47.000Z">
-<meta property="article:modified_time" content="2022-01-14T01:47:47.611Z">
+<meta property="article:modified_time" content="2022-01-14T03:19:32.804Z">
 <meta property="article:author" content="GuoKai">
 <meta property="article:tag" content="Compilers">
 <meta name="twitter:card" content="summary">
@@ -121,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%9A%84%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">中间代码的形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.1.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC"><span class="nav-number">2.2.</span> <span class="nav-text">推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-number">2.3.</span> <span class="nav-text">语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91"><span class="nav-number">2.3.1.</span> <span class="nav-text">语法分析树</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%9A%84%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">中间代码的形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.1.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC"><span class="nav-number">2.2.</span> <span class="nav-text">推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-number">2.3.</span> <span class="nav-text">语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91"><span class="nav-number">2.3.1.</span> <span class="nav-text">语法分析树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%BB%93%E5%90%88%E6%80%A7"><span class="nav-number">2.3.2.</span> <span class="nav-text">运算符的结合性</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -223,7 +223,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:47:47" itemprop="dateModified" datetime="2022-01-14T09:47:47+08:00">2022-01-14</time>
+      <time title="修改时间：2022-01-14 11:19:32" itemprop="dateModified" datetime="2022-01-14T11:19:32+08:00">2022-01-14</time>
     </span>
 
   
@@ -259,20 +259,23 @@
 <li>eg:</li>
 </ul>
 <p>9-5+2称为“由+-号分割的数位序列”</p>
-<ol>
-<li><p>产生式为：</p>
-<p>list（非终结符号，也是开始符号）→list+digit</p>
-<p>list→list - digit</p>
-<p>list→digit</p>
-<p>digit→0 | 1 | 2 … | 9                                         （1）</p>
+<p>其产生式为：</p>
+<ul>
+<li><p>list（非终结符号，也是开始符号）→list+digit</p>
+</li>
+<li><p>list→list - digit</p>
+</li>
+<li><p>list→digit</p>
+</li>
+<li><p>digit→0 | 1 | 2 … | 9                                         （1）</p>
+</li>
+</ul>
 <p>→：可以表示为</p>
 <p>0：数位</p>
 <p>|：或</p>
-</li>
-</ol>
 <p>该产生式就是list的产生式，可以用来描述list产生的构造</p>
 <p>同时（1）也是digit的产生式</p>
-<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p>从开始符号出发，将非终结符号，替换为其产生式，直至终结符号，得到的所有终结符号串的集合，就是该文法定义的语言。</p>
+<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p>从开始符号出发，将非终结符号，替换为其产生式，直至终结符号，得到的所有终结符号串的集合，就是该文法定义的语言，即所有该产生式可导出的合法字符串的集合</p>
 <h2 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h2><p>接受一个终结符号构成的串为input，找出文法开始符号推导出这个串的方法</p>
 <p>概括语法分析的内容，就是先定义一些基本符号，同时定义构建高级语法的规则，从开始符号推导确定某个高级语法通过怎样的过程被分解为基本符号</p>
 <h3 id="语法分析树"><a href="#语法分析树" class="headerlink" title="语法分析树"></a>语法分析树</h3><ul>
@@ -280,8 +283,13 @@
 <li>分支代表产生式的→组成</li>
 <li>一般结点代表中间产生的非终结符号</li>
 <li>叶子代表终结符号，即不能再细分</li>
-<li>分叉节点的兄弟节点有序，从左至右对应产生式A→X<del>0</del>X<del>1</del>…X<del>n</del></li>
+<li>分叉节点的兄弟节点有序，A的子节点$X_0X_1…X_n$从左至右对应产生式$A→X_0X_1…X_n$</li>
 </ul>
+<p>语法分析的过程，就是构建该语言中的某一字符串对应的语法树的过程</p>
+<ul>
+<li>文法的二义性：生成的语法分析树不唯一</li>
+</ul>
+<h3 id="运算符的结合性"><a href="#运算符的结合性" class="headerlink" title="运算符的结合性"></a>运算符的结合性</h3><p>左结合（+，-，*，/）：</p>
 
     </div>
 
