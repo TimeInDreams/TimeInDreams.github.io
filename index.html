@@ -322,7 +322,7 @@
 <p>Windows下路径为C:\Windows\System32\drivers\etc\hosts</p>
 <p>Linux下路径为 /etc/hosts</p>
 <p>打开文件加入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># GitHub Start  </span><br><span class="line">140.82.112.3 github.com  </span><br><span class="line">141.192.30.253.118 gist.github.com</span><br><span class="line">142.192.30.253.119 gist.github.com</span><br><span class="line"></span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># GitHub Start  </span><br><span class="line"><span class="number">140.82.112.3</span> github.com  </span><br><span class="line"><span class="number">141.192.30.253</span>.<span class="number">118</span> gist.github.com</span><br><span class="line"><span class="number">142.192.30.253</span>.<span class="number">119</span> gist.github.com</span><br><span class="line"></span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure>
 
 <p>保存并退出即可。</p>
 <p>使用shell将源代码下载并放入一个文件夹内，需要将version_id改为需要下载的版本号。</p>
@@ -345,13 +345,13 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br><span class="line">sudo vim /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
 
 <p>在末尾添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line">export PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=<span class="variable">$PKG_CONFIG_PATH</span><span class="symbol">:/usr/local/lib/pkgconfig</span>  </span><br><span class="line">export PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
 
 <p>保存退出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/bash.bashrc</span><br><span class="line">sudo updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/etc/</span>bash.bashrc</span><br><span class="line">sudo updatedb</span><br></pre></td></tr></table></figure>
 
 <p>查看Linux opencv安装库和版本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg-config opencv --libs</span><br><span class="line">pkg-config opencv --modversion</span><br></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg-<span class="built_in">config</span> opencv <span class="comment">--libs</span></span><br><span class="line">pkg-<span class="built_in">config</span> opencv <span class="comment">--modversion</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h2><p>将如下程序复制至opencv_test.cpp中</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Example 1. A simple OpenCV program that loads an image from disk and displays it on the screen</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">help</span><span class="params">(<span class="keyword">char</span>** argv )</span> </span>&#123;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">	&lt;&lt; <span class="string">&quot;A simple OpenCV program that loads and displays an image from disk\n&quot;</span></span><br><span class="line">	&lt;&lt; argv[<span class="number">0</span>] &lt;&lt;<span class="string">&quot; &lt;path/filename&gt;\n&quot;</span></span><br><span class="line">	&lt;&lt; <span class="string">&quot;For example:\n&quot;</span></span><br><span class="line">	&lt;&lt; argv[<span class="number">0</span>] &lt;&lt; <span class="string">&quot; ../fruits.jpg\n&quot;</span></span><br><span class="line">	&lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span>** argv )</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (argc != <span class="number">2</span>) &#123;</span><br><span class="line">		<span class="built_in">help</span>(argv);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  cv::Mat img = cv::<span class="built_in">imread</span>( argv[<span class="number">1</span>], <span class="number">-1</span> );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>( img.<span class="built_in">empty</span>() ) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  cv::<span class="built_in">namedWindow</span>( <span class="string">&quot;Example&quot;</span>, cv::WINDOW_AUTOSIZE );</span><br><span class="line">  cv::<span class="built_in">imshow</span>( <span class="string">&quot;Example&quot;</span>, img );</span><br><span class="line">  cv::<span class="built_in">waitKey</span>( <span class="number">0</span> );</span><br><span class="line">  cv::<span class="built_in">destroyWindow</span>( <span class="string">&quot;Example&quot;</span> );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -389,7 +389,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/c62e94d6.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1abadc07.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -402,7 +402,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/c62e94d6.html" class="post-title-link" itemprop="url">操作系统储存器管理</a>
+          <a href="/article/1abadc07.html" class="post-title-link" itemprop="url">死锁</a>
         </h2>
 
         <div class="post-meta-container">
@@ -420,7 +420,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:17:34" itemprop="dateModified" datetime="2022-01-14T09:17:34+08:00">2022-01-14</time>
+      <time title="修改时间：2022-01-14 09:18:04" itemprop="dateModified" datetime="2022-01-14T09:18:04+08:00">2022-01-14</time>
     </span>
 
   
@@ -433,12 +433,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="操作系统储存器管理"><a href="#操作系统储存器管理" class="headerlink" title="操作系统储存器管理"></a>操作系统储存器管理</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="储存器共享"><a href="#储存器共享" class="headerlink" title="储存器共享"></a>储存器共享</h3><p>多进程共享主存</p>
-<h3 id="程序的load与linking"><a href="#程序的load与linking" class="headerlink" title="程序的load与linking"></a>程序的load与linking</h3><h3 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h3><p>地址空间中的地址称为相对地址（逻辑地址，虚地址）</p>
-<h3 id="储存空间"><a href="#储存空间" class="headerlink" title="储存空间"></a>储存空间</h3><p>物理储存器中的真实物理单元集合，地址称为绝对地址（物理地址）</p>
+          <h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h2><ol>
+<li>假分配检测：P本次请求&lt;进程P总可能需求，P本次请求&lt;系统目前可分配资源</li>
+<li>安全序列检测</li>
+</ol>
+<ul>
+<li>某时刻是否存在安全序列（安全序列检测）</li>
+</ul>
+<p>可用资源分配给第一个能满足最大需求max的进程，等待进程运行完，回收该进程资源作为可用资源，重复直至所有进程可运行完，存在安全序列，卡死，不存在</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/c62e94d6.html#more" rel="contents">
+              <a class="btn" href="/article/1abadc07.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -629,7 +634,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1b9c8662.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/c62e94d6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -642,7 +647,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/1b9c8662.html" class="post-title-link" itemprop="url">文件系统</a>
+          <a href="/article/c62e94d6.html" class="post-title-link" itemprop="url">操作系统储存器管理</a>
         </h2>
 
         <div class="post-meta-container">
@@ -660,7 +665,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:18:18" itemprop="dateModified" datetime="2022-01-14T09:18:18+08:00">2022-01-14</time>
+      <time title="修改时间：2022-01-14 09:17:34" itemprop="dateModified" datetime="2022-01-14T09:17:34+08:00">2022-01-14</time>
     </span>
 
   
@@ -673,11 +678,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><h3 id="文件的多级目录结构"><a href="#文件的多级目录结构" class="headerlink" title="文件的多级目录结构"></a>文件的多级目录结构</h3><p>根目录</p>
-<p>当前目录：加快文件查找速度</p>
+          <h1 id="操作系统储存器管理"><a href="#操作系统储存器管理" class="headerlink" title="操作系统储存器管理"></a>操作系统储存器管理</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="储存器共享"><a href="#储存器共享" class="headerlink" title="储存器共享"></a>储存器共享</h3><p>多进程共享主存</p>
+<h3 id="程序的load与linking"><a href="#程序的load与linking" class="headerlink" title="程序的load与linking"></a>程序的load与linking</h3><h3 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h3><p>地址空间中的地址称为相对地址（逻辑地址，虚地址）</p>
+<h3 id="储存空间"><a href="#储存空间" class="headerlink" title="储存空间"></a>储存空间</h3><p>物理储存器中的真实物理单元集合，地址称为绝对地址（物理地址）</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/1b9c8662.html#more" rel="contents">
+              <a class="btn" href="/article/c62e94d6.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -708,7 +714,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1abadc07.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/fdd97e94.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -721,7 +727,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/1abadc07.html" class="post-title-link" itemprop="url">死锁</a>
+          <a href="/article/fdd97e94.html" class="post-title-link" itemprop="url">设备管理</a>
         </h2>
 
         <div class="post-meta-container">
@@ -739,7 +745,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:18:04" itemprop="dateModified" datetime="2022-01-14T09:18:04+08:00">2022-01-14</time>
+      <time title="修改时间：2022-01-14 09:17:54" itemprop="dateModified" datetime="2022-01-14T09:17:54+08:00">2022-01-14</time>
     </span>
 
   
@@ -752,17 +758,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h2><ol>
-<li>假分配检测：P本次请求&lt;进程P总可能需求，P本次请求&lt;系统目前可分配资源</li>
-<li>安全序列检测</li>
+          <h1 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h1><h2 id="4层IO"><a href="#4层IO" class="headerlink" title="4层IO"></a>4层IO</h2><ol>
+<li>中断处理程序</li>
+<li>设备驱动程序：磁盘属性和工作机制，设备的IO请求（从磁盘读），检查读写错误，初始化，形成通道，发出中断，实际读写操作</li>
+<li>独立于设备的软件：设备驱动接口统一，设备命名，用户权限，物理块到逻辑块映射，缓冲，分配释放，报告错误信息</li>
+<li>用户空间IO软件：系统调用，函数库调用</li>
 </ol>
-<ul>
-<li>某时刻是否存在安全序列（安全序列检测）</li>
-</ul>
-<p>可用资源分配给第一个能满足最大需求max的进程，等待进程运行完，回收该进程资源作为可用资源，重复直至所有进程可运行完，存在安全序列，卡死，不存在</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/1abadc07.html#more" rel="contents">
+              <a class="btn" href="/article/fdd97e94.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -793,7 +797,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/ff08ae5a.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/87698413.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -806,7 +810,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/ff08ae5a.html" class="post-title-link" itemprop="url">处理机调度</a>
+          <a href="/article/87698413.html" class="post-title-link" itemprop="url">Linux进程</a>
         </h2>
 
         <div class="post-meta-container">
@@ -824,7 +828,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:17:43" itemprop="dateModified" datetime="2022-01-14T09:17:43+08:00">2022-01-14</time>
+      <time title="修改时间：2022-01-14 09:16:34" itemprop="dateModified" datetime="2022-01-14T09:16:34+08:00">2022-01-14</time>
     </span>
 
   
@@ -837,15 +841,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="进程线程，处理机调度"><a href="#进程线程，处理机调度" class="headerlink" title="进程线程，处理机调度"></a>进程线程，处理机调度</h1><p>进程是资源分配和调度的独立单位</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/article/ff08ae5a.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h1 id="Linux进程"><a href="#Linux进程" class="headerlink" title="Linux进程"></a>Linux进程</h1><h2 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h2><p>创建子进程，此时进程分裂为两个，拥有相同的上下文和堆栈缓存，父进程的返回值为pid，子进程收到的返回值为0。</p>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2>
       
     </div>
 
@@ -953,7 +950,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/fdd97e94.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1b9c8662.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -966,7 +963,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/article/fdd97e94.html" class="post-title-link" itemprop="url">设备管理</a>
+          <a href="/article/1b9c8662.html" class="post-title-link" itemprop="url">文件系统</a>
         </h2>
 
         <div class="post-meta-container">
@@ -984,7 +981,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:17:54" itemprop="dateModified" datetime="2022-01-14T09:17:54+08:00">2022-01-14</time>
+      <time title="修改时间：2022-01-14 09:18:18" itemprop="dateModified" datetime="2022-01-14T09:18:18+08:00">2022-01-14</time>
     </span>
 
   
@@ -997,15 +994,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h1><h2 id="4层IO"><a href="#4层IO" class="headerlink" title="4层IO"></a>4层IO</h2><ol>
-<li>中断处理程序</li>
-<li>设备驱动程序：磁盘属性和工作机制，设备的IO请求（从磁盘读），检查读写错误，初始化，形成通道，发出中断，实际读写操作</li>
-<li>独立于设备的软件：设备驱动接口统一，设备命名，用户权限，物理块到逻辑块映射，缓冲，分配释放，报告错误信息</li>
-<li>用户空间IO软件：系统调用，函数库调用</li>
-</ol>
+          <h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><h3 id="文件的多级目录结构"><a href="#文件的多级目录结构" class="headerlink" title="文件的多级目录结构"></a>文件的多级目录结构</h3><p>根目录</p>
+<p>当前目录：加快文件查找速度</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/article/fdd97e94.html#more" rel="contents">
+              <a class="btn" href="/article/1b9c8662.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
