@@ -288,9 +288,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-01-13 20:37:04 / 修改时间：20:49:21" itemprop="dateCreated datePublished" datetime="2022-01-13T20:37:04+08:00">2022-01-13</time>
+      <time title="创建时间：2022-01-13 20:37:04" itemprop="dateCreated datePublished" datetime="2022-01-13T20:37:04+08:00">2022-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-14 09:39:18" itemprop="dateModified" datetime="2022-01-14T09:39:18+08:00">2022-01-14</time>
     </span>
 
   
@@ -303,67 +309,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>#在Ubuntu上安装OpenCV和contrib库</p>
-<p>​    自从进入3.X时代以后，OpenCV将代码库分成了两部分，分别是稳定的核心功能库opencv库和试验性质的contrib库。</p>
+          <h1 id="在Ubuntu上安装OpenCV和contrib库"><a href="#在Ubuntu上安装OpenCV和contrib库" class="headerlink" title="在Ubuntu上安装OpenCV和contrib库"></a>在Ubuntu上安装OpenCV和contrib库</h1><p>​    自从进入3.X时代以后，OpenCV将代码库分成了两部分，分别是稳定的核心功能库opencv库和试验性质的contrib库。</p>
 <h2 id="OpenCV-Contrib库"><a href="#OpenCV-Contrib库" class="headerlink" title="OpenCV Contrib库"></a>OpenCV Contrib库</h2><p>​    OpenCV Contrib库是非官方的第三方开发扩充库。通过这个库，我们能使用如dnn、相机标注、3D成像、ArUco、物体追踪，背景分割三维重建，SURF、SIFT特征点提取算法等功能。</p>
-<h2 id="0-环境配置"><a href="#0-环境配置" class="headerlink" title="0. 环境配置"></a>0. 环境配置</h2><ul>
-<li>ubuntu18.04</li>
-<li>Cmake&gt;=3.10.2</li>
-<li>unzip</li>
-</ul>
-<h2 id="1-编译"><a href="#1-编译" class="headerlink" title="1.编译"></a>1.编译</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssl libssl-dev mingetty zip unzip git curl vim gcc g++ -y</span><br><span class="line">sudo apt install socat zsh  curl git vim make cmake -y</span><br><span class="line">sudo apt install autojump -y</span><br><span class="line">sudo apt-get install -y libtiff5-dev libeigen3-dev</span><br><span class="line">sudo apt install -y git gcc g++ make cmake libgtk2.0-dev libgoogle-glog-dev </span><br><span class="line">sudo apt install -y libtesseract-dev libgtkglext1 libgtkglext1-dev ffmpeg</span><br><span class="line">sudo apt install -y libv4l-0 libv4l-dev</span><br><span class="line">sudo apt install -y liblapacke-dev libopenblas-dev libgtk-3-dev libgstreamer-plugins-base1.0-dev </span><br><span class="line">sudo apt install -y libgstreamer1.0-dev libavresample-dev libgphoto2-dev libdc1394-22-dev</span><br><span class="line">sudo apt-get install -y build-essential make cmake cmake-curses-gui git g++ pkg-config curl</span><br><span class="line">sudo apt-get install -y libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libeigen3-dev libglew-dev libgtk2.0-dev</span><br><span class="line">sudo apt-get install -y libtbb2 libtbb-dev v4l-utils qv4l2 v4l2ucp</span><br><span class="line">sudo apt-get install -y libdc1394-22-dev libxine2-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev</span><br><span class="line">sudo apt-get install -y libjpeg8-dev libjpeg-turbo8-dev libtiff-dev libpng-dev</span><br><span class="line">sudo apt-get install -y libxvidcore-dev libx264-dev libgtk-3-dev</span><br><span class="line">sudo apt-get install -y libatlas-base-dev libopenblas-dev liblapack-dev liblapacke-dev gfortran</span><br><span class="line">sudo apt-get install -y qt5-default</span><br><span class="line">sudo apt-get install -y python3-dev python3-testresources</span><br><span class="line">sudo apt-get install -y libcanberra-gtk-module</span><br></pre></td></tr></table></figure>
-
-<h3 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h3><p>选择合适的opencv版本，contrib库版本需与opencv版本相同，以目前使用的3.4.7为例，下载zip压缩包</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/opencv/opencv/releases/tag/3.4.7">OpenCV3.4.7</a></p>
-<p><img src="/article/2d335e83/image-20220113204024390-16420776267921.png" alt="image-20220113204024390"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/opencv/opencv_contrib/releases/tag/3.4.7">OpenCV-Contrib</a></p>
-<p>点击网站，如报错，大概率为dns污染导致（可以magic解决）</p>
-<p>github被dns污染导致，需要更改本机hosts文件，</p>
-<p>Windows下路径为C:\Windows\System32\drivers\etc\hosts</p>
-<p>Linux下路径为 /etc/hosts</p>
-<p>打开文件加入</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># GitHub Start  </span><br><span class="line"><span class="number">140.82.112.3</span> github.com  </span><br><span class="line"><span class="number">141.192.30.253</span>.<span class="number">118</span> gist.github.com</span><br><span class="line"><span class="number">142.192.30.253</span>.<span class="number">119</span> gist.github.com</span><br><span class="line"></span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure>
-
-<p>保存并退出即可。</p>
-<p>使用shell将源代码下载并放入一个文件夹内，需要将version_id改为需要下载的版本号。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">wget -O opencv.zip https://github.com/opencv/opencv/archive/[version_id].zip</span><br><span class="line">wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/[version_id].zip</span><br><span class="line">unzip opencv.zip</span><br><span class="line">unzip opencv_contrib.zip</span><br><span class="line">mv opencv-[version_id] opencv</span><br><span class="line">mv opencv_contrib-[version_id] opencv_contrib</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置cmake并编译OpenCV"><a href="#配置cmake并编译OpenCV" class="headerlink" title="配置cmake并编译OpenCV"></a>配置cmake并编译OpenCV</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/opencv</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br></pre></td></tr></table></figure>
-
-<p>Cmake编译命令</p>
-<p><code>-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \</code>此处路径必须填写正确，否则编译测试通过后队内代码仍然可能编译报错，缺少xxx文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">cmake   -D CMAKE_BUILD_TYPE=RELEASE \</span><br><span class="line">        -D CMAKE_INSTALL_PREFIX=/usr/local \</span><br><span class="line">        -D ENABLE_NEON=OFF \</span><br><span class="line">        -D ENABLE_FAST_MATH=ON \</span><br><span class="line">        -D WITH_GSTREAMER=ON \</span><br><span class="line">        -D WITH_LIBV4L=ON \</span><br><span class="line">        -D BUILD_opencv_python2=OFF \</span><br><span class="line">        -D BUILD_opencv_python3=ON \</span><br><span class="line">        -D BUILD_TESTS=OFF \</span><br><span class="line">        -D BUILD_PERF_TESTS=OFF \</span><br><span class="line">        -D BUILD_EXAMPLES=OFF  \</span><br><span class="line">        -D WITH_TBB=ON \</span><br><span class="line">        -D BUILD_opencv_world=OFF \</span><br><span class="line">        -D BUILD_opencv_xfeatures2d=OFF \</span><br><span class="line">        -D WITH_OPENGL=ON \</span><br><span class="line">        -D WITH_GTK_2_X=ON \</span><br><span class="line">        -D OPENCV_ENABLE_NONFREE=ON \</span><br><span class="line">        -D EIGEN_INCLUDE_PATH=&quot;/usr/include/eigen3&quot; \</span><br><span class="line">        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \</span><br><span class="line">        -D WITH_XINE=ON \</span><br><span class="line">        -D WITH_GDAL=ON \</span><br><span class="line">        ..</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j8</span><br></pre></td></tr></table></figure>
-
-<p>此处8为最大支持线程数，一般为cpu数两倍，一般情况下为4核8线程，线程数过多时可能减低编译效率，设置导致编译报错。</p>
-<p>make时如看到</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br><span class="line">make: * No targets specified and no makefile found.  Stop.</span><br></pre></td></tr></table></figure>
-
-<p>此时问题为Cmake出现问题，请查看Cmake报错信息</p>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>编译成功后</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br><span class="line">sudo vim /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>在末尾添加</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=<span class="variable">$PKG_CONFIG_PATH</span><span class="symbol">:/usr/local/lib/pkgconfig</span>  </span><br><span class="line">export PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
-
-<p>保存退出</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/etc/</span>bash.bashrc</span><br><span class="line">sudo updatedb</span><br></pre></td></tr></table></figure>
-
-<p>查看Linux opencv安装库和版本</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg-<span class="built_in">config</span> opencv <span class="comment">--libs</span></span><br><span class="line">pkg-<span class="built_in">config</span> opencv <span class="comment">--modversion</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h2><p>将如下程序复制至opencv_test.cpp中</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Example 1. A simple OpenCV program that loads an image from disk and displays it on the screen</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">help</span><span class="params">(<span class="keyword">char</span>** argv )</span> </span>&#123;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">	&lt;&lt; <span class="string">&quot;A simple OpenCV program that loads and displays an image from disk\n&quot;</span></span><br><span class="line">	&lt;&lt; argv[<span class="number">0</span>] &lt;&lt;<span class="string">&quot; &lt;path/filename&gt;\n&quot;</span></span><br><span class="line">	&lt;&lt; <span class="string">&quot;For example:\n&quot;</span></span><br><span class="line">	&lt;&lt; argv[<span class="number">0</span>] &lt;&lt; <span class="string">&quot; ../fruits.jpg\n&quot;</span></span><br><span class="line">	&lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span>** argv )</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (argc != <span class="number">2</span>) &#123;</span><br><span class="line">		<span class="built_in">help</span>(argv);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  cv::Mat img = cv::<span class="built_in">imread</span>( argv[<span class="number">1</span>], <span class="number">-1</span> );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>( img.<span class="built_in">empty</span>() ) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  cv::<span class="built_in">namedWindow</span>( <span class="string">&quot;Example&quot;</span>, cv::WINDOW_AUTOSIZE );</span><br><span class="line">  cv::<span class="built_in">imshow</span>( <span class="string">&quot;Example&quot;</span>, img );</span><br><span class="line">  cv::<span class="built_in">waitKey</span>( <span class="number">0</span> );</span><br><span class="line">  cv::<span class="built_in">destroyWindow</span>( <span class="string">&quot;Example&quot;</span> );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>保存并编译该程序</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -o opencv_test opencv_test.cpp `pkg-config --libs --cflags opencv`</span><br></pre></td></tr></table></figure>
-
-<p>运行程序，从网上下载一张png照片，放到相同文件夹下。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./opencv_test</span><br></pre></td></tr></table></figure>
-
-<p>按程序执行即可，不报错即为安装成功</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/2d335e83.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

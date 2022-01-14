@@ -216,7 +216,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:38:46" itemprop="dateModified" datetime="2022-01-14T09:38:46+08:00">2022-01-14</time>
     </span>
 
   
@@ -234,160 +234,14 @@
 <p>路径</p>
 <p>4-，8，m</p>
 <h2 id="空域图像增强"><a href="#空域图像增强" class="headerlink" title="空域图像增强"></a>空域图像增强</h2><p>图像增强对应与特定的应用程序</p>
-<h3 id="空域"><a href="#空域" class="headerlink" title="空域"></a>空域</h3><p>对比度拉伸</p>
-<p>极限为阈值二值化（跃变）</p>
-<ol>
-<li>S =clog（1+x），log变换压缩像素值较大的图像动态范围，扩展低灰度，压缩高灰度，加强暗区域对比度</li>
-<li>反log变换即扩展像素频域动态范围</li>
-<li>S=C*R^r^指数变换：当r&lt;1，类似对数变换；对于r&gt;1，变换效果相反。R为像素值归一化后的值</li>
-<li>gamma：图像变暗，拉伸低灰度区域，γ过小可能高灰度被拉伸产生过曝光</li>
-</ol>
-<p>​    偏暗：需要γ&lt;1,拉伸高灰度值区域范围（类似e^x^）</p>
-<p>​    偏亮：需要γ&gt;1</p>
-<ol start="5">
-<li><p>分段线性变换</p>
-</li>
-<li><p>线性对比度拉伸：k&gt;1，</p>
-</li>
-<li><p>s，r图正常为s=r，分析变换前后图像哪些区域改变哪些不变即可</p>
-</li>
-<li><p>位切片：分析哪个图像表示位更有价值</p>
-</li>
-<li><p>直方图处理（全局处理）</p>
-<ol>
-<li>直方图归一化[a,b]→[c,d]</li>
-</ol>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211230100044384.png" alt="image-20211230100044384"></p>
-<ol start="2">
-<li>直方图均衡</li>
-</ol>
-<p>单调变换，一一映射，得到一个类似均匀的直方图，将灰度范围集中的原始图像的提升对比度</p>
-<ol start="3">
-<li>直方图匹配</li>
-</ol>
-<p>得到任意直方图的原始图像变换</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211230100831156.png" alt="image-20211230100831156"></p>
-<ol start="10">
-<li>局部处理<ol>
-<li>邻域直方图均衡</li>
-<li>利用非重叠区域减少计算量，但存在棋盘效应</li>
-</ol>
-</li>
-<li>按位与或非，mask的对应像素进行</li>
-<li>加性噪声的均值处理</li>
-<li>线性滤波器：高斯，均值</li>
-<li>顺序统计滤波器：中值滤波，卷积核内排序，取中值，最大值滤波，最小值滤波</li>
-<li>锐化滤波：<ol>
-<li>拉普拉斯变换</li>
-<li>灰度增强</li>
-<li>梯度增强</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p>###频域</p>
-<ol>
-<li></li>
-</ol>
-<h2 id="图像压缩"><a href="#图像压缩" class="headerlink" title="图像压缩"></a>图像压缩</h2><p>相对冗余=1-1/压缩比 0.8=1-1/5</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211230122240125.png" alt="image-20211230122240125"></p>
-<h3 id="保真度"><a href="#保真度" class="headerlink" title="保真度"></a>保真度</h3><p>###压缩器结构</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211230233005635.png" alt="image-20211230233005635"></p>
-<ol>
-<li><p>无损压缩</p>
-<ol>
-<li><p>图像灰度级的霍夫曼编码，越低概率的灰度级别越在编码树末端，avg_length=某级别编码长度*该级别对应概率</p>
-</li>
-<li><p>算数编码</p>
-<ol>
-<li>编码：</li>
-</ol>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211231001931466.png" alt="image-20211231001931466"></p>
-<ol start="2">
-<li>解码</li>
-</ol>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211231002032476.png" alt="image-20211231002032476"></p>
-</li>
-</ol>
-</li>
-<li><p>LZW编码</p>
-</li>
-<li><p>TransformCoding</p>
-<ol>
-<li>KLT</li>
-</ol>
-<p>协方差矩阵，保留较大特征值和特征向量</p>
-<ol start="2">
-<li>DCT</li>
-</ol>
-</li>
-<li><p>DWT</p>
-</li>
-</ol>
-<p>小波变换</p>
-<ol start="5">
-<li>DPCM差值 预测编码</li>
-</ol>
-<p>样值与前一个（相邻）样值的差值，则这写差值大多数是很小的或为零，可以用短码来表示；而对这些出现几率较差的差值，用长码表示，这样可以使总体码数下降</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20211231005036049.png" alt="image-20211231005036049"></p>
-<h2 id="形态学运算"><a href="#形态学运算" class="headerlink" title="形态学运算"></a>形态学运算</h2><p>腐蚀：B的原点在A上移动，B==完全==被A包含，亮的部分小一圈，减少明亮细节，更暗</p>
-<p>膨胀：在全图移动B，能碰到A的B的核的集合，大一圈</p>
-<p>开：先腐蚀再膨胀，消除细小物体，在纤细处分离物体和平滑较大物体边界，移除亮的细节</p>
-<p>闭：填充物体内细小空洞，连接邻近物体和平滑边界，移除暗的细节，留下灰度值高的细节e</p>
-<p>先开后关消除暗影噪声</p>
-<p>边界检测：A-腐蚀（A）</p>
-<p>区域填充：A内随机一个点作为种子，种子为核移动，碰到的点全部作为新种子，直至没有种子，选取下一个A边界点作为种子，直至全部被选择</p>
-<p>连通域：种子法，卷积核与所求区域的交集点加入连通域集合并作为新种子</p>
-<p>##区域分割</p>
-<h3 id="离散分割"><a href="#离散分割" class="headerlink" title="离散分割"></a>离散分割</h3><ol>
-<li>点识别</li>
-</ol>
-<p>孤立的点：拉普拉斯算子的突变点</p>
-<ol>
-<li>线识别</li>
-</ol>
-<p>线mask，某一直线系数为整，其余为负</p>
-<h3 id="边界检测和边缘连接"><a href="#边界检测和边缘连接" class="headerlink" title="边界检测和边缘连接"></a>边界检测和边缘连接</h3><ol>
-<li>边缘检测</li>
-</ol>
-<p>拉普拉斯算子</p>
-<p>梯度算子</p>
-<p>明暗过度的边缘，导数将被反转</p>
-<pre><code> 1. 厚的边缘中心：零交叉点，二阶导数零点，一阶导数极值点，图像灰度变化速度最快的点
- 2. 边缘点的灰度突变要足够大
- 3. sobel，roberts（这个是二阶对角正负一），prewitt（其他两个是三阶横竖或对角线-0+）
- 4. 拉普拉斯不用于边缘检测的原因：噪音敏感，双边缘，无法检测边缘方向
- 5. LOG算子
-</code></pre>
-<p>2.边缘补全</p>
-<pre><code> 1. 梯度向量方向上近似的像素
- 2. 霍夫变换b=-ax+y，在这条线上的点必过（a，b）
-</code></pre>
-<h3 id="区域分割"><a href="#区域分割" class="headerlink" title="区域分割"></a>区域分割</h3><p>###分水岭算法</p>
-<p>从最小值处开始，上涨水位，遇到就别的颜色水就分割</p>
-<h3 id="k聚类"><a href="#k聚类" class="headerlink" title="k聚类"></a>k聚类</h3><p>随机分为k个簇，找到每个簇的质心，遍历每个数据点，计算到各个簇的距离，将数据点加入最近的簇，重复直到没有数据点改变</p>
-<p>mean–shift，求一个已知半径圆覆盖数据点的最合适位置</p>
-<p>已知半径，计算所有园内包含点的质心，由圆心向质心的向量为移动方向</p>
-<p>##特征表示</p>
-<p>尽可能不受旋转平移大小影响</p>
-<h3 id="链码"><a href="#链码" class="headerlink" title="链码"></a>链码</h3><p>归一化链码（起点不同的链码中码和最小的一条）</p>
-<p>归一化差分码具有旋转，平移不变性和唯一性</p>
-<p>###多边形近似</p>
-<h3 id="合并与分割"><a href="#合并与分割" class="headerlink" title="合并与分割"></a>合并与分割</h3><ul>
-<li>合并：合并n个点的边界直到最小二乘误差大于阈值</li>
-<li>分割：找主轴，找垂直于主轴且长度大于阈值的次轴，重复</li>
-</ul>
-<h3 id="MAT中轴变换"><a href="#MAT中轴变换" class="headerlink" title="MAT中轴变换"></a>MAT中轴变换</h3><p>###边界属性描述</p>
-<p>偏心率</p>
-<p>曲率</p>
-<h3 id="区域描述符"><a href="#区域描述符" class="headerlink" title="区域描述符"></a>区域描述符</h3><ol>
-<li>面积周长</li>
-<li>紧性</li>
-<li>拓扑描述</li>
-<li>纹理</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/54f090cf.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -444,7 +298,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:39:01" itemprop="dateModified" datetime="2022-01-14T09:39:01+08:00">2022-01-14</time>
     </span>
 
   
@@ -469,57 +323,14 @@
 <li>W：开发各个阶段都要测试，而不只是编码结束后在开始，文档也可以是测试对象</li>
 <li>H：任意时刻，只要测试配置就绪即可</li>
 </ul>
-<p>测试技术</p>
-<ul>
-<li><p>静态测试的测试对象：源程序和文档。项目开发过程中产生大量的规格说明，对这些规格说明的技术审査和管理复审，以及对文档的测试数据都属于静态测试。</p>
-</li>
-<li><p>静态测试是指不运行程序就找出程序中存在的错误，==动态测试==是通过==运行程序==而发现存在的错误和问题。</p>
-</li>
-<li><p>白盒测试又称为结构测试，模块内部逻辑结构==逻辑覆盖准则==，</p>
-</li>
-<li><p>黑盒测试是把模块作为一个整体进行测试。它不关心程序逻辑实现的具体细 节，而是关注模块的输入（接口）、输出（运行结果）</p>
-</li>
-</ul>
-<p>软件测试策略</p>
-<p>静态分析→测试计划→动态测试</p>
-<p>确认测试：验收测试（系统在实际环境下，release）</p>
-<p>##所有的图表</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140600598.png" alt="image-20220103140600598"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140639970.png" alt="image-20220103140639970"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140831193.png" alt="image-20220103140831193"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103140904531.png" alt="image-20220103140904531"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141135317.png" alt="image-20220103141135317"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141145612.png" alt="image-20220103141145612"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141227332.png" alt="image-20220103141227332"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141245882.png" alt="image-20220103141245882"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141414585.png" alt="image-20220103141414585"></p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141707033.png" alt="image-20220103141707033"></p>
-<p>判定树在每个判定条件处分叉</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103141942590.png" alt="image-20220103141942590"></p>
-<p>dfd图，流程图，状态图，判定表，判定树，因果图，决策表，</p>
-<p>用例图，类图，包图，构件图，配置图，状态图，活动图，顺序图，协作图。流图</p>
-<p><img src="C:\Users\GK\AppData\Roaming\Typora\typora-user-images\image-20220103142140359.png" alt="image-20220103142140359"></p>
-<p>###UML</p>
-<p>泛化关系为分类==实线空箭头==，包含关系为组合</p>
-<p>依赖关系==虚线实箭头==→关联关系==实线==（强依赖）→聚合关系==+虚菱形==（部分可以单独存在）（共享聚合），组合关系==+实菱形==（部分不能脱离整体单独存在）（复合聚合）</p>
-<p>####软件维护的分类</p>
-<p>完善性维护（扩展功能提高效率），纠错性维护，适应性维护，预防性维护</p>
-<p>###面向对象设计</p>
-<ul>
-<li><p>功能模型：用例图</p>
-</li>
-<li><p>静态模型：类图</p>
-</li>
-</ul>
-<p>类-对象层 </p>
-<p>结构层 </p>
-<p>属性层</p>
-<p>服务层 </p>
-<p>主题层</p>
-<ul>
-<li>动态模型：活动图</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/d1262596.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
