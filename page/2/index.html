@@ -287,7 +287,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:21:26" itemprop="dateModified" datetime="2022-01-14T09:21:26+08:00">2022-01-14</time>
     </span>
 
   
@@ -302,42 +302,14 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="实体认证协议"><a href="#实体认证协议" class="headerlink" title="实体认证协议"></a>实体认证协议</h1><p>公钥证书架构</p>
 <p>一个主体声称自己是A，另一个主体B为验证者，B要验证对方确实是A</p>
-<p>Cert<del>X</del>:X在此证书下的架构</p>
-<p>Sign<del>X</del>:X使用私钥进行签名</p>
-<h2 id="基于公钥密码的一次传输单向认证"><a href="#基于公钥密码的一次传输单向认证" class="headerlink" title="基于公钥密码的一次传输单向认证"></a>基于公钥密码的一次传输单向认证</h2><p>单向认证：A用私钥签名，将架构和签名发送给B，B执行签名验证，认证实体去确实为A</p>
-<p>签名中加入时间戳/序列号，防止攻击者事先获得已有的签名</p>
-<p>不方便同步和维护→随机数（交互发送随机数）→</p>
-<p>两次传输单向认证协议（交互式）</p>
-<p>签名认证方A加入随机数进行签名操作防止B使用任意随机数脱离控制</p>
-<p>先发送一个随机数N<del>A</del>给对方</p>
-<h2 id="双向认证"><a href="#双向认证" class="headerlink" title="双向认证"></a>双向认证</h2><p>两次单向认证是不安全的</p>
-<p>E的中间人攻击：<br>E冒充B选择随机数激活A的签名程序，然后冒充A转发给B，B执行认证操作后转发给A，让B替代自己执行认证操作</p>
-<p>##基于口令的实体认证</p>
-<p>口令：长期使用，相对较短</p>
-<p>主机H初始化用户U，发送口令PW<del>U</del></p>
-<p>主机H建立保存所有用户口令的文档（ID，PW）</p>
-<ul>
-<li><p> 单向函数加密PW→字典攻击</p>
-</li>
-<li><p>==加盐==防止==字典攻击==，主机H给定每个ID一个唯一的随机数称为盐值，每次请求服务将口令和盐输入单向函数</p>
-</li>
-</ul>
-<p>不能抵挡在线口令窃听：攻击者可以获取U发送给H的明文命令</p>
-<ul>
-<li>==哈希链==防止窃听，一次性口令：初始口令PW<del>0</del>，每次请求进行一次额外hash，保存在主机，每次请求主机更新自己的（ID，n，Hash^n^(PW)），用户请求时计算n-1次hash，主机对用户发来的口令进行一次hash，与记录比对</li>
-</ul>
-<h2 id="加密的密钥交换EKE"><a href="#加密的密钥交换EKE" class="headerlink" title="加密的密钥交换EKE"></a>加密的密钥交换EKE</h2><p>实体认证+密钥协商</p>
-<p>协议结束后，用户U和主机H将完成双向实体认证，并得到一个共享密钥</p>
-<p>前提：</p>
-<ul>
-<li>口令PW</li>
-<li>事先约定的对称加密体制SE，公钥加密体制AE</li>
-</ul>
-<p>SE<del>K</del>为用K进行对称加密，AE<del>K</del>为用公钥K进行公钥加密</p>
-<p>PK为随机数，K为主机H产生的随机对称密钥</p>
-<h2 id="对实体认证协议的攻击"><a href="#对实体认证协议的攻击" class="headerlink" title="对实体认证协议的攻击"></a>对实体认证协议的攻击</h2><p>重放攻击</p>
-<p>中间人攻击</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/b832ff82.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -394,7 +366,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:20:40" itemprop="dateModified" datetime="2022-01-14T09:20:40+08:00">2022-01-14</time>
     </span>
 
   
@@ -407,67 +379,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>#密钥交换协议</p>
-<p>##要求</p>
-<ol>
+          <h1 id="密钥交换协议"><a href="#密钥交换协议" class="headerlink" title="密钥交换协议"></a>密钥交换协议</h1><h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><ol>
 <li>只有参与者知道</li>
 <li>确保对方知道</li>
 <li>新生成的，时效性</li>
 </ol>
-<ul>
-<li>密钥建立：密钥建立是这样一个过程，通过该过程，使得两个或多个主体拥有良好的共享密 钥</li>
-<li>会话密钥：在安全协议成功运行完毕后，主体 间进行应用层会话时使用的密钥，使用时间较 短。 </li>
-<li>长期密钥：与会话密钥相对应，可以长时间多 次使用，可能是共享的对称密钥，也可能是公 开密钥系统中的公钥或私钥。</li>
-</ul>
-<h2 id="主体"><a href="#主体" class="headerlink" title="主体"></a>主体</h2><p>密钥建立，会话密钥（短期），长期密钥</p>
-<h2 id="安全性质"><a href="#安全性质" class="headerlink" title="安全性质"></a>安全性质</h2><ol>
-<li>秘密性</li>
-<li>数据完整性：未被篡改</li>
-<li>数据起源认证性：保证起源</li>
-<li>非否认性：数字签名</li>
-</ol>
-<h2 id="基本目标"><a href="#基本目标" class="headerlink" title="基本目标"></a>基本目标</h2><ul>
-<li>隐式密钥认证：确信只有身份确定的参与另一方才能知道共享密钥</li>
-<li>密钥确认：参与的一方要确认另一方已经拥有了共享密钥</li>
-<li>显式密钥认证：隐式密钥认证+密钥确认</li>
-</ul>
-<h2 id="包含协议"><a href="#包含协议" class="headerlink" title="包含协议"></a>包含协议</h2><ul>
-<li>密钥传输协议：一个参与者生成密钥，分享给所有参与者</li>
-<li>密钥协商协议：所有协议使用者的生成密钥</li>
-<li>混合协议：1&lt;n&lt;all</li>
-</ul>
-<h2 id="简单的密钥传输协议"><a href="#简单的密钥传输协议" class="headerlink" title="简单的密钥传输协议"></a>简单的密钥传输协议</h2><p>###前提</p>
-<p>A,B与服务器S已建立密钥K<del>as</del>,K<del>bs</del></p>
-<ul>
-<li>安全假设</li>
-</ul>
-<ol>
-<li>攻击者可以窃听所有信息→秘密性，长期密钥</li>
-<li>攻击者可以修改传输的消息</li>
-<li>攻击者的内部属性，合法和非法→用户的名字绑定会话密钥</li>
-<li>攻击者在一定时间以后有能力得到以前运行的协议当中的会话密钥，重放攻击</li>
-</ol>
-<p>加密–中间人攻击</p>
-<h2 id="时效性"><a href="#时效性" class="headerlink" title="时效性"></a>时效性</h2><ul>
-<li>时间戳</li>
-<li>询问-应答，随机数作为询问，返回消息也带有这一随机数</li>
-</ul>
-<p>##攻击方式</p>
-<p>窃听</p>
-<p>篡改：数据完整性</p>
-<p>重放</p>
-<p>非否认性：数字签名</p>
-<p>类型攻击：类型攻击就是利用用户接收到的都是二进制串，无法判断是否加密，使得用户将一个消息错误的解释成其他的消息→每次改变 消息元素的顺序，确保每次的加密密钥不同。 或者在消息中添加认证数或消息域的类型信息</p>
-<p>##端到端协议</p>
-<p>签名的本质是发送私钥的信息但不能被还原，即单向性</p>
-<p>协议参与方的数字签名保证消息来源真实性，抵抗中间人攻击</p>
-<p>##MTI协议遭受的证书操纵攻击</p>
-<p>g^x^,x为A挑选的随机数，b为私钥，g^y^,a同理，K<del>AB</del>=g^ay+bx^中,对A来说，g^y^B发送，a为自己的私钥，g^b^为证书，x为自己挑选随机数</p>
-<p>A→C<del>B</del>:g^x^,Cert(A)</p>
-<p>C→B:g^x^,Cert(C)</p>
-<p>B→C:g^y^,Cert(B)</p>
-<p>C<del>B</del>→A：g^yc^,Cert(B)</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/fc237eb0.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -524,7 +448,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:21:10" itemprop="dateModified" datetime="2022-01-14T09:21:10+08:00">2022-01-14</time>
     </span>
 
   
@@ -537,56 +461,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="密钥协商协议"><a href="#密钥协商协议" class="headerlink" title="密钥协商协议"></a>密钥协商协议</h1><p>##基于自证明的密钥交换</p>
-<p>系统中 的用户从可信中心获得一个自证明公钥，但不需要公钥证书，其 身份与他的公钥值隐式地相互认证</p>
-<p>隐式认证</p>
-<p>需要提交身份对应的私钥，不提交则不安全，可以伪造对应的秘密指数</p>
-<p>##基于身份的密钥交换</p>
-<p>公钥：用户公开身份信息</p>
-<p>私钥：TA生成器</p>
-<p>###双线性映射和密钥分配</p>
-<p>TA公钥，对方ID哈希*自己私钥，主私钥×自己Id哈希，Tb（生成元×对方选择随机数）</p>
-<ol>
-<li>A→B：选择a，T<del>a</del>=aP，</li>
-<li>B→A</li>
-<li>A计算K=</li>
-</ol>
-<p>####非交互式密钥分配流程</p>
-<p>TA选取s为主密钥</p>
-<ol>
-<li>Q<del>A</del>=H（ID<del>A</del>）作为公钥</li>
-<li>S<del>A</del>=sQ<del>A</del>分配给A作为私钥</li>
-<li>B计算会话密钥：A身份信息→A的公钥Q<del>A</del>+B的私钥S<del>B</del>可计算K<del>AB</del>=f（S<del>B</del>，Q<del>A</del>）=f（Q<del>A</del>，Q<del>B</del>）^s^</li>
-<li>同样方式可被A计算，不需要进行交互</li>
-</ol>
-<p>####局限</p>
-<p>无新鲜性，必须注册私钥</p>
-<h2 id="群组密钥交换"><a href="#群组密钥交换" class="headerlink" title="群组密钥交换"></a>群组密钥交换</h2><ul>
-<li><p>DH三方密钥交换</p>
-<ul>
-<li>会话密钥：g^abc^,需要两轮，A→B→C→A</li>
-</ul>
-</li>
-<li><p>基于双线性配对，P为公开参数</p>
-<ul>
-<li>A→B，C（N<del>a</del>P）</li>
-<li>B→CA，C→AB，一轮交互，并行发送</li>
-<li>k=f（P，P）^abc^</li>
-</ul>
-<p>无认证机制，不能抵御中间人攻击</p>
-</li>
-<li><p>多方密钥交换</p>
-<ul>
-<li>BD多方密钥交换<ul>
-<li>每个参与者两轮交互，发送两个消息，最多3个模指数运算和1/2(n^2^+3n-3)个乘法运算</li>
-<li>对被动攻击安全</li>
-</ul>
-</li>
-<li>动态变化的条件：离开无法获得之后的会话密钥，新加入无法获取之前的</li>
-</ul>
-</li>
-</ul>
-
+          <h1 id="密钥协商协议"><a href="#密钥协商协议" class="headerlink" title="密钥协商协议"></a>密钥协商协议</h1><h2 id="基于自证明的密钥交换"><a href="#基于自证明的密钥交换" class="headerlink" title="基于自证明的密钥交换"></a>基于自证明的密钥交换</h2><p>系统中 的用户从可信中心获得一个自证明公钥，但不需要公钥证书，其 身份与他的公钥值隐式地相互认证</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/7c4b9fb3.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -643,7 +526,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:19:13" itemprop="dateModified" datetime="2022-01-14T09:19:13+08:00">2022-01-14</time>
     </span>
 
   
@@ -656,32 +539,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>#比特承诺</p>
-<p>A发送给B一个证明，用来作出承诺，承诺内容为一个比特</p>
+          <h1 id="比特承诺"><a href="#比特承诺" class="headerlink" title="比特承诺"></a>比特承诺</h1><p>A发送给B一个证明，用来作出承诺，承诺内容为一个比特</p>
 <ol>
 <li>A未打开承诺前，B无法得知承诺是0还是1</li>
 <li>A不能打开一个相反的bit，即不能伪造</li>
 </ol>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>承诺阶段：A选择承诺诺的bit，并将表示信息m发给B</li>
-<li>打开阶段：A吧打开承诺的消息d和选择的bit b发送给B，B用d打开m，并验证</li>
-</ol>
-<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
-<li>隐藏性：接收方不能从消息中获取比特的任意信息</li>
-<li>绑定性：发送者不能改变自己承诺的bit</li>
-</ol>
-<p>###经典</p>
-<ol>
-<li>加密</li>
-<li>hash散列</li>
-<li>伪随机数发生器</li>
-</ol>
-<h3 id="Pedersen承诺协议"><a href="#Pedersen承诺协议" class="headerlink" title="Pedersen承诺协议"></a>Pedersen承诺协议</h3><p>离散对数问题</p>
-<p>p，g为生成元,y,r为群中随机数，承诺为c=g^r^y^b^(modp)</p>
-<h3 id="密封式电子拍卖协议"><a href="#密封式电子拍卖协议" class="headerlink" title="密封式电子拍卖协议"></a>密封式电子拍卖协议</h3><p>正确性</p>
-<p>保密性</p>
-<p>公开验证性</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/4d5671c6.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -738,7 +608,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:20:14" itemprop="dateModified" datetime="2022-01-14T09:20:14+08:00">2022-01-14</time>
     </span>
 
   
@@ -753,18 +623,14 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="秘密分享"><a href="#秘密分享" class="headerlink" title="秘密分享"></a>秘密分享</h1><p>具有重要价值 物件的访问权限不能只由一个人掌握。</p>
 <p>基本思想是==将秘密分解为多个碎片==并将这些碎片分发给不同的人掌管，在秘密丢失的情况下，这些人中的某些特定子集可以通过将他们拥有的碎片凑在一起以==恢复整个秘密==</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>秘密分发协议：分发者D，在n个参与者中分享秘密s，每个参与者Pi获得一个碎片s<del>i</del></li>
-<li>秘密重构协议：任意不少于t个参与者合作，以自己碎片s<del>i</del>为输入，重构秘密s</li>
-</ol>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>可恢复：任意t个能回复</li>
-<li>任意少于t个无法计算任何秘密s相关信息</li>
-</ol>
-<h3 id="经典协议"><a href="#经典协议" class="headerlink" title="经典协议"></a>经典协议</h3><ol>
-<li>拉格朗日多项式</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/5b007939.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1181,7 +1047,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:20:24" itemprop="dateModified" datetime="2022-01-14T09:20:24+08:00">2022-01-14</time>
     </span>
 
   
@@ -1195,15 +1061,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="秘密握手"><a href="#秘密握手" class="headerlink" title="秘密握手"></a>秘密握手</h1><p>一个群组中的两个成员互相认证，同时两个成员不会互相透露他们的上下级信息，除非他们同属于一组</p>
-<p>##流程</p>
-<ol>
-<li>Setup：输入成员私钥，输出公钥</li>
-<li>CreateGroup：群组授权者调用算法创建群组</li>
-<li>AddUser：GA生成证书，U获得证书通过一个被授权的私有频道</li>
-<li>HandShake：成员AB调用的一个协议，确保B发现A、当且仅当A发现B在群组中。</li>
-<li>RevoleUser：调用算法，移除成员证书</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/9ed0d196.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

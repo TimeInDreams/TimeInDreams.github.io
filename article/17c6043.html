@@ -20,15 +20,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"timeindreams.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="#高级签名协议 密钥生成，签名，验证 盲签名持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系 ###过程  Setup，输出系统参数p和签名人的公钥私钥对（pk，sk） Sign  公共输入：系统参数p，签名人公钥pk， 秘密输入，签名人私钥sk，用户输入代签名消息m 停止时用户输出签名s   Ve">
+<meta name="description" content="高级签名协议密钥生成，签名，验证">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高级签名协议">
 <meta property="og:url" content="https://timeindreams.github.io/article/17c6043.html">
 <meta property="og:site_name" content="TimeInDreams&#39; Blogs">
-<meta property="og:description" content="#高级签名协议 密钥生成，签名，验证 盲签名持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系 ###过程  Setup，输出系统参数p和签名人的公钥私钥对（pk，sk） Sign  公共输入：系统参数p，签名人公钥pk， 秘密输入，签名人私钥sk，用户输入代签名消息m 停止时用户输出签名s   Ve">
+<meta property="og:description" content="高级签名协议密钥生成，签名，验证">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-12T12:57:11.000Z">
-<meta property="article:modified_time" content="2022-01-12T16:26:22.990Z">
+<meta property="article:modified_time" content="2022-01-14T01:19:29.399Z">
 <meta property="article:author" content="GuoKai">
 <meta property="article:tag" content="ProtocolSecurity">
 <meta name="twitter:card" content="summary">
@@ -119,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B2%E7%AD%BE%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">盲签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">1.1.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B2%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">盲化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E7%AD%BE%E5%90%8D"><span class="nav-number">3.</span> <span class="nav-text">群签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="nav-number">3.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E7%AD%BE%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">环签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%BA%AB%E4%BB%BD%E7%9A%84%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-number">5.</span> <span class="nav-text">基于身份的数字签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-1"><span class="nav-number">5.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-number">5.2.</span> <span class="nav-text">安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.3.</span> <span class="nav-text">类型</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%AD%BE%E5%90%8D%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">高级签名协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B2%E7%AD%BE%E5%90%8D"><span class="nav-number">1.1.</span> <span class="nav-text">盲签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B2%E5%8C%96"><span class="nav-number">1.2.</span> <span class="nav-text">盲化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E7%AD%BE%E5%90%8D"><span class="nav-number">1.3.</span> <span class="nav-text">群签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E7%AD%BE%E5%90%8D"><span class="nav-number">1.4.</span> <span class="nav-text">环签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%BA%AB%E4%BB%BD%E7%9A%84%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-number">1.5.</span> <span class="nav-text">基于身份的数字签名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-number">1.5.2.</span> <span class="nav-text">安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.5.3.</span> <span class="nav-text">类型</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -221,7 +221,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:19:29" itemprop="dateModified" datetime="2022-01-14T09:19:29+08:00">2022-01-14</time>
     </span>
 
   
@@ -241,11 +241,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>#高级签名协议</p>
-<p>密钥生成，签名，验证</p>
+        <h1 id="高级签名协议"><a href="#高级签名协议" class="headerlink" title="高级签名协议"></a>高级签名协议</h1><p>密钥生成，签名，验证</p>
+<span id="more"></span>
+
 <h2 id="盲签名"><a href="#盲签名" class="headerlink" title="盲签名"></a>盲签名</h2><p>持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系</p>
-<p>###过程</p>
-<ol>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
 <li>Setup，输出系统参数p和签名人的公钥私钥对（pk，sk）</li>
 <li>Sign <ol>
 <li>公共输入：系统参数p，签名人公钥pk，</li>
@@ -281,7 +281,7 @@
 </ol>
 <p>部分盲签名，嵌入一段公共信息</p>
 <h2 id="群签名"><a href="#群签名" class="headerlink" title="群签名"></a>群签名</h2><p>成员代表群体进行匿名签名，无法确定具体成员，但群管理者可以打开签名揭示签名者身份防止否认签名行为</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
+<h3 id="过程-1"><a href="#过程-1" class="headerlink" title="过程"></a>过程</h3><ol>
 <li>系统初始化</li>
 <li>签名</li>
 <li>验证</li>
@@ -297,7 +297,7 @@
 <h2 id="环签名"><a href="#环签名" class="headerlink" title="环签名"></a>环签名</h2><p>签名的匿名性</p>
 <p>自己的私钥和其他n-1个人的公钥对m执行环签名，执行验证算法可以确信又环中某个签名者产生，但无法识别签名人的身份</p>
 <p>可链接性：如果是同一个人签的，验证时能确定时同一个人签的，但无法确定身份</p>
-<h2 id="基于身份的数字签名"><a href="#基于身份的数字签名" class="headerlink" title="基于身份的数字签名"></a>基于身份的数字签名</h2><h3 id="过程-1"><a href="#过程-1" class="headerlink" title="过程"></a>过程</h3><ol>
+<h2 id="基于身份的数字签名"><a href="#基于身份的数字签名" class="headerlink" title="基于身份的数字签名"></a>基于身份的数字签名</h2><h3 id="过程-2"><a href="#过程-2" class="headerlink" title="过程"></a>过程</h3><ol>
 <li>Setup 输出主密钥，系统参数</li>
 <li>Extract，私钥提取算法，输入为用户身份信息ID，算出私钥sk发送给用户</li>
 <li>Sign 用户签名</li>

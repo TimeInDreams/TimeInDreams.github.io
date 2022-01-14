@@ -216,7 +216,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:19:29" itemprop="dateModified" datetime="2022-01-14T09:19:29+08:00">2022-01-14</time>
     </span>
 
   
@@ -229,74 +229,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>#高级签名协议</p>
-<p>密钥生成，签名，验证</p>
-<h2 id="盲签名"><a href="#盲签名" class="headerlink" title="盲签名"></a>盲签名</h2><p>持有消息M的用户U获取签名人Singer对M的签名s，但Singer不知道m的内容，（m，s）对公开，Singer也无法追踪消息与签名过程之间的关系</p>
-<p>###过程</p>
-<ol>
-<li>Setup，输出系统参数p和签名人的公钥私钥对（pk，sk）</li>
-<li>Sign <ol>
-<li>公共输入：系统参数p，签名人公钥pk，</li>
-<li>秘密输入，签名人私钥sk，用户输入代签名消息m</li>
-<li>停止时用户输出签名s</li>
-</ol>
-</li>
-<li>Verify 输入系统公开参数p，公钥pk，待验证消息签名对（m，s），输出1或0（是否有效）</li>
-</ol>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>正确性</li>
-<li>不可伪造性</li>
-<li>盲性</li>
-</ol>
-<h2 id="盲化"><a href="#盲化" class="headerlink" title="盲化"></a>盲化</h2><ol>
-<li><p>盲化：用户引入盲化因子，将消息m计算为m` k^e^m</p>
-</li>
-<li><p>签名：发送m‘给签名人，签名人签名得到s’，d次幂</p>
-</li>
-<li><p>去盲：用户用s‘计算出s k的逆元</p>
-</li>
-</ol>
-<p>验证 签名s^e^(modn)=m</p>
-<p>离散对数</p>
-<p>(g^x^,x)为公钥私钥,用公钥+随机数去盲，用随机数盲化</p>
-<ol>
-<li><p>选随机数r,m’=g^r^×H（m）</p>
-</li>
-<li><p>私钥次方s’=m’^x^</p>
-</li>
-<li><p>s=s’y^-r^</p>
-</li>
-</ol>
-<p>部分盲签名，嵌入一段公共信息</p>
-<h2 id="群签名"><a href="#群签名" class="headerlink" title="群签名"></a>群签名</h2><p>成员代表群体进行匿名签名，无法确定具体成员，但群管理者可以打开签名揭示签名者身份防止否认签名行为</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>系统初始化</li>
-<li>签名</li>
-<li>验证</li>
-<li>打开</li>
-</ol>
-<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ol>
-<li>匿名性：无法确定给定签名的实际签名人</li>
-<li>无关联性：不打开签名的情况下，不能确定两个不同的群签名是否为同一个人所签名</li>
-<li>可追踪性：</li>
-<li>防陷害性：不能以其他群成员名义产生合法签名</li>
-<li>抗联合攻击：不能任意多个群成员勾结伪造其他群成员签名</li>
-</ol>
-<h2 id="环签名"><a href="#环签名" class="headerlink" title="环签名"></a>环签名</h2><p>签名的匿名性</p>
-<p>自己的私钥和其他n-1个人的公钥对m执行环签名，执行验证算法可以确信又环中某个签名者产生，但无法识别签名人的身份</p>
-<p>可链接性：如果是同一个人签的，验证时能确定时同一个人签的，但无法确定身份</p>
-<h2 id="基于身份的数字签名"><a href="#基于身份的数字签名" class="headerlink" title="基于身份的数字签名"></a>基于身份的数字签名</h2><h3 id="过程-1"><a href="#过程-1" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>Setup 输出主密钥，系统参数</li>
-<li>Extract，私钥提取算法，输入为用户身份信息ID，算出私钥sk发送给用户</li>
-<li>Sign 用户签名</li>
-<li>Verify 验证者完成验证</li>
-</ol>
-<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol>
-<li>适应性选择消息攻击</li>
-<li>选择身份攻击的不可伪造性</li>
-</ol>
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>双线性对，RSA</p>
-
+          <h1 id="高级签名协议"><a href="#高级签名协议" class="headerlink" title="高级签名协议"></a>高级签名协议</h1><p>密钥生成，签名，验证</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/17c6043.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -353,7 +294,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-13 00:26:22" itemprop="dateModified" datetime="2022-01-13T00:26:22+08:00">2022-01-13</time>
+      <time title="修改时间：2022-01-14 09:20:00" itemprop="dateModified" datetime="2022-01-14T09:20:00+08:00">2022-01-14</time>
     </span>
 
   
@@ -371,70 +312,14 @@
 <li>时间戳要求时钟同步，不与主体相关联</li>
 </ul>
 <p>Nonce:在密码学中是一个只被使用一次的任意或非重复的随机数值，可提供时序信息。N<del>B</del></p>
-<p>E<del>B</del>：B可解码的编码方式，用B的公钥加密</p>
-<p>M：会话识别号</p>
-<p>K：密钥 </p>
-<p>K<del>AB</del>：AB的会话密钥</p>
-<p>##NSPK协议</p>
-<ol>
-<li>A→B: E<del>B</del> (N<del>A</del> , A) </li>
-<li>B→A: E<del>A</del> (N<del>A</del> , N<del>B</del> ) </li>
-<li>A→B: E<del>B</del> (N<del>B</del> )</li>
-</ol>
-<p>###lowe中间人攻击</p>
-<p>1.A→C: E<del>C</del> (N<del>A</del> , A) </p>
-<p>1‘. C<del>A</del>→B: E<del>B</del> (N<del>A</del> , A) (C在B面前伪装成为A，B将C当成A) </p>
-<p>2’. B →C<del>A</del> : E<del>A</del> (N<del>A</del> , N<del>B</del> )（C无法解码，因此转发给A）</p>
-<p>2.C →A: E<del>A</del> (N<del>A</del> , N<del>B</del> ) </p>
-<p>3.A→C: E<del>C</del> (N<del>B</del> ) </p>
-<p>3’. C<del>A</del>→B: E<del>B</del> (N<del>B</del> )</p>
-<p>此时C成功让B相信他就是A，因为正确发送N<del>B</del></p>
-<h2 id="Otway-Rees协议"><a href="#Otway-Rees协议" class="headerlink" title="Otway-Rees协议"></a>Otway-Rees协议</h2><p>随机数，会话识别号，身份ID，加密</p>
-<ol>
-<li>A→B：M，A，B，{N<del>A</del>，M，A，B}K<del>as</del> B有了kas加密后的验证</li>
-<li>B→S：M，A，B，{N<del>A</del>，M，A，B}K<del>as</del>，{N<del>B</del>，M，A，B}K<del>bs</del>此时S有了a和b的M，和AB的N，进行检查</li>
-<li>S→B：M，{N<del>A</del>，Kab}Kas（给a的验证包），{N<del>B</del>，Kab}Kbs（给b的验证包）</li>
-<li>B→A：M，{N<del>A</del>，Kab}Kas（给a的验证包）</li>
-</ol>
-<p>S检查消息2中两个加密消息内的 M,A,B是否一致，如果匹配，才会为A,B生成会话密钥 ，并向B发送消息3。</p>
-<h3 id="类型缺陷型攻击"><a href="#类型缺陷型攻击" class="headerlink" title="类型缺陷型攻击"></a>类型缺陷型攻击</h3><p>攻击者假冒B：记录第一步M，{N<del>A</del>，M，A，B}K<del>as</del>，A→P（B），P（B）对第四步的给a的验证包进行伪造，方法为重放1M，{N<del>A</del>，M，A，B}K<del>as</del>来代替{N<del>A</del>，Kab}Kas</p>
-<p>假冒S：2. B→P(S) 3.重放第二步攻击，P（S）→B  ：M，{N<del>A</del>，M，A，B}K<del>as</del>，{N<del>B</del>，M，A，B}K<del>bs</del></p>
-<p>即M，Kas/Kbs加密后的验证包被作为重放攻击，即可让AB信任P</p>
-<h2 id="Otway-Rees协议Abadi-Needham改进版本"><a href="#Otway-Rees协议Abadi-Needham改进版本" class="headerlink" title="Otway-Rees协议Abadi-Needham改进版本"></a>Otway-Rees协议Abadi-Needham改进版本</h2><p>12步中不进行与s有关密钥kas，kbs发送，即可不被重放攻击</p>
-<ol>
-<li>A→B:Na,A,B</li>
-<li>B→S:A,B,Na,Nb</li>
-<li>S→B:{N<del>A</del>，Kab,A,B}Kas（给a的验证包），{N<del>B</del>，Kab,A,B}Kbs（给b的验证包）</li>
-<li>B→A:{N<del>A</del>，Kab,A,B}Kas（给a的验证包)</li>
-</ol>
-<h3 id="平行会话攻击："><a href="#平行会话攻击：" class="headerlink" title="平行会话攻击："></a>平行会话攻击：</h3><p>在攻击者的特意安排下，一个协议两次或更多的并发执行</p>
-<p>S对A,B之间时间间隔很短 的两次密钥申请不进行限制</p>
-<ol>
-<li>B→P(S):A,B,Na,Nb 假冒S，B的发送被攻击者破译</li>
-<li>P（B）→ S：假冒B请求两次A B Na Np1 和A，B，Np2，Nb假冒B，用Np1和Np2替换Na和Nb</li>
-<li>S→ P（B）：<ol>
-<li>{==N<del>p1</del>==，Kab,A,B}Kas（给a的验证包），{N<del>b</del>，Kab,A,B}Kbs（给b的验证包）</li>
-<li>{N<del>A</del>，Kab,A,B}Kas（给a的验证包），{==N<del>P2</del>==，Kab,A,B}Kbs（给b的验证包）</li>
-</ol>
-</li>
-</ol>
-<p>真服务器向攻击者P发送验证</p>
-<ol start="4">
-<li>P（S）→B再次假冒S {N<del>A</del>，Kab,A,B}Kas，{N<del>B</del>，==Kab假==,A,B}Kbs</li>
-<li>B→A：{N<del>A</del>，Kab,A,B}Kas</li>
-</ol>
-<h2 id="Andrew-安全PRC协议"><a href="#Andrew-安全PRC协议" class="headerlink" title="Andrew 安全PRC协议"></a>Andrew 安全PRC协议</h2><ol>
-<li>A→B：A，{Na}Kab</li>
-<li>B→A：{Na+1，Nb}Kab</li>
-<li>A→B：{Nb+1}Kab</li>
-<li>B→A：{K^’’^ab,N^’’^b}Kab</li>
-</ol>
-<h3 id="针对Andrew安全RPC协议的“类型缺陷”型攻击"><a href="#针对Andrew安全RPC协议的“类型缺陷”型攻击" class="headerlink" title="针对Andrew安全RPC协议的“类型缺陷”型攻击"></a>针对Andrew安全RPC协议的“类型缺陷”型攻击</h3><p>攻击者P可以记录监听到的消息 2 {Na+1，Nb}Kab,截获A发送给B的消息3，并在第4步重放消息 2给A</p>
-<ol start="3">
-<li>A→P(B):{Nb+1}Kab 此时消息3被截获，得知？</li>
-<li>P（B）→A:{Na+1，Nb}Kab（此为被监听的消息2），A认为Na+1就是K^’’^ab</li>
-</ol>
-<h2 id="大嘴青蛙协议"><a href="#大嘴青蛙协议" class="headerlink" title="大嘴青蛙协议"></a>大嘴青蛙协议</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/63953bc3.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
