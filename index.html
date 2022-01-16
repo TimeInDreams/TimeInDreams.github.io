@@ -210,7 +210,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-01-16 09:57:02 / 修改时间：10:00:57" itemprop="dateCreated datePublished" datetime="2022-01-16T09:57:02+08:00">2022-01-16</time>
+      <time title="创建时间：2022-01-16 09:57:02 / 修改时间：10:15:28" itemprop="dateCreated datePublished" datetime="2022-01-16T09:57:02+08:00">2022-01-16</time>
     </span>
 
   
@@ -224,7 +224,27 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="图像缩放"><a href="#图像缩放" class="headerlink" title="图像缩放"></a>图像缩放</h1><p>crop（裁剪），scale（比例放缩）</p>
-<h2 id="seam-carving"><a href="#seam-carving" class="headerlink" title="seam-carving"></a>seam-carving</h2>
+<h1 id="seam-carving"><a href="#seam-carving" class="headerlink" title="seam-carving"></a>seam-carving</h1><p>seam-carving缩放技术是基于裁剪最小能量的八邻域接缝</p>
+<h2 id="Basic-Idea-remove-unimportant-pixels-from-the-image"><a href="#Basic-Idea-remove-unimportant-pixels-from-the-image" class="headerlink" title="Basic Idea: remove unimportant pixels from the image"></a>Basic Idea: remove unimportant pixels from the image</h2><ul>
+<li>Unimportant = pixels with less “energy”</li>
+</ul>
+<h2 id="Seam"><a href="#Seam" class="headerlink" title="Seam"></a>Seam</h2><ul>
+<li>A connected path of pixels from top to bottom (or left to right). Exactly one in each row</li>
+</ul>
+<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><ol>
+<li>对每个像素计算对应能量E(i,j)，生成能量分布图Mat E</li>
+<li>动态规划对每个像素计算累计最小能量，生成累计能量最小分布图M，M(i，j)表示从0行某个像素，到（i，j）位置像素的最小累计能量</li>
+</ol>
+<p>M(i, j)= E(i, j) +min(M(i -1, j -1),M(i -1, j),M(i -1, j +1))</p>
+<ol start="3">
+<li><p>同时记录backtrack回溯路径图B,B(i,j)记录的值即为上一行所选择的最小能量的位置j-1,j,j+1中的一个</p>
+</li>
+<li><p>对整张图最后一行选择M(i,j)最小的一个位置，利用B进行像素坐标索引回溯，删除整条接缝</p>
+</li>
+<li><p>重复此过程，直至图像到达指定宽度</p>
+</li>
+</ol>
+
       
     </div>
 
