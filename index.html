@@ -208,9 +208,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-01-16 09:57:02 / 修改时间：12:22:30" itemprop="dateCreated datePublished" datetime="2022-01-16T09:57:02+08:00">2022-01-16</time>
+      <time title="创建时间：2022-01-16 09:57:02" itemprop="dateCreated datePublished" datetime="2022-01-16T09:57:02+08:00">2022-01-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-22 11:13:18" itemprop="dateModified" datetime="2022-01-22T11:13:18+08:00">2022-01-22</time>
     </span>
 
   
@@ -235,16 +241,22 @@
 <li>对每个像素计算对应能量E(i,j)，生成能量分布图Mat E</li>
 <li>动态规划对每个像素计算累计最小能量，生成累计能量最小分布图M，M(i，j)表示从0行某个像素，到（i，j）位置像素的最小累计能量</li>
 </ol>
-<p>M(i, j)= E(i, j) +min(M(i -1, j -1),M(i -1, j),M(i -1, j +1))</p>
+<p>$M(i, j)= E(i, j) +min(M(i -1, j -1),M(i -1, j),M(i -1, j +1))$</p>
 <ol start="3">
-<li><p>同时记录backtrack回溯路径图B,B(i,j)记录的值即为上一行所选择的最小能量的位置j-1,j,j+1中的一个</p>
-</li>
-<li><p>对整张图最后一行选择M(i,j)最小的一个位置，利用B进行像素坐标索引回溯，删除整条接缝</p>
-</li>
-<li><p>重复此过程，直至图像到达指定宽度</p>
-</li>
+<li>同时记录backtrack回溯路径图B,B(i,j)记录的值即为上一行所选择的最小能量的位置j-1,j,j+1中的一个</li>
+<li>对整张图最后一行选择M(i,j)最小的一个位置，利用B进行像素坐标索引回溯，删除整条接缝</li>
+<li>重复此过程，直至图像到达指定宽度</li>
 </ol>
-
+<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><h2 id="前向能量与后向能量计算"><a href="#前向能量与后向能量计算" class="headerlink" title="前向能量与后向能量计算"></a>前向能量与后向能量计算</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>无论使用何种方法衡量图像缩放的品质，我们均希望对图像本身的改变尽可能的小，即减小对图像高频区域的伤害，尽量让图像处理后的能量与处理前的接近</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>传统SeamCarving计算最小能量分布图的关键dp公式如下，为backward</p>
+<p>$M(i, j)= E(i, j) +min(M(i -1, j -1),M(i -1, j),M(i -1, j +1))$</p>
+<p>此公式下，每次遍历裁剪的seam为能量和最小的seam，我们希望移除接缝带来的能量减小尽可能地小</p>
+<p>考虑另一种方法，将删除seam这个行为作为前置考虑，如果一定需要删除一个seam，剩余的图像怎样最好，即删除此接缝会带来的额外的效应—-产生新的seam，对于新产生的seam，我们希望其特征为像素值接近的像素点聚集在一起。（对应于后向算法的梯度能量较小的接缝，但前向算法考虑的是处理后的图像）</p>
+<p>这样的分析下，我们产生了新的dp公式，此公式依赖于“移除一条接缝，新产生的接缝倾向于将像素值接近的像素点放在一起”，forward energy</p>
+<p>$$ M(i,j)=min\left{<br>\begin{array}{rcl}<br>M(i-1,j-1)+C_L(i,j) \<br>M(i  ,j  )+C_U(i,j)\<br>M(i-1,j+1)+C_R(i,j)\<br>\end{array} \right. $$<br>$C_L,C_U,C_R$分别为移除$(i,j)$位置的像素后，产生的新接缝的新增的像素值差</p>
+<p><img src="/seam-carving/image-20220122110115638-16428204791201.png" alt="image-20220122110115638"></p>
+<p>红色区域为移除的Seam，下图紫色部分为产生的新增四邻域区域，即紫色像素在删除接缝前，无四邻域关系，因此用对应像素值相减取绝对值，作为图像增加的能量，我们希望移除接缝带来的能量增加尽可能的小</p>
+<h2 id="Mask选择关键区域保护"><a href="#Mask选择关键区域保护" class="headerlink" title="Mask选择关键区域保护"></a>Mask选择关键区域保护</h2><h2 id="numba-jit装饰器加速"><a href="#numba-jit装饰器加速" class="headerlink" title="numba.jit装饰器加速"></a>numba.jit装饰器加速</h2>
       
     </div>
 
@@ -301,7 +313,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-16 09:31:17" itemprop="dateModified" datetime="2022-01-16T09:31:17+08:00">2022-01-16</time>
+      <time title="修改时间：2022-01-24 00:02:57" itemprop="dateModified" datetime="2022-01-24T00:02:57+08:00">2022-01-24</time>
     </span>
 
   
