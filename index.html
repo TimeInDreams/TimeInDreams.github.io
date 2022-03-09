@@ -130,13 +130,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -185,6 +185,429 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/4ce35545.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/4ce35545.html" class="post-title-link" itemprop="url">传输协议</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-03-08 10:21:46 / 修改时间：13:46:28" itemprop="dateCreated datePublished" datetime="2022-03-08T10:21:46+08:00">2022-03-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h1><h2 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h2><ul>
+<li>结点处理延迟：分组到达路由器，路由器要对这个分组进行处理，处理包括检查分组有没有错误（差错检测），根据分组携带的地址信息决定将分组在哪个链路发出去。这个延迟称为结点处理延迟。结点处理，结点处理所花的时间称为结点处理时间。</li>
+<li>排队延迟：当分组确定从某一链路传出，但这一链路刚好在传输其他的分组，就要在结点排队等待。</li>
+<li>传输延迟：当某一链路开始传输分组时，从分组的第一个bit开始到最后一个bit发完，需要的时间称为传输延迟。排队延迟取决于分组长度和链路带宽，分组越长所需时间也越长，链路带宽表示能以怎样的速率发送。</li>
+<li>传播延迟：当分组从某一结点发出后，到达下一个结点所花的时间，传播延迟取决于物理链路的长度和信号的传播速度</li>
+</ul>
+<p>发送时延=数据长度/发送速率</p>
+<p>有效数据率=数据长度/(发送时间+$RTT_{Round-Trip Time往返时间}$)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/f272723e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/f272723e.html" class="post-title-link" itemprop="url">有限自动机</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-04 10:06:36" itemprop="dateCreated datePublished" datetime="2022-03-04T10:06:36+08:00">2022-03-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-09 11:15:01" itemprop="dateModified" datetime="2022-03-09T11:15:01+08:00">2022-03-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="正规集，有限自动机"><a href="#正规集，有限自动机" class="headerlink" title="正规集，有限自动机"></a>正规集，有限自动机</h1><h2 id="DFA的状态图"><a href="#DFA的状态图" class="headerlink" title="DFA的状态图"></a>DFA的状态图</h2><h2 id="NFA的确定化"><a href="#NFA的确定化" class="headerlink" title="NFA的确定化"></a>NFA的确定化</h2><h2 id="DFA的化简"><a href="#DFA的化简" class="headerlink" title="DFA的化简"></a>DFA的化简</h2><p>等价状态：对任意输入字符串，总是同时到达接受或拒绝状态，即状态转换图只关注状态的流出箭头</p>
+<p>状态a和b被输入串s区分（即进入接受另一个进入拒绝或未执行完），则不等价，</p>
+<ol>
+<li>分成终态和非终态（被长度为0的串区分），称为状态集合start，end</li>
+<li>将start和end中状态判断1长度串的等价性，如果对于任意字符映射到相同的状态集合则无需继续划分</li>
+<li>重复此过程</li>
+<li>最终的区分串为字符的反向排列</li>
+</ol>
+<p><img src="/article/undefined/image-20220309111438445.png" alt="image-20220309111438445"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/2c2712a4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/2c2712a4.html" class="post-title-link" itemprop="url">CPU</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-28 16:54:09" itemprop="dateCreated datePublished" datetime="2022-02-28T16:54:09+08:00">2022-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-02 21:40:28" itemprop="dateModified" datetime="2022-03-02T21:40:28+08:00">2022-03-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Amdahl-s-law"><a href="#Amdahl-s-law" class="headerlink" title="Amdahl`s  law"></a>Amdahl`s  law</h1><p>Gene Amdahl进行了一个富有洞察力的观察： 提升一个系统的一个部分的性能对整个系统有多大影响。这一观察被称为Amdahl’s Law（阿姆达尔定律）：</p>
+<p>当提升系统的一部分性能时，对整个系统性能的影响取决于:1、这一部分有多重要 2、这一部分性能提升了多少。</p>
+<p>假设原来在一个系统中执行一个程序需要时间 $T_{old}$，其中某一个部分占的时间百分比为a ，然后，把这一部分的性能提升k倍。即这一部分原来需要的时间为 $aT_{old}$ ，现在需要的时间变为 $aT_{old}/k$ 。则整个系统执行此程序需要的时间变为：</p>
+<p>$T_{new}=(1-a)T_{old}+aT_{old}/k$</p>
+<p>系统性能加速比$S = \frac{1}{(1-a)+a/k}$</p>
+<h2 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念"></a>几个概念</h2><ol>
+<li>CPI：<strong>平均每条</strong>计算机指令执行所需的<strong>时钟周期</strong></li>
+</ol>
+<p><strong>CPI=总的时钟周期数/IC  ic为总的指令数</strong></p>
+<ol>
+<li>MIPS：单字长定点指令平均执行速度,即<strong>每秒</strong>处理的<strong>百万级</strong>的机器语言<strong>指令数</strong></li>
+</ol>
+<p><strong>MIPS=主频/CPI * 10的6次方</strong></p>
+<p>程序总时钟数 = IC × CPI </p>
+<h1 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h1><ul>
+<li>响应时间：从任务开始到结束</li>
+<li>吞吐率：</li>
+</ul>
+<ul>
+<li><p>仿真：微程序，解释程序在控存</p>
+</li>
+<li><p>模拟：机器语言，主存</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/2c2712a4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/2c2712a4.html" class="post-title-link" itemprop="url">CPU</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-24 16:30:11" itemprop="dateCreated datePublished" datetime="2022-02-24T16:30:11+08:00">2022-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-08 15:33:13" itemprop="dateModified" datetime="2022-03-08T15:33:13+08:00">2022-03-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="CPU领域常见名册"><a href="#CPU领域常见名册" class="headerlink" title="CPU领域常见名册"></a>CPU领域常见名册</h1><ul>
+<li>工艺：32nm</li>
+<li>架构：core</li>
+<li>包装</li>
+<li>封装</li>
+<li>单指令多数据SIMD：单独指令执行多个运算操作</li>
+<li>动态执行技术：预测程序流</li>
+</ul>
+<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1><p>逆序存放</p>
+<table>
+<thead>
+<tr>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">12H</td>
+<td align="center">34H</td>
+<td align="center">45H</td>
+<td align="center">67H</td>
+<td align="center">89H</td>
+<td align="center">0AH</td>
+</tr>
+</tbody></table>
+<p>从（2）读取双字：0A896745H</p>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>程序可见寄存器组：实模式/保护模式</p>
+<p>程序不可见寄存器组/特殊寄存器：保护模式</p>
+<p>GDTR:全局描述符表寄存器</p>
+<p>LDTR：中断描述符表寄存器</p>
+<h1 id="flags"><a href="#flags" class="headerlink" title="flags"></a>flags</h1><p>表征计算结果特征的标志位</p>
+<h2 id="段偏移"><a href="#段偏移" class="headerlink" title="段偏移"></a>段偏移</h2><p>32位指针，指向</p>
+<p>属性位</p>
+<p>G：粒度位</p>
+<p>D：默认操作数宽度</p>
+<p>AVL：可用位</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/f5005424.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="GuoKai">
+      <meta itemprop="description" content="Show everything about coding And Better luck next time">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TimeInDreams' Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/article/f5005424.html" class="post-title-link" itemprop="url">introduction</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-02-24 11:30:13 / 修改时间：16:29:31" itemprop="dateCreated datePublished" datetime="2022-02-24T11:30:13+08:00">2022-02-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="防御模型"><a href="#防御模型" class="headerlink" title="防御模型"></a>防御模型</h1><h2 id="被动防御：已知攻击防御"><a href="#被动防御：已知攻击防御" class="headerlink" title="被动防御：已知攻击防御"></a>被动防御：已知攻击防御</h2><p>漏洞扫描 特征库</p>
+<p>恶意代码防范 病毒特征库</p>
+<p>防火墙 访问控制规则</p>
+<p>入侵检测系统 异常活动检测</p>
+<h2 id="主动防御"><a href="#主动防御" class="headerlink" title="主动防御"></a>主动防御</h2><h2 id="攻击反制"><a href="#攻击反制" class="headerlink" title="攻击反制"></a>攻击反制</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/10af938.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,7 +639,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-22 11:13:18" itemprop="dateModified" datetime="2022-01-22T11:13:18+08:00">2022-01-22</time>
+      <time title="修改时间：2022-01-30 17:13:35" itemprop="dateModified" datetime="2022-01-30T17:13:35+08:00">2022-01-30</time>
     </span>
 
   
@@ -256,7 +679,8 @@
 <p>$$ M(i,j)=min\left{<br>\begin{array}{rcl}<br>M(i-1,j-1)+C_L(i,j) \<br>M(i  ,j  )+C_U(i,j)\<br>M(i-1,j+1)+C_R(i,j)\<br>\end{array} \right. $$<br>$C_L,C_U,C_R$分别为移除$(i,j)$位置的像素后，产生的新接缝的新增的像素值差</p>
 <p><img src="/seam-carving/image-20220122110115638-16428204791201.png" alt="image-20220122110115638"></p>
 <p>红色区域为移除的Seam，下图紫色部分为产生的新增四邻域区域，即紫色像素在删除接缝前，无四邻域关系，因此用对应像素值相减取绝对值，作为图像增加的能量，我们希望移除接缝带来的能量增加尽可能的小</p>
-<h2 id="Mask选择关键区域保护"><a href="#Mask选择关键区域保护" class="headerlink" title="Mask选择关键区域保护"></a>Mask选择关键区域保护</h2><h2 id="numba-jit装饰器加速"><a href="#numba-jit装饰器加速" class="headerlink" title="numba.jit装饰器加速"></a>numba.jit装饰器加速</h2>
+<h2 id="Mask选择关键区域保护"><a href="#Mask选择关键区域保护" class="headerlink" title="Mask选择关键区域保护"></a>Mask选择关键区域保护</h2><p>某些区域我们希望在缩放时保持该区域的完整性，可以依靠mask人为的提高对应区域的能量值，进而使seamcarving算法dp选择最小能量seam时可以绕过这些区域</p>
+<h2 id="numba-jit装饰器加速"><a href="#numba-jit装饰器加速" class="headerlink" title="numba.jit装饰器加速"></a>numba.jit装饰器加速</h2>
       
     </div>
 
@@ -313,7 +737,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-24 00:02:57" itemprop="dateModified" datetime="2022-01-24T00:02:57+08:00">2022-01-24</time>
+      <time title="修改时间：2022-01-24 17:28:23" itemprop="dateModified" datetime="2022-01-24T17:28:23+08:00">2022-01-24</time>
     </span>
 
   
@@ -560,410 +984,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/article/3473f5e6.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/a78497ca.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/a78497ca.html" class="post-title-link" itemprop="url">指令系统</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:18:35" itemprop="dateModified" datetime="2022-01-14T09:18:35+08:00">2022-01-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h1><h2 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h2><p>三地址指令（OP 1 2 3）</p>
-<p>访存：取整条指令，取操作数，结果放入主存</p>
-<p>mov 3次</p>
-<p>一地址指令 2</p>
-<p>进出栈3</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/article/a78497ca.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1b9c8662.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/1b9c8662.html" class="post-title-link" itemprop="url">文件系统</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:18:18" itemprop="dateModified" datetime="2022-01-14T09:18:18+08:00">2022-01-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><h3 id="文件的多级目录结构"><a href="#文件的多级目录结构" class="headerlink" title="文件的多级目录结构"></a>文件的多级目录结构</h3><p>根目录</p>
-<p>当前目录：加快文件查找速度</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/article/1b9c8662.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/c62e94d6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/c62e94d6.html" class="post-title-link" itemprop="url">操作系统储存器管理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:17:34" itemprop="dateModified" datetime="2022-01-14T09:17:34+08:00">2022-01-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="操作系统储存器管理"><a href="#操作系统储存器管理" class="headerlink" title="操作系统储存器管理"></a>操作系统储存器管理</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="储存器共享"><a href="#储存器共享" class="headerlink" title="储存器共享"></a>储存器共享</h3><p>多进程共享主存</p>
-<h3 id="程序的load与linking"><a href="#程序的load与linking" class="headerlink" title="程序的load与linking"></a>程序的load与linking</h3><h3 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h3><p>地址空间中的地址称为相对地址（逻辑地址，虚地址）</p>
-<h3 id="储存空间"><a href="#储存空间" class="headerlink" title="储存空间"></a>储存空间</h3><p>物理储存器中的真实物理单元集合，地址称为绝对地址（物理地址）</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/article/c62e94d6.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/ff08ae5a.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/ff08ae5a.html" class="post-title-link" itemprop="url">处理机调度</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:17:43" itemprop="dateModified" datetime="2022-01-14T09:17:43+08:00">2022-01-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="进程线程，处理机调度"><a href="#进程线程，处理机调度" class="headerlink" title="进程线程，处理机调度"></a>进程线程，处理机调度</h1><p>进程是资源分配和调度的独立单位</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/article/ff08ae5a.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/1abadc07.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="GuoKai">
-      <meta itemprop="description" content="Show everything about coding And Better luck next time">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TimeInDreams' Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/article/1abadc07.html" class="post-title-link" itemprop="url">死锁</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:18:04" itemprop="dateModified" datetime="2022-01-14T09:18:04+08:00">2022-01-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h2><ol>
-<li>假分配检测：P本次请求&lt;进程P总可能需求，P本次请求&lt;系统目前可分配资源</li>
-<li>安全序列检测</li>
-</ol>
-<ul>
-<li>某时刻是否存在安全序列（安全序列检测）</li>
-</ul>
-<p>可用资源分配给第一个能满足最大需求max的进程，等待进程运行完，回收该进程资源作为可用资源，重复直至所有进程可运行完，存在安全序列，卡死，不存在</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/article/1abadc07.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

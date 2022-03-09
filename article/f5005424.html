@@ -20,37 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"timeindreams.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Linux内核编译从官网下载压缩包">
+<meta name="description" content="防御模型被动防御：已知攻击防御漏洞扫描 特征库 恶意代码防范 病毒特征库 防火墙 访问控制规则 入侵检测系统 异常活动检测 主动防御攻击反制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux内核编译">
-<meta property="og:url" content="https://timeindreams.github.io/article/3473f5e6.html">
+<meta property="og:title" content="introduction">
+<meta property="og:url" content="https://timeindreams.github.io/article/f5005424.html">
 <meta property="og:site_name" content="TimeInDreams&#39; Blogs">
-<meta property="og:description" content="Linux内核编译从官网下载压缩包">
+<meta property="og:description" content="防御模型被动防御：已知攻击防御漏洞扫描 特征库 恶意代码防范 病毒特征库 防火墙 访问控制规则 入侵检测系统 异常活动检测 主动防御攻击反制">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://timeindreams.github.io/article/3473f5e6/1.jpg">
-<meta property="og:image" content="https://timeindreams.github.io/article/3473f5e6/image-20211127170207035.png">
-<meta property="og:image" content="https://timeindreams.github.io/article/3473f5e6/image-20211127170329383.png">
-<meta property="og:image" content="https://timeindreams.github.io/article/3473f5e6/image-20211127170413853.png">
-<meta property="og:image" content="https://timeindreams.github.io/article/3473f5e6/image-20211127194941960.png">
-<meta property="og:image" content="https://timeindreams.github.io/article/3473f5e6/image-20211127195033033.png">
-<meta property="og:image" content="https://timeindreams.github.io/article/3473f5e6/image-20211127195344584.png">
-<meta property="og:image" content="https://timeindreams.github.io/article/3473f5e6/image-20211127200634153.png">
-<meta property="article:published_time" content="2022-01-12T12:57:11.000Z">
-<meta property="article:modified_time" content="2022-01-14T01:17:07.044Z">
+<meta property="article:published_time" content="2022-02-24T03:30:13.000Z">
+<meta property="article:modified_time" content="2022-02-24T08:29:31.316Z">
 <meta property="article:author" content="GuoKai">
-<meta property="article:tag" content="OS">
+<meta property="article:tag" content="web security">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://timeindreams.github.io/article/3473f5e6/1.jpg">
 
 
-<link rel="canonical" href="https://timeindreams.github.io/article/3473f5e6.html">
+<link rel="canonical" href="https://timeindreams.github.io/article/f5005424.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://timeindreams.github.io/article/3473f5e6.html","path":"article/3473f5e6.html","title":"Linux内核编译"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://timeindreams.github.io/article/f5005424.html","path":"article/f5005424.html","title":"introduction"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Linux内核编译 | TimeInDreams' Blogs</title>
+<title>introduction | TimeInDreams' Blogs</title>
   
 
 
@@ -128,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91"><span class="nav-number">1.</span> <span class="nav-text">Linux内核编译</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%B2%E5%BE%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">防御模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A2%AB%E5%8A%A8%E9%98%B2%E5%BE%A1%EF%BC%9A%E5%B7%B2%E7%9F%A5%E6%94%BB%E5%87%BB%E9%98%B2%E5%BE%A1"><span class="nav-number">1.1.</span> <span class="nav-text">被动防御：已知攻击防御</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1"><span class="nav-number">1.2.</span> <span class="nav-text">主动防御</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E5%8F%8D%E5%88%B6"><span class="nav-number">1.3.</span> <span class="nav-text">攻击反制</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,7 +190,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/3473f5e6.html">
+    <link itemprop="mainEntityOfPage" href="https://timeindreams.github.io/article/f5005424.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -212,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux内核编译
+          introduction
         </h1>
 
         <div class="post-meta-container">
@@ -222,15 +213,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-01-12 20:57:11" itemprop="dateCreated datePublished" datetime="2022-01-12T20:57:11+08:00">2022-01-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-14 09:17:07" itemprop="dateModified" datetime="2022-01-14T09:17:07+08:00">2022-01-14</time>
+      <time title="创建时间：2022-02-24 11:30:13 / 修改时间：16:29:31" itemprop="dateCreated datePublished" datetime="2022-02-24T11:30:13+08:00">2022-02-24</time>
     </span>
 
   
@@ -250,39 +235,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Linux内核编译"><a href="#Linux内核编译" class="headerlink" title="Linux内核编译"></a>Linux内核编译</h1><p>从<a target="_blank" rel="noopener" href="https://cdn.kernel.org/">官网</a>下载压缩包</p>
-<span id="more"></span>
-
-<p><img src="/article/3473f5e6/1.jpg" alt="image-20211127170045558"></p>
-<p>下载依赖库</p>
-<p><img src="/article/3473f5e6/image-20211127170207035.png" alt="image-20211127170207035"></p>
-<p>拷贝内核配置文件</p>
-<p><img src="/article/3473f5e6/image-20211127170329383.png" alt="image-20211127170329383"></p>
-<p>make menuconfig</p>
-<p><img src="/article/3473f5e6/image-20211127170413853.png" alt="image-20211127170413853"></p>
-<p>sudo make -j8编译文件</p>
-<p>编译安装</p>
-<p><img src="/article/3473f5e6/image-20211127194941960.png" alt="image-20211127194941960"></p>
-<p><img src="/article/3473f5e6/image-20211127195033033.png" alt="image-20211127195033033"></p>
-<p>更新grub</p>
-<p><img src="/article/3473f5e6/image-20211127195344584.png" alt="image-20211127195344584"></p>
-<p><img src="/article/3473f5e6/image-20211127200634153.png" alt="image-20211127200634153"></p>
-<p>过程中可能的报错为</p>
-<ol>
-<li>缺少依赖库</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal error: openssl/opensslv.h: No such file or directory</span><br></pre></td></tr></table></figure>
-<p>安装对应依赖库即可</p>
-<ol start="2">
-<li>内存不足</li>
-<li>认证key报错</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No rule to make target &#x27;debian/certs/benh@debian.org.cert.pem&#x27;, needed by &#x27;certs/x509_certificate_list&#x27;. Stop.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vim .config</span><br><span class="line"><span class="meta">#将配置文件中的报错值对应字段注释为空字符串&#x27; &#x27;</span></span><br><span class="line">esc + :wq</span><br><span class="line"><span class="meta">#保存设置退出</span></span><br></pre></td></tr></table></figure>
-
-<p>重新编译即可</p>
-
+        <h1 id="防御模型"><a href="#防御模型" class="headerlink" title="防御模型"></a>防御模型</h1><h2 id="被动防御：已知攻击防御"><a href="#被动防御：已知攻击防御" class="headerlink" title="被动防御：已知攻击防御"></a>被动防御：已知攻击防御</h2><p>漏洞扫描 特征库</p>
+<p>恶意代码防范 病毒特征库</p>
+<p>防火墙 访问控制规则</p>
+<p>入侵检测系统 异常活动检测</p>
+<h2 id="主动防御"><a href="#主动防御" class="headerlink" title="主动防御"></a>主动防御</h2><h2 id="攻击反制"><a href="#攻击反制" class="headerlink" title="攻击反制"></a>攻击反制</h2>
     </div>
 
     
@@ -299,7 +256,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://timeindreams.github.io/article/3473f5e6.html" title="Linux内核编译">https://timeindreams.github.io/article/3473f5e6.html</a>
+      <a href="https://timeindreams.github.io/article/f5005424.html" title="introduction">https://timeindreams.github.io/article/f5005424.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -308,20 +265,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/OS/" rel="tag"># OS</a>
+              <a href="/tags/web-security/" rel="tag"># web security</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/article/a78497ca.html" rel="prev" title="指令系统">
-                  <i class="fa fa-chevron-left"></i> 指令系统
+                <a href="/article/10af938.html" rel="prev" title="seam_carving">
+                  <i class="fa fa-chevron-left"></i> seam_carving
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/article/87698413.html" rel="next" title="Linux进程">
-                  Linux进程 <i class="fa fa-chevron-right"></i>
+                <a href="/article/2c2712a4.html" rel="next" title="CPU">
+                  CPU <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
